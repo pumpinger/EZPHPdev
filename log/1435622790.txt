@@ -1,0 +1,7 @@
+welcome dev classwelcome app class--CONST TEST----Error catch--Unknown error type: [8] Undefined offset: 1<br />
+#0  EZPHP\EZPHP::appError(8, Undefined offset: 1, /Users/wangzhongjiang/Sites/EZPHPdev/EZPHP/app.class.php, 64, Array ([urlA] => Array ([0] => ezphpdev,[1] => ),[urlUtil] => Array ([0] => c,[1] => a,[2] => param),[k] => 2,[v] => EZPHPdev,[c] => ezphpdevC,[a] => ,[param] => ,[item] => Array ([0] => EZPHPdev))) called at [/Users/wangzhongjiang/Sites/EZPHPdev/EZPHP/app.class.php:64]
+#1  EZPHP\app::start() called at [/Users/wangzhongjiang/Sites/EZPHPdev/EZPHP/EZPHP.class.php:39]
+#2  EZPHP\EZPHP::init() called at [/Users/wangzhongjiang/Sites/EZPHPdev/EZPHP/index.php:21]
+#3  require(/Users/wangzhongjiang/Sites/EZPHPdev/EZPHP/index.php) called at [/Users/wangzhongjiang/Sites/ezphpdev/index.php:11]
+NULL
+<pre></pre>no fileno cno action<br />all is over successfully !
