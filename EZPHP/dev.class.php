@@ -10,7 +10,7 @@ namespace EZPHP;
 
 
 class dev {
-    public static function init(){
+    public static function start(){
         echo 'welcome dev class';
 
         //todo  时间 内存

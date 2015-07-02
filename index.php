@@ -7,5 +7,14 @@
  */
 
 
+
 const APP_NAME='EZPHPdev';
+const APP_PATH=__DIR__;
+
+
+
+
+
+
+
 require './EZPHP/index.php';

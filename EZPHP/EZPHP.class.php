@@ -11,13 +11,12 @@ namespace EZPHP;
 
 class EZPHP {
 
-    public static $success_end=false;
-    public static $has_error=false;
+    private  static $success_end=false;
+    private static $need_log=false;
 
 
     public static function init()
     {
-        ob_start();
 
 
         spl_autoload_register('EZPHP\EZPHP::autoLoad');
@@ -35,14 +34,21 @@ class EZPHP {
         //obstart
 
 
-        dev::init();
-        app::start();
+        ob_start();
+        dev::start();
+        app::run();
         dev::end();
         EZPHP::$success_end=true;
-
     }
 
+
     public static function autoLoad($class){
+        var_dump($class);echo '--';
+        
+        if($class == 'indexM'){
+            var_dump(APP_PATH);
+            include APP_PATH.'/core/m/index.php';
+        }
         //todo  这里对   命e名空间的支持 还要改进
         $name           =   str_replace('\\','/',$class);
         $filename       =  $name.'.class.php';
@@ -53,7 +59,7 @@ class EZPHP {
     }
 
     public static function appException($e){
-        self::$has_error=true;
+        self::$need_log=true;
         echo '--Exception catch--';
         echo "<b>Exception:</b> " , $e->getMessage();
 //        echo $exception->getTrace();
@@ -61,7 +67,7 @@ class EZPHP {
 
     public static function appError($errno, $errstr, $errfile, $errline)
     {
-        self::$has_error=true;
+        self::$need_log=true;
         echo '--Error catch--';
         $errfile=str_replace(getcwd(),"",$errfile);
 //        $errfile=str_replace(__DIR__,"",$errfile);
@@ -101,7 +107,7 @@ class EZPHP {
         }
 
         //todo  检查写入权限
-        if(EZPHP::$has_error){
+        if(EZPHP::$need_log){
 
 
             $log=ob_get_contents();

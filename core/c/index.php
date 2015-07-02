@@ -7,8 +7,14 @@
  */
 
 
-class index{
-    public function index(){
-        echo  'start app';
+class index {
+    public function index1(){
+        dump('进入控制器');
+        indexM::index();
+    }
+
+
+    public function index2(){
+        dump('123');
     }
 }
