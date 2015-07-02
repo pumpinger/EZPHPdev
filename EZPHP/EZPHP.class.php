@@ -22,6 +22,7 @@ class EZPHP {
 
         spl_autoload_register('EZPHP\EZPHP::autoLoad');
 
+
         set_error_handler('EZPHP\EZPHP::appError');
         set_exception_handler('EZPHP\EZPHP::appException');
 
@@ -35,13 +36,9 @@ class EZPHP {
 
 
         dev::init();
-
         app::start();
-
         dev::end();
         EZPHP::$success_end=true;
-
-
 
     }
 
@@ -55,10 +52,10 @@ class EZPHP {
         }
     }
 
-    public static function appException($exception){
+    public static function appException($e){
         self::$has_error=true;
         echo '--Exception catch--';
-        echo "<b>Exception:</b> " , $exception->getMessage();
+        echo "<b>Exception:</b> " , $e->getMessage();
 //        echo $exception->getTrace();
     }
 
