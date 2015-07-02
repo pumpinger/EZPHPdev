@@ -34,7 +34,6 @@ class EZPHP {
         //obstart
 
 
-        ob_start();
         dev::start();
         app::run();
         dev::end();
@@ -43,10 +42,9 @@ class EZPHP {
 
 
     public static function autoLoad($class){
-        var_dump($class);echo '--';
-        
-        if($class == 'indexM'){
-            var_dump(APP_PATH);
+
+        if($class == 'indexModel'){
+            var_dump(APP_PATH.'/core/m/index.php');
             include APP_PATH.'/core/m/index.php';
         }
         //todo  这里对   命e名空间的支持 还要改进

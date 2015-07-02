@@ -7,10 +7,13 @@
  */
 
 
-class index {
+class index extends \EZPHP\core\controller{
     public function index1(){
+        var_dump(__NAMESPACE__);
+
+        self::start();
         dump('进入控制器');
-        indexM::index();
+        indexModel::index();
     }
 
 

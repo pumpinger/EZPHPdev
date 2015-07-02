@@ -6,6 +6,10 @@
  * Time: 21:49
  */
 
+
+ob_start();
+
+
 //todo  定义常量
 const TEST= '--CONST TEST--';
 

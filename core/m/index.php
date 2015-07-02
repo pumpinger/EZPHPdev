@@ -7,7 +7,7 @@
  */
 
 
-class indexM{
+class indexModel{
 
     public static  function index()
     {

@@ -40,6 +40,8 @@ class app {
 //        define('_PHP_FILE_',    rtrim(str_replace($_SERVER['HTTP_HOST'],'',$_temp[0].'.php'),'/'));
 
 
+        $a=null;
+        $c=null;
         $urlUtil=array('c','a','param');
 
         if( array_filter($app_param_array) ){
@@ -82,12 +84,14 @@ class app {
 
         if(file_exists('./core/c/'.$c.'.php')){
             include_once('./core/c/'.$c.'.php');
+
         }else{
             echo 'no file';exit;
         }
 
         if( class_exists($c)){
             $cObj=new $c();
+
             //todo  为什么 会自动执行 index方法
         }else{
             echo 'no c';exit;
