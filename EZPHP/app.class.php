@@ -9,7 +9,7 @@
 namespace EZPHP;
 
 
-class app {
+class app extends  base{
     public static function run(){
         echo 'welcome app class';
 
@@ -29,7 +29,7 @@ class app {
         $app_param_array=explode('/',$app_param);
 
 
-//        var_dump(__DIR__);   //todo  分辨 这两种区别
+//        var_dump(__DIR__);
 //        var_dump(dirname($_SERVER['SCRIPT_FILENAME']));exit;
 
 
@@ -70,9 +70,11 @@ class app {
             $c='index';
         }
 
-        if(  empty($a) ){
+        if(  ! isset($a) ){
             $a='index';
         }
+
+
 
         if(  isset($param) ){
             foreach(explode('&',APP_NAME) as $v  ){
@@ -89,13 +91,18 @@ class app {
             echo 'no file';exit;
         }
 
-        if( class_exists($c)){
+        if( class_exists($c,false)){
+//            \index::cc();
+
+            //todo  这里为什么不能用静态方法   \index::cc();
             $cObj=new $c();
 
+            //todo 自动加载  返回 true 和 fale  能干吗      能判断 没有找到这个类  而报错么
             //todo  为什么 会自动执行 index方法
         }else{
             echo 'no c';exit;
         }
+
 
         if( method_exists($c,$a) ){
             $cObj->$a();

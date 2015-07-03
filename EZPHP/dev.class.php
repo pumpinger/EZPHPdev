@@ -9,7 +9,7 @@
 namespace EZPHP;
 
 
-class dev {
+class dev extends  base{
     public static function start(){
         echo 'welcome dev class';
 

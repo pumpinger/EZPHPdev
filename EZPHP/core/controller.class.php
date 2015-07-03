@@ -9,11 +9,13 @@
 namespace EZPHP\core;
 
 
-class controller {
-    public static function start(){
+use EZPHP\base;
+
+class controller extends base{
+    public  function start(){
         echo 'welcome core class';
 
-        //todo  时间 内存
+
 
 
 
@@ -30,7 +32,7 @@ class controller {
     }
 
     public static function end(){
-        //todo  时间内存
+        echo 'welcome core class2';
 
 
     }

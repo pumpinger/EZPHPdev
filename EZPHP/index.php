@@ -10,17 +10,15 @@
 ob_start();
 
 
-//todo  定义常量
 const TEST= '--CONST TEST--';
 
 const EZPHP_PATH=__DIR__;
-//todo  config
 
 include 'functions.php';
+include 'base.class.php';
 include 'EZPHP.class.php';
 
 
-//todo   当这里得 init 不是静态方法得时候 还是可以调用。。  为什么 。。。 不过后面程序不正常
 EZPHP\EZPHP::init();
 
 

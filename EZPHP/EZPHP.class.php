@@ -9,7 +9,7 @@
 namespace EZPHP;
 
 
-class EZPHP {
+class EZPHP extends base{
 
     private  static $success_end=false;
     private static $need_log=false;
@@ -18,6 +18,16 @@ class EZPHP {
     public static function init()
     {
 
+//        session_start();
+//        date_default_timezone_set(C('timeZone'));
+//        if(true === C('debug')) {
+//            echo 'debug mode:';
+//            ini_set('display_errors','On');
+//            error_reporting(C('errorReporting'));
+//        } else {
+//            error_reporting(0);
+//            ini_set('display_errors','Off');
+//        }
 
         spl_autoload_register('EZPHP\EZPHP::autoLoad');
 
@@ -44,10 +54,8 @@ class EZPHP {
     public static function autoLoad($class){
 
         if($class == 'indexModel'){
-            var_dump(APP_PATH.'/core/m/index.php');
             include APP_PATH.'/core/m/index.php';
         }
-        //todo  这里对   命e名空间的支持 还要改进
         $name           =   str_replace('\\','/',$class);
         $filename       =  $name.'.class.php';
 
@@ -90,13 +98,12 @@ class EZPHP {
                 break;
         }
 
-        echo "<pre>".var_dump(debug_print_backtrace())."</pre>";
+//        echo "<pre>".var_dump(debug_print_backtrace())."</pre>";
         /* Don't execute PHP internal error handler */
         return true;
     }
 
     public static function appEnd(){
-        //todo  怎么替换 系统致命错误
         if(!self::$success_end){
             echo  '<br />unknown fatal error';
         }else{
@@ -104,7 +111,6 @@ class EZPHP {
 
         }
 
-        //todo  检查写入权限
         if(EZPHP::$need_log){
 
 
