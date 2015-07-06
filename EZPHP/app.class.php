@@ -17,7 +17,6 @@ class app extends  base{
 //        echo TEST;
 
         $urlA=explode( '/',ltrim($_SERVER['REQUEST_URI'],'/') );
-        $urlA=explode( '/',ltrim($_SERVER['REQUEST_URI'],'/') );
 
 
         $app_url=$_SERVER['REQUEST_URI'];
