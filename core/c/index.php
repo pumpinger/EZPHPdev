@@ -15,9 +15,10 @@ class index extends \EZPHP\core\controller{
         indexModel::index();
 
 
-        include_once 'e.php';
-        throw new e(1000);
-//        $this->cdd();
+
+//        include_once 'e.php';
+//        throw new e(1000);
+//        self::cdd();
         //todo 为什么这里报错是 ::
     }
 
@@ -35,6 +36,6 @@ class index extends \EZPHP\core\controller{
 
     public static function cc()
     {
-        echo 123;
+        echo 123123123;
     }
 }

@@ -91,13 +91,7 @@ class app extends  base{
         }
 
         if( class_exists($c,false)){
-//            \index::cc();
-
-            //todo  这里为什么不能用静态方法   \index::cc();
             $cObj=new $c();
-
-            //todo 自动加载  返回 true 和 fale  能干吗      能判断 没有找到这个类  而报错么
-            //todo  为什么 会自动执行 index方法
         }else{
             echo 'no c';exit;
         }
