@@ -8,18 +8,17 @@
 
 
 class index extends \EZPHP\core\controller{
-    public function index(){
+    public function index1(){
 
         $this->start();
         dump('进入控制器');
         indexModel::index();
 
-
+        $this->render();
 
 //        include_once 'e.php';
 //        throw new e(1000);
 //        self::cdd();
-        //todo 为什么这里报错是 ::
     }
 
 
@@ -30,7 +29,6 @@ class index extends \EZPHP\core\controller{
     public static function end()
     {
         echo 'welcome core class3';
-
     }
 
 

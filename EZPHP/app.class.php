@@ -10,7 +10,7 @@ namespace EZPHP;
 
 
 class app extends  base{
-    public static function run(){
+    public  static function run(){
         echo 'welcome app class';
 
 
@@ -53,12 +53,18 @@ class app extends  base{
             }
         }
 
+        base::$controller=1123123;
+
+        //todo  cc 的controller 是怎么赋值的
+        //todo  我这里的赋值 应该怎么做
+
 
         self::_loadAPP($c,$a);
 
 
 
     }
+
 
 
     private static function _loadAPP($c,$a){

@@ -45,6 +45,8 @@ class EZPHP extends base{
 
 
         dev::start();
+//        $app=new app();
+//        $app->run();
         app::run();
         dev::end();
         EZPHP::$success_end=true;

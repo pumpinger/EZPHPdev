@@ -37,4 +37,13 @@ class controller extends base{
 
     }
 
+
+    public function render($assign=array(),$view="")
+    {
+
+        echo base::$controller;
+        var_dump(__CLASS__);
+        var_dump(__METHOD__);
+    }
+
 }
