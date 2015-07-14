@@ -12,6 +12,11 @@ namespace EZPHP\core;
 use EZPHP\base;
 
 class controller extends base{
+
+    private    $controller='';
+
+
+
     public  function start(){
         echo 'welcome core class';
 
@@ -41,7 +46,6 @@ class controller extends base{
     public function render($assign=array(),$view="")
     {
 
-        echo base::$controller;
         var_dump(__CLASS__);
         var_dump(__METHOD__);
     }

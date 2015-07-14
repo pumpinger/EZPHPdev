@@ -11,10 +11,7 @@ namespace EZPHP;
 
 class dev extends  base{
     public static function start(){
-        echo 'welcome dev class';
-
         //todo  时间 内存
-
 
 
         //难道把代码放到 try 里面去？
@@ -38,3 +35,5 @@ class dev extends  base{
     }
 
 }
+
+?>

@@ -7,6 +7,12 @@
  */
 
 
+//ini_set('display_errors', true);
+//error_reporting(E_ALL ^ E_NOTICE);
+
+
+
+
 
 const APP_NAME='EZPHPdev';
 const APP_PATH=__DIR__;

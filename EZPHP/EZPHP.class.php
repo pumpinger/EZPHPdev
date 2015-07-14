@@ -11,12 +11,14 @@ namespace EZPHP;
 
 class EZPHP extends base{
 
-    private  static $success_end=false;
+    private static $success_end=false;
     private static $need_log=false;
 
 
     public static function init()
     {
+
+
 
 //        session_start();
 //        date_default_timezone_set(C('timeZone'));
@@ -106,6 +108,11 @@ class EZPHP extends base{
     }
 
     public static function appEnd(){
+        var_dump(error_get_last());
+        var_dump(error_reporting());
+        //restore_error_handler();
+        //error_log
+        var_dump(debug_print_backtrace());
         if(!self::$success_end){
             echo  '<br />unknown fatal error';
         }else{

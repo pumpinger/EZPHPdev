@@ -7,12 +7,11 @@
  */
 
 
-ob_start();
+//ob_start();
 
-
-const TEST= '--CONST TEST--';
 
 const EZPHP_PATH=__DIR__;
+
 
 include 'functions.php';
 include 'base.class.php';

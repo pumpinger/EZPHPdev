@@ -12,7 +12,6 @@ namespace EZPHP;
 class base {
 
 
-    public  static  $controller='';
 
 
     public function __get($p)

@@ -11,19 +11,26 @@ namespace EZPHP;
 
 class app extends  base{
     public  static function run(){
-        echo 'welcome app class';
+//        Header("HTTP/1.1 303 See Other");
+//        Header("Location: http://baidu.com");
 
-
+        self::_router();
 //        echo TEST;
 
-        $urlA=explode( '/',ltrim($_SERVER['REQUEST_URI'],'/') );
 
 
-        $app_url=$_SERVER['REQUEST_URI'];
+    }
+
+    public static function _router(){
+        var_dump($_SERVER['REQUEST_URI']);
+        var_dump($_SERVER['SCRIPT_NAME']);
+
+
+        $app_url_no_host=$_SERVER['REQUEST_URI'];
 
         $app_folder=dirname($_SERVER['SCRIPT_NAME']);
 
-        $app_param=str_replace($app_folder.'/',"",$app_url);
+        $app_param=str_replace($app_folder.'/',"",$app_url_no_host);
 
         $app_param_array=explode('/',$app_param);
 
@@ -39,9 +46,12 @@ class app extends  base{
 //        define('_PHP_FILE_',    rtrim(str_replace($_SERVER['HTTP_HOST'],'',$_temp[0].'.php'),'/'));
 
 
-        $a=null;
-        $c=null;
-        $urlUtil=array('c','a','param');
+        $action=null;
+        $controller=null;
+
+        $urlUtil=array('controller','action','param');
+
+        var_dump(array_filter($app_param_array) );
 
         if( array_filter($app_param_array) ){
             foreach ($urlUtil as $k =>$v) {
@@ -53,31 +63,16 @@ class app extends  base{
             }
         }
 
-        base::$controller=1123123;
-
-        //todo  cc 的controller 是怎么赋值的
-        //todo  我这里的赋值 应该怎么做
-
-
-        self::_loadAPP($c,$a);
-
+        self::_loadAPP($controller,$action);
 
 
     }
 
 
 
-    private static function _loadAPP($c,$a){
+    private static function _loadAPP($c='index',$a='index'){
 
 
-
-        if( ! isset($c) ){
-            $c='index';
-        }
-
-        if(  ! isset($a) ){
-            $a='index';
-        }
 
 
 
@@ -91,13 +86,12 @@ class app extends  base{
 
         if(file_exists('./core/c/'.$c.'.php')){
             include_once('./core/c/'.$c.'.php');
-
         }else{
             echo 'no file';exit;
         }
 
         if( class_exists($c,false)){
-            $cObj=new $c();
+            $cObj=new $c;
         }else{
             echo 'no c';exit;
         }
