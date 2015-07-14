@@ -22,13 +22,14 @@ class app extends  base{
     }
 
     public static function _router(){
-        var_dump($_SERVER['REQUEST_URI']);
-        var_dump($_SERVER['SCRIPT_NAME']);
 
 
         $app_url_no_host=$_SERVER['REQUEST_URI'];
 
         $app_folder=dirname($_SERVER['SCRIPT_NAME']);
+
+
+
 
         $app_param=str_replace($app_folder.'/',"",$app_url_no_host);
 

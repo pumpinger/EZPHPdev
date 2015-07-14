@@ -20,6 +20,7 @@ class EZPHP extends base{
 
 
 
+        //todo  加载 配置
 //        session_start();
 //        date_default_timezone_set(C('timeZone'));
 //        if(true === C('debug')) {
