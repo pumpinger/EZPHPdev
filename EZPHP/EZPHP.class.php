@@ -56,7 +56,7 @@ class EZPHP extends base{
     }
 
 
-    public static function autoLoad($class){
+    public  static  function autoLoad($class){
 
         if($class == 'indexModel'){
             include APP_PATH.'/core/m/index.php';

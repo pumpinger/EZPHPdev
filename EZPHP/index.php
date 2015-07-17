@@ -11,7 +11,11 @@
 
 
 const EZPHP_PATH=__DIR__;
-
+define( 'APP_CONTROLLOER_PATH',APP_PATH . '/core/controller');
+define( 'APP_VIEW_PATH',APP_PATH . '/core/view');
+define( 'APP_MODEL_PATH',APP_PATH . '/core/model');
+define( 'APP_LOGIC_PATH',APP_PATH . '/core/logic');
+define( 'APP_UTIL_PATH',APP_PATH . '/core/util');
 
 include 'functions.php';
 include 'base.class.php';

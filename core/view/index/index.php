@@ -7,14 +7,13 @@
  */
 
 
-
-
 ?>
 
 <html>
 <head></head>
 <body>
-sdfasdfasdfasdfasdfasdfasdf
+<?php var_dump($this); ?>
+<?php var_dump(APP_CONTROLLOER_PATH); ?>
 </body>
 
 

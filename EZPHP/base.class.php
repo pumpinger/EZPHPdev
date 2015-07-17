@@ -14,17 +14,6 @@ class base {
 
 
 
-    public function __get($p)
-    {
-        return $this->$p;
-    }
-
-    public function __set($p,$v)
-    {
-        $this->$p=$v;
-    }
-
-
     //__Get __set
 
 

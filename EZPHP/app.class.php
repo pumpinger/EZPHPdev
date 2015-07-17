@@ -24,17 +24,24 @@ class app extends  base{
     public static function _router(){
 
 
-        $app_url_no_host=$_SERVER['REQUEST_URI'];
+        //todo  url uncode
+
+
+        //$app_url( $app_folder + $app_param($router_param + $get_param) )
+
+        $app_url=$_SERVER['REQUEST_URI'];
 
         $app_folder=dirname($_SERVER['SCRIPT_NAME']);
 
+        $app_param=str_replace($app_folder.'/',"",$app_url);
 
+        $app_param_array=explode('?',$app_param);
 
+        $router_param=array_shift($app_param_array);
 
-        $app_param=str_replace($app_folder.'/',"",$app_url_no_host);
+        $get_param = implode('&',$app_param_array);
 
-        $app_param_array=explode('/',$app_param);
-
+        $router_param_array=explode('/',$router_param);
 
 //        var_dump(__DIR__);
 //        var_dump(dirname($_SERVER['SCRIPT_FILENAME']));exit;
@@ -47,59 +54,41 @@ class app extends  base{
 //        define('_PHP_FILE_',    rtrim(str_replace($_SERVER['HTTP_HOST'],'',$_temp[0].'.php'),'/'));
 
 
-        $action=null;
-        $controller=null;
-
-        $urlUtil=array('controller','action','param');
-
-        var_dump(array_filter($app_param_array) );
-
-        if( array_filter($app_param_array) ){
-            foreach ($urlUtil as $k =>$v) {
-                if( isset($app_param_array[$k])){
-                    $$v=$app_param_array[$k];
-                }else{
-                    $$v=null;
-                }
-            }
-        }
+        $controller=$router_param_array[0];
+        $action=$router_param_array[1];
 
         self::_loadAPP($controller,$action);
-
 
     }
 
 
 
-    private static function _loadAPP($c='index',$a='index'){
+    private static function _loadAPP($controller,$action){
 
-
-
-
-
-        if(  isset($param) ){
-            foreach(explode('&',APP_NAME) as $v  ){
-                $item=explode('=',$v);
-                $_GET[$item[0]]=$item[1];
-            }
+        if( !$controller){
+            $controller='index';
         }
+        $action=$action?$action:'index';
 
-
-        if(file_exists('./core/c/'.$c.'.php')){
-            include_once('./core/c/'.$c.'.php');
+        if(file_exists(APP_PATH.'./core/controller/'.$controller.'.php')){
+            include_once('./core/controller/'.$controller.'.php');
+            $controllerClass=$controller.'Controller';
         }else{
             echo 'no file';exit;
         }
 
-        if( class_exists($c,false)){
-            $cObj=new $c;
+        if( class_exists($controllerClass,false)){
+            $newController=new $controllerClass;
+            $newController->controller=$controller;
         }else{
-            echo 'no c';exit;
+            echo 'no controller';exit;
         }
 
 
-        if( method_exists($c,$a) ){
-            $cObj->$a();
+        if( method_exists($newController,$action) ){
+            $newController->action=$action;
+            $newController->$action();
+
         }else{
             echo 'no action';exit;
         }

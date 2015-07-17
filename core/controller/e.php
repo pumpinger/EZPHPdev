@@ -6,7 +6,6 @@
  * Time: 17:52
  */
 
-
 class e extends Exception{
     public function __construct($code = 0) {
                 $msg = 'the template file is not exists';

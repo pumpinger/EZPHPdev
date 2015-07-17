@@ -13,8 +13,22 @@ use EZPHP\base;
 
 class controller extends base{
 
-    private    $controller='';
 
+    private     $controller='';
+    private     $action='';
+    private     $assign='';
+
+
+
+    public function __get($p)
+    {
+        return $this->$p;
+    }
+
+    public function __set($p,$v)
+    {
+        $this->$p=$v;
+    }
 
 
     public  function start(){
@@ -43,11 +57,23 @@ class controller extends base{
     }
 
 
-    public function render($assign=array(),$view="")
+    public function assign($data)
     {
+        $this->assign=$data;
+    }
 
-        var_dump(__CLASS__);
-        var_dump(__METHOD__);
+    public function render($data,$view="",$defaultlayout=false)
+    {
+        if(isset($data)){
+            $this->assign=$data;
+
+        }
+
+        if(file_exists('./core/view/'.$this->controller.'/'. $this->action.'.php')){
+            include_once('./core/view/'.$this->controller.'/'. $this->action.'.php');
+        }else{
+            echo 'no file';exit;
+        }
     }
 
 }
