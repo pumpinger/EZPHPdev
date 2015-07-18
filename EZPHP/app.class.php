@@ -70,7 +70,7 @@ class app extends  base{
         }
         $action=$action?$action:'index';
 
-        if(file_exists(APP_PATH.'./core/controller/'.$controller.'.php')){
+        if(file_exists('./core/controller/'.$controller.'.php')){
             include_once('./core/controller/'.$controller.'.php');
             $controllerClass=$controller.'Controller';
         }else{

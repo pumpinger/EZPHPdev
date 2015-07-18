@@ -11,13 +11,12 @@ class indexController extends \EZPHP\core\controller{
 
     public function index(){
 
-        dump('进入控制器');
-
 
         indexModel::index();
 
 //        $this->assign(array(12,3,2));
         $this->render(array(12,3,2));
+
 //
 //        include_once 'e.php';
 //        throw new e(1000);

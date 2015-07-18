@@ -10,10 +10,10 @@
 ?>
 
 <html>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <head></head>
 <body>
-<?php var_dump($this); ?>
-<?php var_dump(APP_CONTROLLOER_PATH); ?>
+这里变量: <i> <?php echo $this->assign[2]?></i> ,来自控制器赋值
 </body>
 
 

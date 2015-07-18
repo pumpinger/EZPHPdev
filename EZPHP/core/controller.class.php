@@ -66,7 +66,6 @@ class controller extends base{
     {
         if(isset($data)){
             $this->assign=$data;
-
         }
 
         if(file_exists('./core/view/'.$this->controller.'/'. $this->action.'.php')){

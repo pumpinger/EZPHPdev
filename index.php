@@ -11,7 +11,8 @@
 //error_reporting(E_ALL ^ E_NOTICE);
 
 
-
+//todo 关于乱码的处理
+//header("Content-Type:text/html;charset=utf-8");
 
 
 const APP_NAME='EZPHPdev';
