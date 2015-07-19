@@ -9,7 +9,7 @@
 
 class indexController extends \EZPHP\core\controller{
 
-    public function index(){
+    public function actionIndex(){
 
 
 //        indexModel::index();

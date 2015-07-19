@@ -121,23 +121,22 @@ class EZPHP extends base{
 
         }
 
-        if(EZPHP::$need_log){
 
 
-            $log=ob_get_contents();
-            ob_clean();
+//            $log=ob_get_contents();
+//            ob_clean();
 
-
-            echo $log;
-
-//        $logDir=getcwd().'/log';
-            $logDir='/Users/wangzhongjiang/Sites/EZPHPdev/log';
-
-            file_put_contents("$logDir/".time().".txt",$log);
+//        echo ($log);
 
 
 
-        }
+
+        $logDir='/Users/wangzhongjiang/Sites/EZPHPdev/log';
+
+//            file_put_contents("$logDir/".time().".txt",$log);
+
+
+
 
 
 

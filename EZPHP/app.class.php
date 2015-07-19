@@ -85,9 +85,11 @@ class app extends  base{
         }
 
 
-        if( method_exists($newController,$action) ){
+        $actionMethod='action'.$action;
+
+        if( method_exists($newController,$actionMethod) ){
             $newController->action=$action;
-            $newController->$action();
+            $newController->$actionMethod();
 
         }else{
             echo 'no action';exit;

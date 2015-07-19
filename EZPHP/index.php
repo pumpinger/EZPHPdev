@@ -18,6 +18,7 @@ define( 'APP_LOGIC_PATH',APP_PATH . '/core/logic');
 define( 'APP_UTIL_PATH',APP_PATH . '/core/util');
 
 include 'functions.php';
+include APP_PATH.'/core/common.php';
 include 'base.class.php';
 include 'EZPHP.class.php';
 

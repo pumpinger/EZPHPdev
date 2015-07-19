@@ -11,8 +11,8 @@ namespace EZPHP\core;
 
 use EZPHP\base;
 
-class controller extends base{
-    //todo beforeaction
+class model extends base{
+
 
     private     $controller='';
     private     $action='';
