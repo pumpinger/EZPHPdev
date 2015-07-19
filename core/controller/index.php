@@ -12,7 +12,7 @@ class indexController extends \EZPHP\core\controller{
     public function index(){
 
 
-        indexModel::index();
+//        indexModel::index();
 
 //        $this->assign(array(12,3,2));
         $this->render(array(12,3,2));

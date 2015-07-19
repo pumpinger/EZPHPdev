@@ -59,7 +59,7 @@ class EZPHP extends base{
     public  static  function autoLoad($class){
 
         if($class == 'indexModel'){
-            include APP_PATH.'/core/m/index.php';
+            include APP_PATH . '/core/model/index.php';
         }
         $name           =   str_replace('\\','/',$class);
         $filename       =  $name.'.class.php';
@@ -109,11 +109,11 @@ class EZPHP extends base{
     }
 
     public static function appEnd(){
-        var_dump(error_get_last());
-        var_dump(error_reporting());
+//        var_dump(error_get_last());
+//        var_dump(error_reporting());
         //restore_error_handler();
         //error_log
-        var_dump(debug_print_backtrace());
+//        var_dump(debug_print_backtrace());
         if(!self::$success_end){
             echo  '<br />unknown fatal error';
         }else{
