@@ -7,7 +7,7 @@
  */
 
 
-class indexController extends \EZPHP\core\controller{
+class userController extends \EZPHP\core\controller{
 
     public function actionindex(){
 
@@ -15,8 +15,7 @@ class indexController extends \EZPHP\core\controller{
 //        indexModel::index();
 //        \EZPHP\core\controller::end();
 //        $this->assign(array(12,3,2));
-        userModel::index();
-        $this->render(array(12,3,2));
+        $this->render(array(123,234,1232));
 
 //
 //        include_once 'e.php';
@@ -25,19 +24,4 @@ class indexController extends \EZPHP\core\controller{
     }
 
 
-
-    public function index2(){
-        dump('123');
-    }
-
-    public static function end()
-    {
-        echo 'welcome core class3';
-    }
-
-
-    public static function cc()
-    {
-        echo 123123123;
-    }
 }

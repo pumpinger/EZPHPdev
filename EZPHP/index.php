@@ -8,6 +8,7 @@
 
 
 //ob_start();
+//todo  obstart 用起来
 
 
 const EZPHP_PATH=__DIR__;
@@ -16,6 +17,8 @@ define( 'APP_VIEW_PATH',APP_PATH . '/core/view');
 define( 'APP_MODEL_PATH',APP_PATH . '/core/model');
 define( 'APP_LOGIC_PATH',APP_PATH . '/core/logic');
 define( 'APP_UTIL_PATH',APP_PATH . '/core/util');
+define( 'LOG_PATH',APP_PATH . '/log');
+define( 'PUBLIC_PATH',APP_PATH . '/public');
 
 include 'functions.php';
 include APP_PATH.'/core/common.php';

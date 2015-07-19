@@ -25,7 +25,7 @@ class app extends  base{
 
 
         //todo  url uncode
-
+        //todo  支持控制器分组
 
         //$app_url( $app_folder + $app_param($router_param + $get_param) )
 
@@ -53,9 +53,13 @@ class app extends  base{
 //        $_temp  = explode('.php',$_SERVER['PHP_SELF']);
 //        define('_PHP_FILE_',    rtrim(str_replace($_SERVER['HTTP_HOST'],'',$_temp[0].'.php'),'/'));
 
-
         $controller=$router_param_array[0];
-        $action=$router_param_array[1];
+        if(isset($router_param_array[1])){
+            $action=$router_param_array[1];
+
+        }else{
+            $action='index';
+        }
 
         self::_loadAPP($controller,$action);
 

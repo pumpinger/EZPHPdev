@@ -7,10 +7,10 @@
  */
 
 
-class indexModel{
+class userModel extends \EZPHP\core\model{
 
     public static  function index()
     {
-            dump('进入模型');
+//            dump('进入模型');
     }
 }

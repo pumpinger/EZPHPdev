@@ -14,12 +14,16 @@ class EZPHP extends base{
     private static $success_end=false;
     private static $need_log=false;
 
+    private static $config=array(
+        'time_zone'=>'prc'
+    );
+
 
     public static function init()
     {
 
-
-
+        date_default_timezone_set(self::$config['time_zone']);
+        error_reporting(E_ALL ^ E_NOTICE);
         //todo  加载 配置
 //        session_start();
 //        date_default_timezone_set(C('timeZone'));
@@ -58,68 +62,80 @@ class EZPHP extends base{
 
     public  static  function autoLoad($class){
 
-        if($class == 'indexModel'){
-            include APP_PATH . '/core/model/index.php';
+        //todo  这里的判断条件略简陋
+        $filename=APP_MODEL_PATH.'/'.rtrim($class,'Model').'.php';
+        if(!is_file( $filename )){
+            $filename=APP_UTIL_PATH.'/'.$class.'.php';
+            if(!is_file($filename)) {
+                $name = str_replace('\\', '/', $class);
+                $filename = $name . '.class.php';
+                if (!is_file($filename)) {
+                    //todo  报错  给我使劲报错
+                }
+            }
         }
-        $name           =   str_replace('\\','/',$class);
-        $filename       =  $name.'.class.php';
+        include $filename;
 
-        if(is_file($filename)) {
-            include $filename;
-        }
+
     }
 
     public static function appException($e){
+
         self::$need_log=true;
-        echo '--Exception catch--';
+
         echo "<b>Exception:</b> " , $e->getMessage();
 //        echo $exception->getTrace();
     }
 
     public static function appError($errno, $errstr, $errfile, $errline)
     {
-        self::$need_log=true;
-        echo '--Error catch--';
         $errfile=str_replace(getcwd(),"",$errfile);
+
+
 //        $errfile=str_replace(__DIR__,"",$errfile);
 
-        switch ($errno) {
-            case E_USER_ERROR:
-
-                echo "<b>ERROR</b> [$errno] $errstr<br />\n";
-                echo "  Fatal error on line $errline in file $errfile <br />\n";
-                break;
-
-            case E_USER_WARNING:
-                echo "<b>WARNING</b> [$errno] $errstr<br />\n";
-                break;
-
-            case E_USER_NOTICE:
-                echo "<b>NOTICE</b> [$errno] $errstr<br />\n";
-                break;
-
-            default:
-                echo "Unknown error type: [$errno] $errstr<br />\n";
-                break;
-        }
-
-//        echo "<pre>".var_dump(debug_print_backtrace())."</pre>";
+//        switch ($errno) {
+//            case E_USER_ERROR:
+//
+//                echo "<b>ERROR</b> [$errno] $errstr<br />\n";
+//                echo "  Fatal error on line $errline in file $errfile <br />\n";
+//                break;
+//
+//            case E_USER_WARNING:
+//                echo "<b>WARNING</b> [$errno] $errstr<br />\n";
+//                break;
+//
+//            case E_USER_NOTICE:
+//                echo "<b>NOTICE</b> [$errno] $errstr<br />\n";
+//                break;
+//
+//            default:
+//                echo "Unknown error type: [$errno] $errstr<br />\n";
+//                break;
+//        }
+//        debug_print_backtrace();
         /* Don't execute PHP internal error handler */
+        //todo  扔出
+        $msg=array(
+            'err_msg'=>$errstr,
+            'err_leave'=>$errno,
+            'err_file'=>$errfile,
+            'err_line'=>$errline,
+        );
+        var_dump($msg);
         return true;
     }
 
     public static function appEnd(){
-//        var_dump(error_get_last());
+
+        if(error_get_last()){
+            var_dump(error_get_last());
+        }
 //        var_dump(error_reporting());
-        //restore_error_handler();
+//        var_dump(  restore_error_handler());
         //error_log
 //        var_dump(debug_print_backtrace());
-        if(!self::$success_end){
-            echo  '<br />unknown fatal error';
-        }else{
-            echo  "<br />all is over successfully !";
 
-        }
 
 
 
@@ -129,18 +145,23 @@ class EZPHP extends base{
 //        echo ($log);
 
 
-
-
-        $logDir='/Users/wangzhongjiang/Sites/EZPHPdev/log';
-
-//            file_put_contents("$logDir/".time().".txt",$log);
-
+//        if(self::$need_log){
+            self::log();
+//        }
 
 
 
 
 
 
+
+
+    }
+
+    public static function log()
+    {
+//        var_dump(ob_get_contents());
+        file_put_contents(LOG_PATH."/".date('Y-m-d-H').".txt",ob_get_contents(),FILE_APPEND);
     }
 
 
