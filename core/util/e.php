@@ -7,8 +7,7 @@
  */
 
 class e extends Exception{
-    public function __construct($code = 0) {
-                $msg = 'the template file is not exists';
+    public function __construct($msg,$code = 0) {
         parent::__construct($msg,$code);
     }
 

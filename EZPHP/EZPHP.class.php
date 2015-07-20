@@ -23,7 +23,7 @@ class EZPHP extends base{
     {
 
         date_default_timezone_set(self::$config['time_zone']);
-        error_reporting(E_ALL ^ E_NOTICE);
+//        error_reporting(E_ALL ^ E_NOTICE);
         //todo  加载 配置
 //        session_start();
 //        date_default_timezone_set(C('timeZone'));
@@ -36,7 +36,8 @@ class EZPHP extends base{
 //            ini_set('display_errors','Off');
 //        }
 
-        spl_autoload_register('EZPHP\EZPHP::autoLoad');
+//        spl_autoload_register('EZPHP\EZPHP::autoLoad');
+        spl_autoload_register(array('EZPHP\EZPHP','autoLoad'));
 
 
         set_error_handler('EZPHP\EZPHP::appError');
@@ -61,7 +62,6 @@ class EZPHP extends base{
 
 
     public  static  function autoLoad($class){
-
         //todo  这里的判断条件略简陋
         $filename=APP_MODEL_PATH.'/'.rtrim($class,'Model').'.php';
         if(!is_file( $filename )){
@@ -79,17 +79,56 @@ class EZPHP extends base{
 
     }
 
+
+//array (size=10)
+//0 =>
+//array (size=6)
+//'file' => string 'E:\WAMP\www\EZPHPdev\EZPHP\EZPHP.class.php' (length=42)
+//'line' => int 78
+//'function' => string 'appError' (length=8)
+//'class' => string 'EZPHP\EZPHP' (length=11)
+//'type' => string '::' (length=2)
+//'args' =>
+//array (size=5)
+//0 => int 2
+//1 => string 'include(cc.class.php): failed to open stream: No such file or directory' (length=71)
+//2 => string 'E:\WAMP\www\EZPHPdev\EZPHP\EZPHP.class.php' (length=42)
+//3 => int 78
+//4 =>
+//array (size=3)
+//...
+//1 =>
+//array (size=5)
+//'file' => string 'E:\WAMP\www\EZPHPdev\EZPHP\EZPHP.class.php' (length=42)
+//'line' => int 78
+//'function' => string 'autoLoad' (length=8)
+//'class' => string 'EZPHP\EZPHP' (length=11)
+//'type' => string '::' (length=2)
+
     public static function appException($e){
 
         self::$need_log=true;
 
-        echo "<b>Exception:</b> " , $e->getMessage();
-//        echo $exception->getTrace();
+        $msg_head="<b>Exception:</b> ". ($e->getMessage() ?: 'unkown error')." <b> In </b> (".$e->getLine().")".$e->getFile()."<br>";
+        $msg_body='';
+        $msg_array=$e->getTrace();
+
+        foreach ($msg_array as $v) {
+            // and  $v['class'] ==  __CLASS__
+            if(   isset($v['class'])  and  $v['class'] ==  __CLASS__ and $v['function'] == 'appError'){
+                $msg_head="<b>Exception:</b> ".$v['args']['1']." <b> In </b> (".$v['args']['3'].")".$v['args']['2']."<br>";
+            }else{
+//                $msg_body.="(".$v['line']."):";
+            }
+        }
+
+        echo $msg_head;
+        echo (nl2br($e->getTraceAsString()));
     }
 
     public static function appError($errno, $errstr, $errfile, $errline)
     {
-        $errfile=str_replace(getcwd(),"",$errfile);
+//        $errfile=str_replace(getcwd(),"",$errfile);
 
 
 //        $errfile=str_replace(__DIR__,"",$errfile);
@@ -115,19 +154,20 @@ class EZPHP extends base{
 //        }
 //        debug_print_backtrace();
         /* Don't execute PHP internal error handler */
-        //todo  扔出
-        $msg=array(
-            'err_msg'=>$errstr,
-            'err_leave'=>$errno,
-            'err_file'=>$errfile,
-            'err_line'=>$errline,
-        );
-        var_dump($msg);
-        return true;
+//        $msg=array(
+//            'err_msg'=>$errstr,
+//            'err_leave'=>$errno,
+//            'err_file'=>$errfile,
+//            'err_line'=>$errline,
+//        );
+//        var_dump($msg);
+//        var_dump(debug_backtrace());
+        throw new \Exception();
+
+//        return true;
     }
 
     public static function appEnd(){
-
         if(error_get_last()){
             var_dump(error_get_last());
         }
@@ -145,9 +185,9 @@ class EZPHP extends base{
 //        echo ($log);
 
 
-//        if(self::$need_log){
+        if(self::$need_log){
             self::log();
-//        }
+        }
 
 
 

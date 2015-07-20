@@ -12,15 +12,12 @@ class userController extends \EZPHP\core\controller{
     public function actionindex(){
 
 
-//        indexModel::index();
-//        \EZPHP\core\controller::end();
-//        $this->assign(array(12,3,2));
+
+//            throw new Exception('123');
+//        $a=cc::cc();
         $this->render(array(123,234,1232));
 
-//
-//        include_once 'e.php';
-//        throw new e(1000);
-//        self::cdd();
+
     }
 
 
