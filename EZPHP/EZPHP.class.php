@@ -70,7 +70,7 @@ class EZPHP extends base{
                 $name = str_replace('\\', '/', $class);
                 $filename = $name . '.class.php';
                 if (!is_file($filename)) {
-                    //todo  报错  给我使劲报错
+                    throw new \Exception('没有找到类'.$class);
                 }
             }
         }
@@ -108,7 +108,9 @@ class EZPHP extends base{
     public static function appException($e){
 
         self::$need_log=true;
-
+//        if($e instanceof ContrllerExption){
+//
+//        }
         $msg_head="<b>Exception:</b> ". ($e->getMessage() ?: 'unkown error')." <b> In </b> (".$e->getLine().")".$e->getFile()."<br>";
         $msg_body='';
         $msg_array=$e->getTrace();

@@ -11,11 +11,13 @@ class testController extends \EZPHP\core\controller{
 
     public function actionindex(){
 
+
+        exit;
         echo  json_encode(array(
             'a'=>121231,
             'b'=>45,
             'c'=>1234,
-            'd'=>34534
+            'd'=>'水电费'
         ));
 
 
