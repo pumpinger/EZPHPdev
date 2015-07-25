@@ -6,7 +6,7 @@
  * Time: 下午1:23
  */
 
-function dump($var, $echo=true,$label=null, $strict=true)
+function P($var, $echo=true,$label=null, $strict=true)
 {
     $label = ($label===null) ? '' : rtrim($label).' ';
     if(!$strict) {
@@ -31,4 +31,14 @@ function dump($var, $echo=true,$label=null, $strict=true)
         return null;
     }else
         return $output;
+}
+
+
+function C($k,$v=null){
+    global $config;
+    if($v === null){
+        return $config[$k];
+    }else{
+        $config[$k]=$v;
+    }
 }

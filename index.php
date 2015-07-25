@@ -7,10 +7,7 @@
  */
 
 //ini_set('display_errors', true);
-error_reporting(E_ALL ^ E_NOTICE);
 
-error_reporting(0);
-//ini_set('display_errors', 1);
 
 
 //todo 关于乱码的处理   网页 还能通过  meta    cli  api 呢

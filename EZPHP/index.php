@@ -20,6 +20,7 @@ define( 'APP_UTIL_PATH',APP_PATH . '/core/util');
 define( 'LOG_PATH',APP_PATH . '/log');
 define( 'PUBLIC_PATH',APP_PATH . '/public');
 
+include 'defaultConfig.php';
 include 'functions.php';
 include APP_PATH.'/core/common.php';
 include 'base.class.php';

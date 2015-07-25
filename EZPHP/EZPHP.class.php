@@ -14,15 +14,16 @@ class EZPHP extends base{
     private static $success_end=false;
     private static $need_log=false;
 
-    private static $config=array(
-        'time_zone'=>'prc'
-    );
+
 
 
     public static function init()
     {
+//        error_reporting(E_ALL ^ E_NOTICE);
 
-        date_default_timezone_set(self::$config['time_zone']);
+        error_reporting(0);
+        ini_set('display_errors', 1);
+        date_default_timezone_set(C('time_zone'));
 //        error_reporting(E_ALL ^ E_NOTICE);
         //todo  加载 配置
 //        session_start();
