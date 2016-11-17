@@ -16,8 +16,8 @@
 //header("Content-Type:text/html;charset=utf-8");
 
 
-//$a=$c;
-//exit;
+
+
 const APP_NAME='EZPHPdev';
 const APP_PATH=__DIR__;
 //sdf

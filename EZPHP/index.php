@@ -17,12 +17,13 @@ define( 'APP_VIEW_PATH',APP_PATH . '/core/view');
 define( 'APP_MODEL_PATH',APP_PATH . '/core/model');
 define( 'APP_LOGIC_PATH',APP_PATH . '/core/logic');
 define( 'APP_UTIL_PATH',APP_PATH . '/core/util');
+define( 'APP_LIB_PATH',APP_PATH . '/core/lib');
 define( 'LOG_PATH',APP_PATH . '/log');
 define( 'PUBLIC_PATH',APP_PATH . '/public');
 
 include 'defaultConfig.php';
 include 'functions.php';
-include APP_PATH.'/core/common.php';
+include APP_PATH . '/core/functions.php';
 include 'base.class.php';
 include 'EZPHP.class.php';
 

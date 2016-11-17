@@ -7,4 +7,8 @@
  */
 
 
-//todo  环境配置
+return array(
+    'db'=>array(
+        'host'=>''
+    )
+);

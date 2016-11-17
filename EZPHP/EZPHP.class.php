@@ -9,6 +9,8 @@
 namespace EZPHP;
 
 
+use EZPHP\util\EZException;
+
 class EZPHP extends base{
 
     private static $success_end=false;
@@ -47,15 +49,16 @@ class EZPHP extends base{
 
         register_shutdown_function('EZPHP\EZPHP::appEnd');
 
+        //trigger_error("what ?",E_USER_ERROR);
 
-//        trigger_error("what ?",E_USER_ERROR);
-//        throw new \Exception('111');
+        //throw new EZException('111');
+
+
+
         //obstart
 
 
         dev::start();
-//        $app=new app();
-//        $app->run();
         app::run();
         dev::end();
         EZPHP::$success_end=true;
@@ -64,6 +67,9 @@ class EZPHP extends base{
 
     public  static  function autoLoad($class){
         //todo  这里的判断条件略简陋
+
+        var_dump($class);
+
         $filename=APP_MODEL_PATH.'/'.rtrim($class,'Model').'.php';
         if(!is_file( $filename )){
             $filename=APP_UTIL_PATH.'/'.$class.'.php';
@@ -108,11 +114,17 @@ class EZPHP extends base{
 
     public static function appException($e){
 
+
+        var_dump('触发了exception');
+        var_dump($e);
+
+
+
         self::$need_log=true;
 //        if($e instanceof ContrllerExption){
 //
 //        }
-        $msg_head="<b>Exception:</b> ". ($e->getMessage() ?: 'unkown error')." <b> In </b> (".$e->getLine().")".$e->getFile()."<br>";
+        $msg_head="<b>My Exception:</b> ". ($e->getMessage() ?: 'unkown error')." <b> In </b> (".$e->getLine().")".$e->getFile()."<br>";
         $msg_body='';
         $msg_array=$e->getTrace();
 
@@ -129,8 +141,15 @@ class EZPHP extends base{
         echo (nl2br($e->getTraceAsString()));
     }
 
-    public static function appError($errno, $errstr, $errfile, $errline)
+    public static function appError($errno, $errstr, $errfile, $errline,$b)
     {
+
+        var_dump('触发了error');
+        var_dump($errno);
+        var_dump($errstr);
+        var_dump($errfile);
+        var_dump($errline);
+
 //        $errfile=str_replace(getcwd(),"",$errfile);
 
 
@@ -165,7 +184,7 @@ class EZPHP extends base{
 //        );
 //        var_dump($msg);
 //        var_dump(debug_backtrace());
-        throw new \Exception();
+//        throw new EZException();
 
 //        return true;
     }
@@ -191,13 +210,6 @@ class EZPHP extends base{
         if(self::$need_log){
             self::log();
         }
-
-
-
-
-
-
-
 
     }
 

@@ -7,3 +7,10 @@
  */
 
 //todo 项目配置
+
+
+
+return array(
+    'show_error'=>true,
+    'save_sql'=>true,
+);
