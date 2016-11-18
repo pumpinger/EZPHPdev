@@ -28,16 +28,14 @@ class app extends  base{
     
     
     
-    public  static function run($userConfig){
+    public  static function run($config){
 //        Header("HTTP/1.1 303 See Other");
 //        Header("Location: http://baidu.com");
 
-
-        global $defaultConfig;
-        global $config;
-        $config=array_merge($defaultConfig,$userConfig);
-
         self::_config($config);
+
+
+
         
         
         router::_router();

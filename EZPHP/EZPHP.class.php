@@ -36,10 +36,12 @@ class EZPHP extends base{
         //throw new EZException('111');
 
         //obstart
-
+        global $defaultConfig;
+        global $config;
+        $config=array_merge($defaultConfig,$userConfig);
 
         dev::start();
-        app::run($userConfig);
+        app::run($config);
         dev::end();
         EZPHP::$success_end=true;
     }
@@ -49,6 +51,7 @@ class EZPHP extends base{
         //todo  这里的判断条件略简陋
 
         var_dump($class);
+        
 
         $filename=APP_MODEL_PATH.'/'.rtrim($class,'Model').'.php';
         if(!is_file( $filename )){

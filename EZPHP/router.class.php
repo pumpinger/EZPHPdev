@@ -61,6 +61,8 @@ class router extends  base{
             $action='index';
         }
 
+        var_dump($controller,$action);exit;
+
         self::_loadAPP($controller,$action);
 
     }
