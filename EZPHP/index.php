@@ -23,11 +23,10 @@ define( 'PUBLIC_PATH',APP_PATH . '/public');
 
 include 'defaultConfig.php';
 include 'functions.php';
-include APP_PATH . '/core/functions.php';
 include 'base.class.php';
 include 'EZPHP.class.php';
+include APP_PATH . '/core/functions.php';
 
 
-EZPHP\EZPHP::init();
 
 

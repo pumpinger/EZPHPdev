@@ -1,4 +1,6 @@
 <?php
+use EZPHP\util\EZException;
+
 /**
  * Created by PhpStorm.
  * User: @van
@@ -6,7 +8,7 @@
  * Time: 17:52
  */
 
-class e extends Exception{
+class e extends EZException{
     public function __construct($msg,$code = 0) {
         parent::__construct($msg,$code);
     }

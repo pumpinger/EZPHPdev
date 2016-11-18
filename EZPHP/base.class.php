@@ -12,11 +12,6 @@ namespace EZPHP;
 class base {
 
 
-
-
-    //__Get __set
-
-
     //为什么这里的call 没有被调用
     public function __call($name,$arguments) {
             echo 'not exists method:';

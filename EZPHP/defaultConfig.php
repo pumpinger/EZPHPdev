@@ -6,8 +6,11 @@
  * Time: 下午11:09
  */
 
-//todo  数组合并
-$config=array(
+
+
+//todo 如果外围程序用了这个变量怎么办
+
+$defaultConfig=array(
     'time_zone'=>'prc'
 );
 

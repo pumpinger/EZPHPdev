@@ -23,3 +23,9 @@ const APP_PATH=__DIR__;
 //sdf
 
 require './EZPHP/index.php';
+
+
+$config1=include APP_PATH.'/config.php';
+$config2=include APP_PATH.'/setting.php';
+
+EZPHP\EZPHP::init(array_merge($config1,$config2));

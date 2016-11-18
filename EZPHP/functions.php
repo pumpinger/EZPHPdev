@@ -6,6 +6,14 @@
  * Time: 下午1:23
  */
 
+
+/**
+ * @param $var
+ * @param bool $echo
+ * @param null $label
+ * @param bool $strict
+ * @return mixed|null|string
+ */
 function P($var, $echo=true,$label=null, $strict=true)
 {
     $label = ($label===null) ? '' : rtrim($label).' ';

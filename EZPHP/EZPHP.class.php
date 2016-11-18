@@ -9,7 +9,6 @@
 namespace EZPHP;
 
 
-use EZPHP\util\EZException;
 
 class EZPHP extends base{
 
@@ -19,25 +18,8 @@ class EZPHP extends base{
 
 
 
-    public static function init()
+    public static function init($userConfig)
     {
-//        error_reporting(E_ALL ^ E_NOTICE);
-
-        error_reporting(0);
-        ini_set('display_errors', 1);
-        date_default_timezone_set(C('time_zone'));
-//        error_reporting(E_ALL ^ E_NOTICE);
-        //todo  加载 配置
-//        session_start();
-//        date_default_timezone_set(C('timeZone'));
-//        if(true === C('debug')) {
-//            echo 'debug mode:';
-//            ini_set('display_errors','On');
-//            error_reporting(C('errorReporting'));
-//        } else {
-//            error_reporting(0);
-//            ini_set('display_errors','Off');
-//        }
 
 //        spl_autoload_register('EZPHP\EZPHP::autoLoad');
         spl_autoload_register(array('EZPHP\EZPHP','autoLoad'));
@@ -53,13 +35,11 @@ class EZPHP extends base{
 
         //throw new EZException('111');
 
-
-
         //obstart
 
 
         dev::start();
-        app::run();
+        app::run($userConfig);
         dev::end();
         EZPHP::$success_end=true;
     }
@@ -86,31 +66,6 @@ class EZPHP extends base{
 
     }
 
-
-//array (size=10)
-//0 =>
-//array (size=6)
-//'file' => string 'E:\WAMP\www\EZPHPdev\EZPHP\EZPHP.class.php' (length=42)
-//'line' => int 78
-//'function' => string 'appError' (length=8)
-//'class' => string 'EZPHP\EZPHP' (length=11)
-//'type' => string '::' (length=2)
-//'args' =>
-//array (size=5)
-//0 => int 2
-//1 => string 'include(cc.class.php): failed to open stream: No such file or directory' (length=71)
-//2 => string 'E:\WAMP\www\EZPHPdev\EZPHP\EZPHP.class.php' (length=42)
-//3 => int 78
-//4 =>
-//array (size=3)
-//...
-//1 =>
-//array (size=5)
-//'file' => string 'E:\WAMP\www\EZPHPdev\EZPHP\EZPHP.class.php' (length=42)
-//'line' => int 78
-//'function' => string 'autoLoad' (length=8)
-//'class' => string 'EZPHP\EZPHP' (length=11)
-//'type' => string '::' (length=2)
 
     public static function appException($e){
 
@@ -190,9 +145,10 @@ class EZPHP extends base{
     }
 
     public static function appEnd(){
-        if(error_get_last()){
-            var_dump(error_get_last());
-        }
+//        if(error_get_last()){
+//            var_dump(error_get_last());
+//        }
+
 //        var_dump(error_reporting());
 //        var_dump(  restore_error_handler());
         //error_log

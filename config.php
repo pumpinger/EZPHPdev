@@ -12,5 +12,5 @@
 
 return array(
     'show_error'=>true,
-    'save_sql'=>true,
+    'show_sql'=>true,
 );
