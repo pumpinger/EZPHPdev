@@ -9,7 +9,7 @@
 
 class indexController extends \EZPHP\core\controller{
 
-    public function actionindex(){
+    public function indexAcion(){
 
 
 //        indexModel::index();
@@ -26,8 +26,8 @@ class indexController extends \EZPHP\core\controller{
 
 
 
-    public function index2(){
-        dump('123');
+    public function index2Action(){
+        p('123');
     }
 
     public static function end()

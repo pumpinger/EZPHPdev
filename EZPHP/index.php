@@ -7,7 +7,6 @@
  */
 
 
-//ob_start();
 //todo  obstart 用起来
 
 

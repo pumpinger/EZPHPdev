@@ -29,19 +29,34 @@ class router extends  base{
 
         //$app_url( $app_folder + $app_param($router_param + $get_param) )
 
+
+        //文件夹，文件名，参数
         $app_url=$_SERVER['REQUEST_URI'];
 
+        //文件夹
         $app_folder=dirname($_SERVER['SCRIPT_NAME']);
 
+        //文件名，参数
         $app_param=str_replace($app_folder.'/',"",$app_url);
-
         $app_param_array=explode('?',$app_param);
 
-        $router_param=array_shift($app_param_array);
+        //参数
+        $param=array_pop($app_param_array);
 
-        $get_param = implode('&',$app_param_array);
+        $param_array = explode('&',$param);
 
-        $router_param_array=explode('/',$router_param);
+        $param_map=array(
+            'c'=>'index',
+            'a'=>'index',
+        );
+        foreach ($param_array as $v) {
+            $temp=explode('=',$v);
+            if(isset($temp[1])){
+                $param_map[$temp[0]]= $temp[1];
+            }
+        }
+
+
 
 //        var_dump(__DIR__);
 //        var_dump(dirname($_SERVER['SCRIPT_FILENAME']));exit;
@@ -53,15 +68,8 @@ class router extends  base{
 //        $_temp  = explode('.php',$_SERVER['PHP_SELF']);
 //        define('_PHP_FILE_',    rtrim(str_replace($_SERVER['HTTP_HOST'],'',$_temp[0].'.php'),'/'));
 
-        $controller=$router_param_array[0];
-        if(isset($router_param_array[1])){
-            $action=$router_param_array[1];
-
-        }else{
-            $action='index';
-        }
-
-        var_dump($controller,$action);exit;
+        $controller=$param_map['c'];
+        $action=$param_map['a'];
 
         self::_loadAPP($controller,$action);
 
@@ -71,10 +79,6 @@ class router extends  base{
 
     private static function _loadAPP($controller,$action){
 
-        if( !$controller){
-            $controller='index';
-        }
-        $action=$action?$action:'index';
 
         if(file_exists('./core/controller/'.$controller.'.php')){
             include_once('./core/controller/'.$controller.'.php');
@@ -91,7 +95,7 @@ class router extends  base{
         }
 
 
-        $actionMethod='action'.$action;
+        $actionMethod=$action.'action';
 
         if( method_exists($newController,$actionMethod) ){
             $newController->action=$action;

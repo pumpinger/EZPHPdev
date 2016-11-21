@@ -14,6 +14,8 @@ class EZPHP extends base{
 
     private static $success_end=false;
     private static $need_log=false;
+    
+    //todo  框架集成的  方法    db  log  upload curl
 
 
 

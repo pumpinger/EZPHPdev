@@ -62,6 +62,18 @@ class controller extends base{
         $this->assign=$data;
     }
 
+
+
+    public function json($data)
+    {
+        if(isset($data)){
+            $this->assign=$data;
+        }
+
+        echo json_encode($data);
+    }
+
+
     public function render($data,$view="",$defaultlayout=false)
     {
         if(isset($data)){
