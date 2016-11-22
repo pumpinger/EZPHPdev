@@ -15,7 +15,7 @@ class EZPHP extends base{
     private static $success_end=false;
     private static $need_log=false;
     
-    //todo  框架集成的  方法    db  log  upload curl
+    //todo  框架集成的  方法    db  log  dev  upload curl
 
 
 
@@ -52,8 +52,7 @@ class EZPHP extends base{
     public  static  function autoLoad($class){
         //todo  这里的判断条件略简陋
 
-        var_dump($class);
-        
+
 
         $filename=APP_MODEL_PATH.'/'.rtrim($class,'Model').'.php';
         if(!is_file( $filename )){

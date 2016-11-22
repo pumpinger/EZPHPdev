@@ -9,6 +9,8 @@
 namespace EZPHP;
 
 
+use EZPHP\core\controller;
+
 class app extends  base{
 
 
@@ -42,6 +44,43 @@ class app extends  base{
 //        echo TEST;
 
 
+
+    }
+
+
+    public static function _loadAPP($controller,$action){
+
+
+        if(file_exists('./core/controller/'.$controller.'.php')){
+            include_once('./core/controller/'.$controller.'.php');
+            $controllerClass=$controller.'Controller';
+        }else{
+            echo 'no file';exit;
+        }
+
+
+
+        /**
+         * @var $newController controller
+         */
+        if( class_exists($controllerClass,false)){
+            $newController=new $controllerClass;
+            $newController->controller=$controller;
+        }else{
+            echo 'no controller';exit;
+        }
+
+
+        $actionMethod=$action.'Action';
+
+        if( method_exists($newController,$actionMethod) ){
+            $newController->action=$action;
+            $newController->Start();
+            $newController->$actionMethod();
+
+        }else{
+            echo 'no action';exit;
+        }
 
     }
 

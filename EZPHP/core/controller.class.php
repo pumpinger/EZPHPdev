@@ -14,11 +14,12 @@ use EZPHP\base;
 class controller extends base{
     //todo beforeaction
 
-    private     $controller='';
-    private     $action='';
-    private     $assign='';
+    public     $controller='';
+    public     $action='';
+    public     $assign='';
 
 
+    public $start=array();
 
     public function __get($p)
     {
@@ -30,28 +31,18 @@ class controller extends base{
         $this->$p=$v;
     }
 
-
-    public  function start(){
-        echo 'welcome core class';
-
-
+    public function onStart()
+    {
+    }
 
 
+    public  final function Start(){
+        $this->onStart();
 
-        //难道把代码放到 try 里面去？
-//        try {
-//            $o = new TestException(TestException::THROW_CUSTOM);
-//        } catch (MyException $e) {      // 捕获异常
-//            echo "Caught my exception\n", $e;
-//            $e->customFunction();
-//        } catch (Exception $e) {        // 被忽略
-//            echo "Caught Default Exception\n", $e;
-//        }
 
     }
 
     public static function end(){
-        echo 'welcome core class2';
 
 
     }

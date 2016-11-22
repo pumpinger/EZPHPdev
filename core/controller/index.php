@@ -1,4 +1,6 @@
 <?php
+use EZPHP\core\controller;
+
 /**
  * Created by PhpStorm.
  * User: wangzhongjiang
@@ -7,9 +9,18 @@
  */
 
 
-class indexController extends \EZPHP\core\controller{
+class indexController extends controller{
 
-    public function indexAcion(){
+
+    public function onStart()
+    {
+
+        var_dump('start');
+    }
+
+
+
+    public function indexAction(){
 
 
 //        indexModel::index();
@@ -27,7 +38,12 @@ class indexController extends \EZPHP\core\controller{
 
 
     public function index2Action(){
-        p('123');
+        $this->json(array(
+            'aa'=>123,
+            'bb'=>array(
+                'cc'=>11
+            )
+        ));
     }
 
     public static function end()

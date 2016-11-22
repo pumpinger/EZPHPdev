@@ -14,7 +14,6 @@ class router extends  base{
 //        Header("HTTP/1.1 303 See Other");
 //        Header("Location: http://baidu.com");
 
-        self::_router();
 //        echo TEST;
 
 
@@ -25,7 +24,7 @@ class router extends  base{
 
 
         //todo  url uncode
-        //todo  支持控制器分组
+        //todo  这里$_GET 就可以了 但是以后可能要改  就多取一些值
 
         //$app_url( $app_folder + $app_param($router_param + $get_param) )
 
@@ -71,40 +70,11 @@ class router extends  base{
         $controller=$param_map['c'];
         $action=$param_map['a'];
 
-        self::_loadAPP($controller,$action);
+        app::_loadAPP($controller,$action);
 
     }
 
 
 
-    private static function _loadAPP($controller,$action){
-
-
-        if(file_exists('./core/controller/'.$controller.'.php')){
-            include_once('./core/controller/'.$controller.'.php');
-            $controllerClass=$controller.'Controller';
-        }else{
-            echo 'no file';exit;
-        }
-
-        if( class_exists($controllerClass,false)){
-            $newController=new $controllerClass;
-            $newController->controller=$controller;
-        }else{
-            echo 'no controller';exit;
-        }
-
-
-        $actionMethod=$action.'action';
-
-        if( method_exists($newController,$actionMethod) ){
-            $newController->action=$action;
-            $newController->$actionMethod();
-
-        }else{
-            echo 'no action';exit;
-        }
-
-    }
 
 }
