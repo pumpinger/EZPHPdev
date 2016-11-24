@@ -9,16 +9,19 @@ use EZPHP\core\controller;
  */
 
 
-class indexController extends controller{
+class indexController extends controller  {
 
 
     public function onStart()
     {
-
-        var_dump('start');
     }
 
 
+    public static function end()
+    {
+        echo 'welcome core class3';
+    }
+    
 
     public function indexAction(){
 
@@ -26,8 +29,13 @@ class indexController extends controller{
 //        indexModel::index();
 //        \EZPHP\core\controller::end();
 //        $this->assign(array(12,3,2));
-        userModel::index();
-        $this->render(array(12,3,2));
+
+        
+        $this->render(
+            array(
+                'ver'=>"1.0"
+            )
+        );
 
 //
 //        include_once 'e.php';
@@ -46,10 +54,6 @@ class indexController extends controller{
         ));
     }
 
-    public static function end()
-    {
-        echo 'welcome core class3';
-    }
 
 
     public static function cc()

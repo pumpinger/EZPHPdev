@@ -10,11 +10,20 @@
 ?>
 
 <html>
-<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
-<head></head>
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <title>EZPHPdev</title>
+    <style>
+        .box {text-align: center;margin-top: 200px;}
+    </style>
+</head>
 <body>
-这里是首页,欢迎使用EZPHP <br>
-这里的变量: <b> <?php echo $this->assign[2]?></b> ,来自控制器assign赋值
+
+<div class="box">
+    <h1>欢迎使用EZPHP。</h1>
+    版本号: <b> <?php echo $this->assign['ver']?></b>。
+</div>
+
 </body>
 
 

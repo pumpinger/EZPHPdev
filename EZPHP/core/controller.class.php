@@ -12,7 +12,6 @@ namespace EZPHP\core;
 use EZPHP\base;
 
 class controller extends base{
-    //todo beforeaction
 
     public     $controller='';
     public     $action='';
@@ -35,15 +34,13 @@ class controller extends base{
     {
     }
 
+    public function onRender(){}
 
-    public  final function Start(){
+    public  final function start(){
         $this->onStart();
-
-
     }
 
     public static function end(){
-
 
     }
 
@@ -65,7 +62,7 @@ class controller extends base{
     }
 
 
-    public function render($data,$view="",$defaultlayout=false)
+    public function render($data)
     {
         if(isset($data)){
             $this->assign=$data;

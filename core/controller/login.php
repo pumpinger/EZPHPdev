@@ -7,15 +7,19 @@
  */
 
 
-class userController extends \EZPHP\core\controller{
+class loginController extends \EZPHP\core\controller{
 
-    public function actionindex(){
-
-
+    public function indexAction(){
 
 //            throw new Exception('123');
         $this->render(array(123,234,1232));
 
+
+    }
+
+
+    public function loginAction()
+    {
 
     }
 
