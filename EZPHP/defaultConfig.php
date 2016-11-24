@@ -11,7 +11,8 @@
 //todo 如果外围程序用了这个变量怎么办
 
 $defaultConfig=array(
-    'time_zone'=>'prc'
+    'time_zone'=>'prc',
+    'EZPHP_ver'=>'1.0',
 );
 
 

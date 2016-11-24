@@ -33,7 +33,7 @@ class indexController extends controller  {
         
         $this->render(
             array(
-                'ver'=>"1.0"
+                'ver'=>C('EZPHP_ver'),
             )
         );
 
