@@ -20,7 +20,7 @@ class loginController extends \EZPHP\core\controller{
 
     public function loginAction()
     {
-
+        var_dump(1);
     }
 
 
