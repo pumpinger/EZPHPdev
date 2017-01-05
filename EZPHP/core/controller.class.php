@@ -16,6 +16,9 @@ class controller extends base{
     public     $controller='';
     public     $action='';
     public     $assign='';
+    
+    public  $mRequest;
+    public  $mRender;
 
 
     public $start=array();
@@ -34,13 +37,32 @@ class controller extends base{
     {
     }
 
+    public function onEnd(){
+
+    }
+
     public function onRender(){}
 
     public  final function start(){
         $this->onStart();
     }
 
-    public static function end(){
+    public final function end(){
+        $this->onEnd();
+
+    }
+
+
+    public function makeUrl($c='index',$a='index',$param=array()){
+
+
+        $paramString='';
+        foreach ($param as $k=>$v) {
+            $paramString.='&'.$k.'='.$v;
+        }
+
+
+        echo  HTTP_PATH.'index.php?c='.$c.'&a='.$a.$paramString;
 
     }
 
@@ -52,17 +74,20 @@ class controller extends base{
 
 
 
-    public function json($data)
+    public function json($data=array())
     {
         if(isset($data)){
             $this->assign=$data;
         }
 
-        echo json_encode($data);
+        echo json_encode(array_merge(array(
+            'ok'=>true,
+            'servers_time'=>time(),
+        ),$data));
     }
 
 
-    public function render($data)
+    public function render($data=array())
     {
         if(isset($data)){
             $this->assign=$data;

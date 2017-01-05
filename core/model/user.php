@@ -9,8 +9,13 @@
 
 class userModel extends \EZPHP\core\model{
 
-    public static  function index()
+
+
+    public function getUserByaccout($account)
     {
-//            dump('进入模型');
+
+        $res=$this->query('account = ? ',array($account));
+        return $res;
     }
+
 }

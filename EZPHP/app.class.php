@@ -24,7 +24,6 @@ class app extends  base{
 
         error_reporting(E_ALL ^ E_NOTICE);
 
-
 //        date_default_timezone_set(C('time_zone'));
     }
     
@@ -77,7 +76,7 @@ class app extends  base{
             $newController->action=$action;
             $newController->start();
             $newController->$actionMethod();
-//            $newController->end();
+            $newController->end();
 
 
         }else{

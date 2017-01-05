@@ -14,10 +14,15 @@ class indexController extends controller  {
 
     public function onStart()
     {
+
+        
+
+
+
     }
 
 
-    public static function end()
+    public  function onEnd()
     {
         echo 'welcome core class3';
     }

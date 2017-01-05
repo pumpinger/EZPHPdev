@@ -9,6 +9,10 @@
 
 return array(
     'db'=>array(
-        'host'=>''
+        'host'=>'192.168.1.35',
+        'port'=>'3386',
+        'name'=>'wangzhongjiang',
+        'username'=>'root',
+        'password'=>'123456',
     )
 );

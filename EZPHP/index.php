@@ -21,7 +21,9 @@ define( 'APP_UTIL_PATH',APP_PATH . 'core/util/');
 define( 'APP_LIB_PATH',APP_PATH . 'core/lib/');
 define( 'LOG_PATH',APP_PATH . 'log/');
 
-define( 'WEB_PATH',str_replace($_SERVER['DOCUMENT_ROOT'],"",APP_PATH).'/');
+define( 'WEB_PATH',str_replace($_SERVER['DOCUMENT_ROOT'],"",APP_PATH));
+define( 'HTTP_PATH','http://'.$_SERVER['HTTP_HOST'].str_replace($_SERVER['DOCUMENT_ROOT'],"",APP_PATH));
+define( 'HTTPS_PATH','https://'.$_SERVER['HTTP_HOST'].str_replace($_SERVER['DOCUMENT_ROOT'],"",APP_PATH));
 define( 'PUBLIC_PATH',WEB_PATH . 'public/');
 
 include 'defaultConfig.php';

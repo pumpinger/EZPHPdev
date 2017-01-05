@@ -59,6 +59,11 @@
             margin: 0;
             text-align: center;
         }
+        .msg {
+            color: red;
+            margin: 0;
+            line-height: 30px;
+        }
     </style>
 </head>
 <body>
@@ -69,24 +74,28 @@
 </div>
 <div id="login">
     <h1>Login</h1>
-    <form method="post" data-action="index.php?c=login&a=login">
-        <input type="text" required="required" placeholder="用户名" name="accout">
+    <form method="post" data-action="<?php $this->makeUrl('login','login')?>">
+        <input type="text" required="required" placeholder="用户名" name="account">
         <input type="password" required="required" placeholder="密码" name="password">
+        <p class="msg"></p>
         <a class="but">登录</a>
     </form>
 </div>
 <script>
     $('.but').click(function () {
             var post_data = $('form').serialize();
-            console.log(post_data);
-
+            var action = $('form').data('action');
             $.ajax({
                 type:'GET',
                 dataType:'json',
-                url:'',
-                data:'',
-                success:function (){
-
+                url:action,
+                data:post_data,
+                success:function (data){
+                    if(data.ok){
+                        location.href='<?php $this->makeUrl()?>'
+                    }else{
+                        $('.msg').html(data.msg);
+                    }
                 },
                 error:function (){
 
