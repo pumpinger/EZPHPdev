@@ -9,7 +9,7 @@ use EZPHP\core\controller;
  */
 
 
-class indexController extends controller  {
+class indexController extends sessionController  {
 
 
     public function onStart()

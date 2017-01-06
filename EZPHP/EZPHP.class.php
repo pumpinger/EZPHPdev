@@ -61,7 +61,7 @@ class EZPHP extends base{
                 $name = str_replace('\\', '/', $class);
                 $filename = $name . '.class.php';
                 if (!is_file($filename)) {
-                    throw new \Exception('没有找到类'.$class);
+                    throw new \Exception('没有找到类'.$class);  //todo  这里扔出  代码写法类型的  异常
                 }
             }
         }
@@ -74,30 +74,30 @@ class EZPHP extends base{
     public static function appException($e){
 
 
-        var_dump('触发了exception');
         var_dump($e);
 
-
-
         self::$need_log=true;
-//        if($e instanceof ContrllerExption){
-//
-//        }
-        $msg_head="<b>My Exception:</b> ". ($e->getMessage() ?: 'unkown error')." <b> In </b> (".$e->getLine().")".$e->getFile()."<br>";
+        $msg_head="<b>Exception:</b> ". ($e->getMessage() ?: 'unkown error')." <b> In </b> ".$e->getFile()."(".$e->getLine().")"."<br>";
         $msg_body='';
         $msg_array=$e->getTrace();
 
+
+
         foreach ($msg_array as $v) {
-            // and  $v['class'] ==  __CLASS__
-            if(   isset($v['class'])  and  $v['class'] ==  __CLASS__ and $v['function'] == 'appError'){
-                $msg_head="<b>Exception:</b> ".$v['args']['1']." <b> In </b> (".$v['args']['3'].")".$v['args']['2']."<br>";
+
+
+            if(   isset($v['class'])  and  $v['class'] ==  __CLASS__ and $v['function'] == 'autoLoad'){
+                //$msg_head="<b>Exception:</b> ".$v['args']['1']." <b> In </b> (".$v['args']['3'].")".$v['args']['2']."<br>";
             }else{
-//                $msg_body.="(".$v['line']."):";
+                $msg_body.="(".$v['line']."):";
             }
+
+
+
         }
 
         echo $msg_head;
-        echo (nl2br($e->getTraceAsString()));
+        echo $msg_body;
     }
 
     public static function appError($errno, $errstr, $errfile, $errline,$b)
