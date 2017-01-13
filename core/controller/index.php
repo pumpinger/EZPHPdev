@@ -32,24 +32,23 @@ class indexController extends baseController  {
     public function welcomeAction()
     {
 
-    }
-    
-
-    public function indexAction(){
-
-//        indexModel::index();
-//        \EZPHP\core\controller::end();
-//        $this->assign(array(12,3,2));
-
 
         $this->render(
             array(
                 'ver'=>C('EZPHP_ver'),
             )
         );
+        
+    }
+    
+
+    public function indexAction(){
 
 
-//
+        $this->render();
+        
+        
+
 //        include_once 'e.php';
 //        throw new e(1000);
     }
