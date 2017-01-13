@@ -10,11 +10,16 @@
 class loginController extends \EZPHP\core\controller{
 
     public function indexAction(){
-
-//            throw new Exception('123');
         $this->render();
 
     }
+    
+    public function logoutAction()
+    {
+        session_destroy();
+        R(301);
+    }
+
 
 
     public function loginAction()
@@ -29,6 +34,14 @@ class loginController extends \EZPHP\core\controller{
         if($res){
 
             if(  $res['password']  == $password  ){
+
+
+                session_start();
+                $_SESSION['account']=$account;
+                $_SESSION['id']=$res['id'];
+
+
+
                 $this->json();
 
             }else{

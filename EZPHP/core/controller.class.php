@@ -16,6 +16,11 @@ class controller extends base{
     public     $controller='';
     public     $action='';
     public     $assign='';
+
+    public     $layout='';
+    public     $view='';
+    public     $title='';
+
     
     public  $mRequest;
     public  $mRender;
@@ -35,16 +40,19 @@ class controller extends base{
 
     public function onStart()
     {
+        return true;
     }
 
     public function onEnd(){
 
     }
 
-    public function onRender(){}
+    public function onRender(){
+
+    }
 
     public  final function start(){
-        $this->onStart();
+        return $this->onStart();
     }
 
     public final function end(){
@@ -62,7 +70,7 @@ class controller extends base{
         }
 
 
-        echo  HTTP_PATH.'index.php?c='.$c.'&a='.$a.$paramString;
+        return  HTTP_PATH.'index.php?c='.$c.'&a='.$a.$paramString;
 
     }
 
@@ -89,15 +97,36 @@ class controller extends base{
 
     public function render($data=array())
     {
+        $this->onRender();
+
         if(isset($data)){
             $this->assign=$data;
         }
 
-        if(file_exists('./core/view/'.$this->controller.'/'. $this->action.'.php')){
-            include_once('./core/view/'.$this->controller.'/'. $this->action.'.php');
+        $this->view='./core/view/'.$this->controller.'/'. $this->action.'.php';
+
+
+        if($this->layout){
+
+            if(   file_exists($this->layout)  ){
+                include_once($this->layout);
+
+            }else{
+                throw new \Exception('找不到布局文件');
+            }
+
+
         }else{
-            echo 'no file';exit;
+
+            if(  file_exists(  $this->view  )  ){
+                include_once($this->view);
+            }else{
+                throw new \Exception('找不到视图文件');
+            }
+
         }
+
+
     }
 
 }

@@ -9,44 +9,60 @@ use EZPHP\core\controller;
  */
 
 
-class indexController extends sessionController  {
+class indexController extends baseController  {
 
 
     public function onStart()
     {
+        parent::onStart();
+    }
 
-        
-
-
-
+    public function onRender()
+    {
+        parent::onRender();
+        $this->setTitle('首页');
     }
 
 
     public  function onEnd()
     {
-        echo 'welcome core class3';
+    }
+
+
+    public function welcomeAction()
+    {
+
     }
     
 
     public function indexAction(){
 
-
 //        indexModel::index();
 //        \EZPHP\core\controller::end();
 //        $this->assign(array(12,3,2));
 
-        
+
         $this->render(
             array(
                 'ver'=>C('EZPHP_ver'),
             )
         );
 
+
 //
 //        include_once 'e.php';
 //        throw new e(1000);
-//        self::cdd();
     }
+
+
+
+
+
+
+
+
+
+
 
 
 

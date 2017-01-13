@@ -50,3 +50,40 @@ function C($k,$v=null){
         $config[$k]=$v;
     }
 }
+
+function R($status_code,$url="./")
+{
+    switch ($status_code) {
+        case 301:
+        case 302:
+            header("HTTP/1.1 301 Moved Permanently");
+            header("Location: ".$url);
+            break;
+        case 404:
+            header("HTTP/1.1 404 Not Found");
+            header("Status: 404 Not Found");
+            break;
+        case 401:
+            header("HTTP/1.1 401 Unauthorized");
+            header("Status: 401 Unauthorized");
+            break;
+        case 403:
+            header("HTTP/1.1 403 Forbidden");
+            header("Status: 403 Forbidden");
+            break;
+        case 400:
+            header("HTTP/1.1 400 Bad Request");
+            header("Status: 400 Bad Request");
+            break;
+        case 500:
+            header("HTTP/1.1 500 Internal Server Error");
+            header("Status: 500 Internal Server Error");
+            break;
+        case 503:
+            header("HTTP/1.1 503 Service Unavailable");
+            header("Status: 503 Service Unavailable");
+            break;
+        default:
+            break;
+    }
+}

@@ -41,8 +41,21 @@ class model extends base{
         $pdo->setAttribute(\PDO::ATTR_ERRMODE, \PDO::ERRMODE_EXCEPTION);//错误报告
         $pdo->setAttribute(\PDO::ATTR_EMULATE_PREPARES, false); //启用或禁用预处理语句的模拟。
         $pdo->setAttribute(\PDO::ATTR_STRINGIFY_FETCHES, true);  //提取的时候将数值转换为字符串
+        //                    PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8",
         $pdo->exec('set names utf8mb4');
         $this->db = $pdo;
+
+
+
+//        try {
+//            
+//
+//        }
+//        catch (PDOException $e) {
+//            echo $this->ExceptionLog($e->getMessage());
+//            die();
+//        }
+        
         
         //$dbh = null;
     }

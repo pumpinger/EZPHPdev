@@ -15,7 +15,7 @@ class EZPHP extends base{
     private static $success_end=false;
     private static $need_log=false;
     
-    //todo  框架集成的  方法    db  log  dev  upload curl
+    //todo  框架集成的  方法    db  log  dev   curl  session       \\ 插件   验证码   upload
 
 
 
@@ -27,8 +27,8 @@ class EZPHP extends base{
         spl_autoload_register(array('EZPHP\EZPHP','autoLoad'));
 
 
-        set_error_handler('EZPHP\EZPHP::appError');
-        set_exception_handler('EZPHP\EZPHP::appException');
+//        set_error_handler('EZPHP\EZPHP::appError');
+//        set_exception_handler('EZPHP\EZPHP::appException');
 
 
         register_shutdown_function('EZPHP\EZPHP::appEnd');
@@ -50,14 +50,27 @@ class EZPHP extends base{
 
 
     public  static  function autoLoad($class){
-        //todo  这里的判断条件略简陋
 
+        $findArr=array(
+            APP_MODEL_PATH=>'Model',
+            APP_CONTROLLER_PATH=>'Controller',
+        );
 
+        $filename="";
+        foreach ($findArr as $k=>$v) {
+            if(   strrchr($class,$v)   ==   $v   ){
+                $filename=$k.'/'. substr($class,0,-strlen($v)).'.php';
+                if(  is_file($filename)  ){
+                    break;
+                }
+            }
+        }
 
-        $filename=APP_MODEL_PATH.'/'.rtrim($class,'Model').'.php';
         if(!is_file( $filename )){
+            //util
             $filename=APP_UTIL_PATH.'/'.$class.'.php';
             if(!is_file($filename)) {
+                //namespace
                 $name = str_replace('\\', '/', $class);
                 $filename = $name . '.class.php';
                 if (!is_file($filename)) {
@@ -65,8 +78,8 @@ class EZPHP extends base{
                 }
             }
         }
-        include $filename;
 
+        include $filename;
 
     }
 
@@ -74,7 +87,11 @@ class EZPHP extends base{
     public static function appException($e){
 
 
-        var_dump($e);
+        //html
+        //code
+        //ez
+        //
+
 
         self::$need_log=true;
         $msg_head="<b>Exception:</b> ". ($e->getMessage() ?: 'unkown error')." <b> In </b> ".$e->getFile()."(".$e->getLine().")"."<br>";
@@ -83,38 +100,50 @@ class EZPHP extends base{
 
 
 
-        foreach ($msg_array as $v) {
-
+        foreach ($msg_array as $k => $v) {
 
             if(   isset($v['class'])  and  $v['class'] ==  __CLASS__ and $v['function'] == 'autoLoad'){
                 //$msg_head="<b>Exception:</b> ".$v['args']['1']." <b> In </b> (".$v['args']['3'].")".$v['args']['2']."<br>";
             }else{
-                $msg_body.="(".$v['line']."):";
+                $funName='';
+                if(isset($v['class'])  &&  $v['class']){
+                    $funName=$v['class'].'->';
+                }
+                $funName.=$v['function'];
+                if(isset($v['args'])  &&  $v['args']){
+
+                    $funName.="(";
+                    $funName.=implode(',',$v['args']);
+                    $funName.=")";
+
+
+                }
+
+
+
+                $msg_body.="#".$k." ".$v['file']."(".$v['line']."):".$funName.'<br>';
             }
 
 
 
         }
 
+
         echo $msg_head;
         echo $msg_body;
     }
 
-    public static function appError($errno, $errstr, $errfile, $errline,$b)
+    public static function appError($errno, $errstr, $errfile, $errline)
     {
 
-        var_dump('触发了error');
-        var_dump($errno);
-        var_dump($errstr);
-        var_dump($errfile);
-        var_dump($errline);
+
+
 
 //        $errfile=str_replace(getcwd(),"",$errfile);
+        switch ($errno) {
+            case E_NOTICE:
 
-
-//        $errfile=str_replace(__DIR__,"",$errfile);
-
-//        switch ($errno) {
+                break;
 //            case E_USER_ERROR:
 //
 //                echo "<b>ERROR</b> [$errno] $errstr<br />\n";
@@ -128,37 +157,20 @@ class EZPHP extends base{
 //            case E_USER_NOTICE:
 //                echo "<b>NOTICE</b> [$errno] $errstr<br />\n";
 //                break;
-//
-//            default:
-//                echo "Unknown error type: [$errno] $errstr<br />\n";
-//                break;
-//        }
-//        debug_print_backtrace();
-        /* Don't execute PHP internal error handler */
-//        $msg=array(
-//            'err_msg'=>$errstr,
-//            'err_leave'=>$errno,
-//            'err_file'=>$errfile,
-//            'err_line'=>$errline,
-//        );
-//        var_dump($msg);
-//        var_dump(debug_backtrace());
-//        throw new EZException();
 
-//        return true;
+            default:
+
+                throw new \Exception(123);  //todo  这里扔出  代码写法类型的  异常
+
+
+
+//                echo "Unknown error type: [$errno] $errstr<br />\n";
+                break;
+        }
+
     }
 
     public static function appEnd(){
-//        if(error_get_last()){
-//            var_dump(error_get_last());
-//        }
-
-//        var_dump(error_reporting());
-//        var_dump(  restore_error_handler());
-        //error_log
-//        var_dump(debug_print_backtrace());
-
-
 
 
 //            $log=ob_get_contents();

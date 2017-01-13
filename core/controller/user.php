@@ -10,13 +10,14 @@ use EZPHP\core\controller;
 
 
 
-//todo  require  为什么 会有两次   可能是多次报错
-
 class userController extends baseController{
 
     public function indexAction(){
 
-//            throw new Exception('123');
+
+//        $a=1/0;
+//        throw new Exception('123');
+
         $this->render(array(123,234,1232));
     }
 

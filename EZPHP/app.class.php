@@ -15,6 +15,10 @@ class app extends  base{
 
 
     private static function _config($config){
+
+
+
+        //自己托管了   错误 的处理 之后..  这里就失效了
         if($config['show_error']){
             ini_set('display_errors', 1);
         }else{
@@ -74,9 +78,13 @@ class app extends  base{
 
         if( method_exists($newController,$actionMethod) ){
             $newController->action=$action;
-            $newController->start();
-            $newController->$actionMethod();
-            $newController->end();
+
+            if( $newController->start()  !== false){
+
+                $newController->$actionMethod();
+                $newController->end();
+            }
+
 
 
         }else{
