@@ -26,6 +26,7 @@ class indexController extends baseController  {
 
     public  function onEnd()
     {
+
     }
 
 
@@ -43,6 +44,15 @@ class indexController extends baseController  {
     
 
     public function indexAction(){
+
+
+        $res=postModel::intance()->getHot();
+
+
+        var_dump($res);
+
+
+        var_dump(postModel::intance()->getSql());
 
 
         $this->render();

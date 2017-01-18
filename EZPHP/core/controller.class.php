@@ -28,15 +28,7 @@ class controller extends base{
 
     public $start=array();
 
-    public function __get($p)
-    {
-        return $this->$p;
-    }
 
-    public function __set($p,$v)
-    {
-        $this->$p=$v;
-    }
 
     public function onStart()
     {

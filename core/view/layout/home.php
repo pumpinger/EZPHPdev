@@ -15,6 +15,7 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
     <title><?php echo $this->title?></title>
+    <link rel="shortcut icon" href="<?php echo WEB_PATH ;?>favicon.ico" />
 
     <script type="text/javascript" src="<?php echo PUBLIC_PATH ;?>lib/jquery-2.1.4.js"></script>
     <link rel="stylesheet" href="<?php echo PUBLIC_PATH ;?>lib/iconfont/iconfont.css"/>

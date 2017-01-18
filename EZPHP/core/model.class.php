@@ -13,24 +13,21 @@ use EZPHP\base;
 
 class model extends base{
 
-    public static $_modelA;
+    public static $model;
+    private static $record = array();
 
-
-    public $class;
-
-
+    private $sql = array();
 
     /**
      * @var \PDO
      */
-    public $db;
+    private $db;
 
 
     public function __construct()
     {
 
         $db=C('db');
-
         $pdo = new \PDO('mysql:host='.$db['host'].';dbname='.$db['name'], $db['username'], $db['password']);
 
 //        $key = $db['host'].'_'.$db['name'].'_'.$db['username'].'_'.$db['password'];
@@ -67,12 +64,16 @@ class model extends base{
      */
     public static function intance(){
         $class = get_called_class();
-        self::$_modelA[$class] = new $class;
-        return self::$_modelA[$class];
+
+        if( self::$model[$class] ){
+            return self::$model[$class];
+        }
+        self::$model[$class] = new $class;
+        return self::$model[$class];
     }
 
 
-    protected function getTableName(){
+    private function getTableName(){
         $class=get_called_class();
 
         $class=substr($class,0,-5);
@@ -80,46 +81,215 @@ class model extends base{
         return 't_'.$class;
     }
 
-    protected function getPs($where,$param){
+    public function getLastSql()
+    {
+        return self::$record[count(self::$record)-1];
 
-        $table=$this->getTableName();
+    }
+    public function getSql()
+    {
+        return self::$record;
+    }
 
-        $sql='SELECT * from '.$table.' WHERE '.$where;
+
+    private function getPs(){
+
+
+        $table= $this->sql['table'] ?:$this->getTableName();
+        $field= $this->sql['field'] ?:'*';
+
+        $sql='SELECT '.$field.' FROM '.$table;
+
+
+        if($this->sql['where']){
+            $sql.=' WHERE '.$this->sql['where'];
+        }
+
+        if($this->sql['order']){
+            $sql.=' ORDER BY '.$this->sql['order'];
+        }
+
+        if($this->sql['limit']){
+            $sql.=' LIMIT '.$this->sql['limit'];
+        }
+
+
 
         $PS =$this->db->prepare($sql);
 
 
-        for ($i = 0; $i < count($param); $i++) {
-            $PS->bindParam($i+1,$param[$i]);
+        for ($i = 0; $i < count($this->sql['param']); $i++) {
+            $PS->bindParam($i+1,$this->sql['param'][$i]);
         }
         $PS->execute();
+
+
+        self::$record[]=$sql;
+
+
 
         return $PS;
     }
 
-    
-    public function query($where,$param)
+
+    //todo  也可以 直接给一个 条件构造器
+    public function query($only_one=false)
     {
+        //$where=array(),$param=array(),$size = 1,$field = array('*'),$order =array(),$offset= 0,$compare = '', $idkey = 't.id'
         //$dbp=$this->db->beginTransaction();
 
 
+//        $limit="";
+//        if($offset !== 0){
+//            if($compare  &&  $idkey){
+//                //值分页
+//                $whereStr.=' '.$idkey.' '.$compare.' '.$offset;
+//
+//                if($size){
+//                    $limit='0,'.$size;
+//                }
+//            }else{
+//                //page分页
+//                $limit=$offset.','.$size;
+//
+//            }
+//        }elseif($size){
+//            $limit='0,'.$size;
+//        }
 
-        $PS = $this->getPs($where,$param);
 
 
-        $res = $PS->fetch(\PDO::FETCH_ASSOC);
+        $PS = $this->getPs();
+
+
+        if($only_one){
+            $res = $PS->fetch(\PDO::FETCH_ASSOC);
+
+        }else{
+            $res = $PS->fetchAll(\PDO::FETCH_ASSOC);
+
+        }
+
+
+        //todo  还是说 再 instance 的时候就 初始化一下?
+        $this->init();
         return $res;
     }
 
-    public function queryAll($where,$param)
+
+    public function querySql(){
+
+    }
+
+
+
+
+
+
+
+    public function setJoin($value)
     {
-        //$dbp=$this->db->beginTransaction();
+        $this->sql['join']=$value;
+        return $this;
+    }
 
-        $PS = $this->getPs($where,$param);
+    public function setGroup($value)
+    {
+        $this->sql['group']=$value;
+        return $this;
+    }
+
+    public function setTable($table)
+    {
+        $this->sql['table']=$table;
+        return $this;
+    }
 
 
-        $res = $PS->fetchAll(\PDO::FETCH_ASSOC);
-        return $res;
+    public function setEqual(Array $where=array())
+    {
+        $this->_setCondtion('=',$where);
+        return $this;
+    }
+
+    public function _setCondtion($op,$where)
+    {
+        $whereStr='';
+        foreach ($where as $k=>$v) {
+            $whereStr.=' '.$k.' '.$op.' ? ';
+            $this->sql['param'][]=$v;
+        }
+
+        $this->sql['where']=$whereStr.$this->sql['where'];
+        return $this;
+    }
+    
+
+    public function setGreater(Array $where=array())
+    {
+        $this->_setCondtion('>',$where);
+        return $this;
+    }
+
+    public function setGreaterEqual(Array $where=array())
+    {
+        $this->_setCondtion('>=',$where);
+        return $this;
+    }
+
+    public function setLess(Array $where=array())
+    {
+        $this->_setCondtion('<',$where);
+        return $this;
+    }
+
+    public function setUnequal(Array $where=array())
+    {
+        $this->_setCondtion('<>',$where);
+        return $this;
+    }
+
+    public function setLessEqual(Array $where=array())
+    {
+        $this->_setCondtion('<=',$where);
+        return $this;
+    }
+
+    public function setLike(Array $where=array())
+    {
+        $this->_setCondtion('like',$where);
+        return $this;
+    }
+
+
+    public function setField(Array $field=array('*'))
+    {
+
+        $this->sql['field']=implode(',',$field);
+        return $this;
+
+    }
+    public function setOrder(Array $order=array())
+    {
+        $orderStr='';
+        foreach ($order as $k=>$v) {
+            $orderStr.=' `'.$k.'` '.$v;
+        }
+        $this->sql['order']=$orderStr;
+
+        return $this;
+
+    }
+    public function setLimit($offset,$size)
+    {
+        $this->sql['limit']=$offset.','.$size;
+        return $this;
+
+    }
+
+
+    private function init(){
+        $this->sql=array();
     }
 
 }

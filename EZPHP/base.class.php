@@ -10,6 +10,18 @@ namespace EZPHP;
 
 
 class base {
+    
+    
+    
+    function __set($property_name, $value)
+    {
+        $this->$property_name=$value;
+    }
+
+    function __get($property_name)
+    {
+        return isset($this->$property_name) ? $this->$property_name : null;
+    }
 
 
     //为什么这里的call 没有被调用
