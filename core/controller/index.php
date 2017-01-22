@@ -46,16 +46,13 @@ class indexController extends baseController  {
     public function indexAction(){
 
 
-        $res=postModel::intance()->getHot();
+        $res=postModel::intance()->getAll();
 
 
-        var_dump($res);
+//        var_dump(postModel::intance()->getSql());
 
 
-        var_dump(postModel::intance()->getSql());
-
-
-        $this->render();
+        $this->render($res);
         
         
 

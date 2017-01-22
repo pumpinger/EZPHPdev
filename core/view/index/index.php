@@ -13,12 +13,21 @@
 
 
     <style>
-        .box {text-align: center;margin-top: 200px;}
+        .box {margin-top: 10px;}
+        .box p {text-indent: 2em;}
     </style>
 
 
     <div class="box">
-        123
+        <?php foreach ($this->assign as $v): ?>
+
+            <p>
+                <?php echo  nl2p($v['text']);?>
+            </p>
+            <br>
+
+
+        <?php endforeach; ?>
 
     </div>
 
