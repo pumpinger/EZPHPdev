@@ -41,18 +41,17 @@
         Logo
     </div>
     <div class="top_nav x-font-16">
-        <a>首页</a>
-        <a>热门</a>
-        <a>新帖</a>
-        <a>个人中心</a>
+        <a>Home</a>
+        <a>New</a>
+        <a>Me</a>
     </div>
     <div class="top_fun x-font-14">
         <?php if( $_SESSION):?>
             <a><?php echo $_SESSION['name']?></a>
-            <a data-href="<?php echo $this->makeUrl('login','logout')?>">退出</a>
+            <a data-href="<?php echo $this->makeUrl('login','logout')?>">exit</a>
         <?php else:?>
-            <a>登录</a>
-            <a>注册</a>
+            <a>login</a>
+            <a>logup</a>
         <?php endif;?>
 
     </div>
