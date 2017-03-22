@@ -42,7 +42,7 @@
     </div>
     <div class="top_nav x-font-16">
         <a>Home</a>
-        <a>New</a>
+        <a href="<?php echo $this->makeUrl('post','new')?>">New</a>
         <a>Me</a>
     </div>
     <div class="top_fun x-font-14">

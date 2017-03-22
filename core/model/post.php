@@ -1,4 +1,7 @@
 <?php
+use EZPHP\core\model;
+use EZPHP\model\ISaveModel;
+
 /**
  * Created by PhpStorm.
  * User: @van
@@ -7,7 +10,7 @@
  */
 
 
-class postModel extends \EZPHP\core\model{
+class postModel extends model  implements ISaveModel  {
 
     
     public function getAll()

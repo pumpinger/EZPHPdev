@@ -54,7 +54,7 @@ class app extends  base{
     public static function _loadAPP($controller,$action){
 
 
-        if(file_exists('./core/controller/'.$controller.'.php')){
+            if(file_exists('./core/controller/'.$controller.'.php')){
             include_once('./core/controller/'.$controller.'.php');
             $controllerClass=$controller.'Controller';
         }else{

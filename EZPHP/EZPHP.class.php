@@ -71,10 +71,22 @@ class EZPHP extends base{
             $filename=APP_UTIL_PATH.'/'.$class.'.php';
             if(!is_file($filename)) {
                 //namespace
+
                 $name = str_replace('\\', '/', $class);
-                $filename = $name . '.class.php';
-                if (!is_file($filename)) {
+                //以后不要加 这个class 了
+                $filename1 = $name . '.class.php';
+                $filename2 = $name . '.php';
+                if ( !is_file($filename1)  &&  !is_file($filename2)  ) {
                     throw new \Exception('没有找到类'.$class);  //todo  这里扔出  代码写法类型的  异常
+                }else{
+                    if( is_file($filename1) ){
+                        $filename=$filename1;
+                    }
+
+                    if( is_file($filename2) ){
+                        $filename=$filename2;
+                    }
+
                 }
             }
         }

@@ -1,4 +1,5 @@
 <?php
+use EZPHP\model\ISaveModel;
 
 /**
  * Created by PhpStorm.
@@ -9,7 +10,7 @@
 
 
 
-class postController extends baseController{
+class postController extends baseController {
 
     public function newAction(){
 
@@ -23,6 +24,11 @@ class postController extends baseController{
     public function saveAction()
     {
 
+
+
+        $pm=new postModel();
+
+        //$pm->save();
 
         $this->json();
     }

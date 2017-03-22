@@ -23,9 +23,13 @@ class model extends base{
      */
     private $db;
 
+    public $mController;
+
 
     public function __construct()
     {
+
+        //$this->mController= $this->;
 
         $db=C('db');
         $pdo = new \PDO('mysql:host='.$db['host'].';dbname='.$db['name'], $db['username'], $db['password']);
