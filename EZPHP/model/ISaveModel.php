@@ -11,4 +11,11 @@ namespace EZPHP\model;
 interface ISaveModel{
 
 
+
+    public function save();
+
+
+    public function checkParam();
+
+
 }

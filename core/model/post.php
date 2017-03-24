@@ -12,7 +12,19 @@ use EZPHP\model\ISaveModel;
 
 class postModel extends model  implements ISaveModel  {
 
-    
+
+
+
+
+    function save()
+    {
+        // TODO: Implement save() method.
+    }
+
+
+
+
+
     public function getAll()
     {
         $res=$this->query();
@@ -21,12 +33,16 @@ class postModel extends model  implements ISaveModel  {
     }
 
 
+
     public function getHot()
     {
         $res=$this->setEqual(array('status'=>'1'))->setOrder(array('like'=>'DESC'))->query();
 
         return $res;
     }
-    
+
+
+
+
 
 }

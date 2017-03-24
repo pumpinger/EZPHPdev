@@ -10,6 +10,7 @@ namespace EZPHP;
 
 
 use EZPHP\core\controller;
+use EZPHP\request\Request;
 
 class app extends  base{
 
@@ -39,14 +40,65 @@ class app extends  base{
 
         self::_config($config);
 
-
-
         
-        
-        router::_router();
+        self::_router();
 //        echo TEST;
 
 
+
+    }
+
+    public static function _router(){
+
+
+        //todo  url uncode
+        //todo  这里$_GET 就可以了 但是以后可能要改  就多取一些值
+
+        //$app_url( $app_folder + $app_param($router_param + $get_param) )
+
+
+        //文件夹，文件名，参数
+        $app_url=$_SERVER['REQUEST_URI'];
+
+        //文件夹
+        $app_folder=dirname($_SERVER['SCRIPT_NAME']);
+
+        //文件名，参数
+        $app_param=str_replace($app_folder.'/',"",$app_url);
+        $app_param_array=explode('?',$app_param);
+
+        //参数
+        $param=array_pop($app_param_array);
+
+        $param_array = explode('&',$param);
+
+        $param_map=array(
+            'c'=>'index',
+            'a'=>'index',
+        );
+        foreach ($param_array as $v) {
+            $temp=explode('=',$v);
+            if(isset($temp[1])){
+                $param_map[$temp[0]]= $temp[1];
+            }
+        }
+
+
+
+//        var_dump(__DIR__);
+//        var_dump(dirname($_SERVER['SCRIPT_FILENAME']));exit;
+
+
+//        var_dump(($_SERVER['REQUEST_URI']));
+//        var_dump($_SERVER['PHP_SELF']);exit;
+
+//        $_temp  = explode('.php',$_SERVER['PHP_SELF']);
+//        define('_PHP_FILE_',    rtrim(str_replace($_SERVER['HTTP_HOST'],'',$_temp[0].'.php'),'/'));
+
+        $controller=$param_map['c'];
+        $action=$param_map['a'];
+
+        self::_loadAPP($controller,$action);
 
     }
 
@@ -54,7 +106,7 @@ class app extends  base{
     public static function _loadAPP($controller,$action){
 
 
-            if(file_exists('./core/controller/'.$controller.'.php')){
+        if(file_exists('./core/controller/'.$controller.'.php')){
             include_once('./core/controller/'.$controller.'.php');
             $controllerClass=$controller.'Controller';
         }else{
@@ -78,12 +130,37 @@ class app extends  base{
 
         if( method_exists($newController,$actionMethod) ){
             $newController->action=$action;
+            $newController->mRequest=new Request($newController);
 
-            if( $newController->start()  !== false){
+            try {
+                $newController->mRequest->checkParam();
 
-                $newController->$actionMethod();
-                $newController->end();
+
+
+                if( $newController->start()  !== false){
+
+                    $newController->$actionMethod();
+                    $newController->end();
+                }else{
+
+                    throw new \ErrorException();
+
+                }
+
+
+            } catch (\ErrorException $e) {
+
+
+
+            } catch (\Exception $e) {
+
+
+
             }
+
+
+
+
 
 
 

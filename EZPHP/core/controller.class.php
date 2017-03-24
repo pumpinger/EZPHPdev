@@ -29,6 +29,10 @@ class controller extends base{
     public $start=array();
 
 
+    public function check()
+    {
+
+    }
 
     public function onStart()
     {

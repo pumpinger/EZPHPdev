@@ -25,8 +25,11 @@ class postController extends baseController {
     {
 
 
+        //$this->param;
 
         $pm=new postModel();
+        $pm->save();
+
 
         //$pm->save();
 

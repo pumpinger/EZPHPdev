@@ -22,36 +22,47 @@
 <script type="text/javascript" src="<?php echo PUBLIC_PATH ;?>lib/umeditor/lang/zh-cn/zh-cn.js"></script>
 
 
+<form class="form">
+    <input name="title" placeholder="输入标题">
+    <input name="province" placeholder="输入省">
+    <input name="city" placeholder="输入市">
+    <input name="distrct" placeholder="输入区">
+    <script id="myEditor" name="content" type="text/plain" style="width:600px;height:200px;"></script>
+    <input name="tag" placeholder="输入标签">
+</form>
+    <span class="save">保存</span>
 
 
-<?php var_dump($this->assign) ?>
-
-<div id="box">
-    <?php foreach ($this->assign as $v): ?>
-
-        <p>
-            <?php echo  nl2p($v['text']);?>
-        </p>
-        <br>
-
-
-    <?php endforeach; ?>
-
-</div>
-
-
-<script id="myEditor" name="content" type="text/plain" style="width:600px;height:200px;">
-    这里写你的初始化内容
-</script>
 
 
 <script type="text/javascript">
-    $(function(){
-        window.um = UM.getEditor('myEditor', {
-            /* 传入配置参数,可配参数列表看umeditor.config.js */
-            toolbar: ['undo redo | bold italic underline']
+//    $(function(){
+    window.um = UM.getEditor('myEditor', {
+        /* 传入配置参数,可配参数列表看umeditor.config.js */
+    });
+//    });
+
+
+    $('.save').click(function (){
+        var data=$('.form').serialize();
+        var data=$('.form').serializeArray();
+
+        $.ajax({
+            type:'GET',
+            dataType:'json',
+            url:'<?php echo $this->makeUrl('post','save')?>',
+            data:data,
+            success:function (res){
+                console.log(res);
+            },
+            error:function (){
+
+            }
         });
     });
+    
+    
+    
 </script>
 
 
