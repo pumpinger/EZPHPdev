@@ -13,7 +13,10 @@ use EZPHP\model\ISaveModel;
 class postModel extends model  implements ISaveModel  {
 
 
+    public function checkParam()
+    {
 
+    }
 
 
     function save()
@@ -24,10 +27,16 @@ class postModel extends model  implements ISaveModel  {
 
 
 
+    public function addOne($data)
+    {
+        $res=$this->db()->add($data);
+
+        return $res;
+    }
 
     public function getAll()
     {
-        $res=$this->query();
+        $res=$this->db()->query();
 
         return $res;
     }
@@ -36,12 +45,11 @@ class postModel extends model  implements ISaveModel  {
 
     public function getHot()
     {
-        $res=$this->setEqual(array('status'=>'1'))->setOrder(array('like'=>'DESC'))->query();
+        $res=$this->db()->setEqual(array('status'=>'1'))->setOrder(array('like'=>'DESC'))->query();
 
         return $res;
     }
-
-
+///0
 
 
 

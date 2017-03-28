@@ -133,35 +133,29 @@ class app extends  base{
             $newController->mRequest=new Request($newController);
 
             try {
-                $newController->mRequest->checkParam();
 
 
-
-                if( $newController->start()  !== false){
-
-                    $newController->$actionMethod();
-                    $newController->end();
-                }else{
-
-                    throw new \ErrorException();
-
+                //todo 这个爆出什么错 还没想好
+                if(! $newController->mRequest->checkParam()){
+                    throw new \Exception();
                 }
+
+                if( $newController->start()  == false){
+                    throw new \ErrorException();
+                }
+
 
 
             } catch (\ErrorException $e) {
 
-
-
             } catch (\Exception $e) {
-
-
 
             }
 
 
 
-
-
+            $newController->$actionMethod();
+            $newController->end();
 
 
         }else{

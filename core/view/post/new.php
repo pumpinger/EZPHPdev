@@ -26,7 +26,7 @@
     <input name="title" placeholder="输入标题">
     <input name="province" placeholder="输入省">
     <input name="city" placeholder="输入市">
-    <input name="distrct" placeholder="输入区">
+    <input name="district" placeholder="输入区">
     <script id="myEditor" name="content" type="text/plain" style="width:600px;height:200px;"></script>
     <input name="tag" placeholder="输入标签">
 </form>
@@ -48,7 +48,7 @@
         var data=$('.form').serializeArray();
 
         $.ajax({
-            type:'GET',
+            type:'POST',
             dataType:'json',
             url:'<?php echo $this->makeUrl('post','save')?>',
             data:data,

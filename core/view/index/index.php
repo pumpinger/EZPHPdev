@@ -9,6 +9,8 @@
 /**
  * @var $this indexController
  */
+
+
 ?>
 
 
@@ -22,7 +24,7 @@
         <?php foreach ($this->assign as $v): ?>
 
             <p>
-                <?php echo  nl2p($v['text']);?>
+                <?php echo  nl2p($v['content']);?>
             </p>
             <br>
 

@@ -10,6 +10,8 @@ namespace EZPHP;
 
 
 
+use Exception;
+
 class EZPHP extends base{
 
     private static $success_end=false;
@@ -27,8 +29,8 @@ class EZPHP extends base{
         spl_autoload_register(array('EZPHP\EZPHP','autoLoad'));
 
 
-//        set_error_handler('EZPHP\EZPHP::appError');
-//        set_exception_handler('EZPHP\EZPHP::appException');
+        set_error_handler('EZPHP\EZPHP::appError');
+        set_exception_handler('EZPHP\EZPHP::appException');
 
 
         register_shutdown_function('EZPHP\EZPHP::appEnd');
@@ -43,7 +45,9 @@ class EZPHP extends base{
         $config=array_merge($defaultConfig,$userConfig);
 
         dev::start();
+
         app::run($config);
+
         dev::end();
         EZPHP::$success_end=true;
     }
@@ -98,7 +102,6 @@ class EZPHP extends base{
 
     public static function appException($e){
 
-
         //html
         //code
         //ez
@@ -150,7 +153,6 @@ class EZPHP extends base{
 
 
 
-
 //        $errfile=str_replace(getcwd(),"",$errfile);
         switch ($errno) {
             case E_NOTICE:
@@ -172,7 +174,7 @@ class EZPHP extends base{
 
             default:
 
-                throw new \Exception(123);  //todo  这里扔出  代码写法类型的  异常
+                throw new \Exception($errstr);  //todo  这里扔出  代码写法类型的  异常
 
 
 

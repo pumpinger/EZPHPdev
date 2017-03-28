@@ -36,7 +36,7 @@ class Request extends base {
 
     public function checkParam()
     {
-        $mController->check();
+        return $this->mController->check();
     }
 
 

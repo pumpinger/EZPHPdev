@@ -11,7 +11,6 @@ use EZPHP\core\controller;
 
 class indexController extends baseController  {
 
-
     public function onStart()
     {
         parent::onStart();

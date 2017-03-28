@@ -31,7 +31,7 @@ class controller extends base{
 
     public function check()
     {
-
+        return true;
     }
 
     public function onStart()

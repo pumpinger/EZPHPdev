@@ -41,7 +41,7 @@
         Logo
     </div>
     <div class="top_nav x-font-16">
-        <a>Home</a>
+        <a href="<?php echo $this->makeUrl('index','index')?>">Home</a>
         <a href="<?php echo $this->makeUrl('post','new')?>">New</a>
         <a>Me</a>
     </div>
