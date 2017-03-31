@@ -100,16 +100,17 @@ class EZPHP extends base{
     }
 
 
-    public static function appException($e){
+    public static function appException(Exception $e){
 
         //html
         //code
         //ez
-        //
+        //        var_dump(3);exit;
+
 
 
         self::$need_log=true;
-        $msg_head="<b>Exception:</b> ". ($e->getMessage() ?: 'unkown error')." <b> In </b> ".$e->getFile()."(".$e->getLine().")"."<br>";
+        $msg_head="Exception:<b> ". ($e->getMessage() ?: 'unkown error')." </b> In : ".$e->getFile()."(".$e->getLine().")"."<br>";
         $msg_body='';
         $msg_array=$e->getTrace();
 
@@ -127,8 +128,19 @@ class EZPHP extends base{
                 $funName.=$v['function'];
                 if(isset($v['args'])  &&  $v['args']){
 
+
                     $funName.="(";
-                    $funName.=implode(',',$v['args']);
+
+                    foreach ($v['args'] as $v2) {
+                        if(is_array($v2)){
+                            $funName.='Array,';
+
+                        }else{
+                            $funName.=$v2.',';
+
+                        }
+                    }
+
                     $funName.=")";
 
 
@@ -144,6 +156,8 @@ class EZPHP extends base{
         }
 
 
+
+
         echo $msg_head;
         echo $msg_body;
     }
@@ -151,11 +165,11 @@ class EZPHP extends base{
     public static function appError($errno, $errstr, $errfile, $errline)
     {
 
-
-
 //        $errfile=str_replace(getcwd(),"",$errfile);
         switch ($errno) {
             case E_NOTICE:
+                //todo  logo
+
 
                 break;
 //            case E_USER_ERROR:
@@ -174,7 +188,7 @@ class EZPHP extends base{
 
             default:
 
-                throw new \Exception($errstr);  //todo  这里扔出  代码写法类型的  异常
+                throw new \Exception($errstr.$errfile.$errline);  //todo  这里扔出  代码写法类型的  异常
 
 
 

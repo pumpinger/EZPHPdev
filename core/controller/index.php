@@ -1,5 +1,6 @@
 <?php
 use EZPHP\core\controller;
+use EZPHP\Exception\myException;
 
 /**
  * Created by PhpStorm.
@@ -43,6 +44,7 @@ class indexController extends baseController  {
     
 
     public function indexAction(){
+
 
 
         $res=postModel::intance()->getAll();

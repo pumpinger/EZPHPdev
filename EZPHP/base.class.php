@@ -15,20 +15,10 @@ class base {
 
     //如果没有这个方法 没找到类 可能是Fatal Error
     public function __call($name,$arguments) {
-            echo 'not exists method:';
-            echo 'the name is :';
-            var_dump($name);
-            echo 'the arguments is :';
-            var_dump($arguments);
-//        throw new Exception('not exists method');
+        throw new \Exception('not exists method:'.$name);
     }
 
     public function ___callStatic($name,$arguments) {
-        echo 'not exists method:';
-        echo 'the name is :';
-        var_dump($name);
-        echo 'the arguments is :';
-        var_dump($arguments);
-//        throw new Exception('not exists method');
+        throw new \Exception('not exists method:'.$name);
     }
 }
