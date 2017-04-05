@@ -11,6 +11,7 @@ namespace EZPHP;
 
 
 use Exception;
+use EZPHP\log\log;
 
 class EZPHP extends base{
 
@@ -168,9 +169,8 @@ class EZPHP extends base{
 //        $errfile=str_replace(getcwd(),"",$errfile);
         switch ($errno) {
             case E_NOTICE:
-                //todo  logo
 
-
+                new log($errstr,'notice');
                 break;
 //            case E_USER_ERROR:
 //

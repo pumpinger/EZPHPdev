@@ -13,7 +13,7 @@ class myException extends \Exception
 {
 
 
-    public function aa()
+    public function getdd()
     {
         return 121231233;
     }
