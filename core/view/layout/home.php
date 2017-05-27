@@ -48,7 +48,7 @@
     <div class="top_fun x-font-14">
         <?php if( $_SESSION):?>
             <a><?php echo $_SESSION['name']?></a>
-            <a data-href="<?php echo $this->makeUrl('login','logout')?>">exit</a>
+            <a href="<?php echo $this->makeUrl('login','logout')?>">exit</a>
         <?php else:?>
             <a>login</a>
             <a>logup</a>

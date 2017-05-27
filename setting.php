@@ -9,9 +9,9 @@
 
 return array(
     'db'=>array(
-        'host'=>'192.168.1.35',
+        'host'=>'127.0.0.1',
         'port'=>'3386',
-        'name'=>'wangzhongjiang',
+        'name'=>'ezphp',
         'username'=>'root',
         'password'=>'123456',
     )

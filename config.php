@@ -7,7 +7,7 @@
  */
 
 
-
+//比如说 分页的size 啊,一些业务上的设置   showsql不该在这里
 
 return array(
     'show_error'=>true,

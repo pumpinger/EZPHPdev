@@ -188,7 +188,7 @@ class EZPHP extends base{
 
             default:
 
-                throw new \Exception($errstr.$errfile.$errline);  //todo  这里扔出  代码写法类型的  异常
+                throw new \Exception($errstr.' in '.$errfile.'('.$errline.')');  //todo  这里扔出  代码写法类型的  异常
 
 
 

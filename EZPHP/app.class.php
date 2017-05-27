@@ -132,6 +132,8 @@ class app extends  base{
             $newController->action=$action;
             $newController->mRequest=new Request($newController);
 
+
+
             try {
 
 

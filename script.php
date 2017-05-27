@@ -1,2 +1,2 @@
 <?php
-echo rtrim('malcModel','Model');
+phpinfo();
