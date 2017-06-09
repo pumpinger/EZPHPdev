@@ -30,7 +30,6 @@ class postController extends baseController {
             'tag'=>$_POST['tag'],
             'content'=>$_POST['content'],
             'district'=>$_POST['district'],
-            'a'=>$_POST['district'],
         );
 
         //todo 这里 每一个 字段 都是一个class
