@@ -1,38 +1,41 @@
 
 <style>
 
-    .top_topic{min-width:1000px;height:130px;background-color:#ffc000;}
-    .top_page{height:100%; float:left;}
-    .top_page img{max-width:50px; max-height:50px;margin:40px;}
-    .top_all{width:1000px;position:relative;margin:0 auto;height:130px;}
-    .top_book{padding-right:40px;height:130px;float:left;background-color:#474443;width:630px;}
-    .top_select{margin-left:25px;float:left;margin-top:50px;text-align:center;color:#b6b6b7;font-weight:bold;cursor:pointer;}
-    .top_select p{min-width:50px;}
-    .top_select_active{color:#ffc000;}
-    .top_introduction{position:absolute;top:40%;right:10%;color:#ffffff;font-weight:bold;font-size:12px;}
-    .top_point {width:50px;margin-top:46px;display:none; }
-    .top_logo{position:absolute; right:0;top:25px; }
-    .top_logo img {width:50px;}
+    /*文本内容*/
+    .text{width:100%;}
+    .text_all{width:1000px;margin:0 auto;background-color:#ffffff;}
+    .text_content1 h2,.text_content2 h2{color:#ffc000; font-size:20px;padding:40px 0 20px 40px;font-weight:600;}
+    .text_content1 p{font-size:10px;color:#474443; line-height:30px; letter-spacing:0;font-weight:600;max-width:630px;word-wrap:break-word;margin-left:40px;}
+    .text_content2 {margin: 60px 0 0 40px; border-top:1px solid #e4e4e4;width:635px;}
+    .text_content2 img {width:100px; height:100px; border:1px solid #ffc000;}
+    .text_content3 img {width:100px;margin: 0 0 60px 400px;}
+    .text_content3{margin-top:60px;}
+
 </style>
 
-<body>
 <div class="top_topic">
     <div class="top_page">
-        <a href="主页1.html"><img src="<?php echo PUBLIC_PATH ;?>img/7.png" ></a>
+        <a href="<?php echo $this->makeUrl('index','index')?>"><img src="<?php echo PUBLIC_PATH ;?>img/7.png" ></a>
     </div>
     <div class="top_all">
         <div class="top_book">
             <ul>
-                <li class="top_select"><p>中医育儿基础班</p>
-                    <img class="top_point" src="<?php echo PUBLIC_PATH ;?>img/icon4.png""></li>
-                <li class="top_select"><p>中医六纲辩证班</p>
-                    <img class="top_point" src="<?php echo PUBLIC_PATH ;?>img/icon4.png""></li>
-                <li class="top_select"><p>中医研习社</p>
-                    <img class="top_point" src="<?php echo PUBLIC_PATH ;?>img/icon4.png""></li>
-                <li class="top_select"><p>小二常见病讲座</p>
-                    <img class="top_point" src="<?php echo PUBLIC_PATH ;?>img/icon4.png""></li>
-                <li class="top_select"><p>其他</p>
-                    <img class="top_point" src="<?php echo PUBLIC_PATH ;?>img/icon4.png""></li>
+                <li class="top_select">
+                    <a href="<?php echo $this->makeUrl('class','index',array('active'=>'1'))?>"><p>中医育儿基础班</p></a>
+                    <img class="top_point" src="<?php echo PUBLIC_PATH ;?>img/icon4.png">
+                </li>
+                <li class="top_select">
+                    <a href="<?php echo $this->makeUrl('class','index',array('active'=>'2'))?>"><p>中医六纲辩证班</p></a>
+                        <img class="top_point" src="<?php echo PUBLIC_PATH ;?>img/icon4.png">
+                <li class="top_select">
+                    <a href="<?php echo $this->makeUrl('class','index',array('active'=>'3'))?>"><p>中医研习社</p></a>
+                    <img class="top_point" src="<?php echo PUBLIC_PATH ;?>img/icon4.png">
+                <li class="top_select">
+                    <a href="<?php echo $this->makeUrl('class','index',array('active'=>'4'))?>"><p>小二常见病讲座</p></a>
+                    <img class="top_point" src="<?php echo PUBLIC_PATH ;?>img/icon4.png">
+                <li class="top_select">
+                    <a href="<?php echo $this->makeUrl('class','index',array('active'=>'5'))?>"><p>其他</p></a>
+                    <img class="top_point" src="<?php echo PUBLIC_PATH ;?>img/icon4.png">
             </ul>
         </div>
         <div class="top_introduction">
@@ -77,16 +80,11 @@
 
     </div>
 </div>
-<div class="small_label">
-    <img src="<?php echo PUBLIC_PATH ;?>img/label.png" >
-    <div class="small_label_border">
-    </div>
-</div>
+
 
 <script>
     /*书籍切换*/
-    $(".top_select:first").addClass("top_select_active");
-    $(".top_point:first").show();
+
     $(".top_select").click(function(){
         var x=$(this).index();
         $(".top_select").removeClass("top_select_active");
@@ -96,10 +94,5 @@
         $(".text_content1").hide();
         $(".text_content1").eq(x).show();
     })
-    /*在线客服*/
-    $(".small_label").hover(function(){
-        $(".small_label_border").show();
-    },function(){
-        $(".small_label_border").hide();
-    })
+
 </script>

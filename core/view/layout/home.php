@@ -8,14 +8,16 @@
     <meta name="Description" content="">
     <title>主页</title>
 
-    <link rel="stylesheet" href="<?php echo PUBLIC_PATH ;?>css/home.css"/>
+    <link rel="stylesheet" href="<?php echo PUBLIC_PATH ;?>css/global.css"/>
     <script type="text/javascript" src="<?php echo PUBLIC_PATH ;?>lib/jquery-2.1.4.js"></script>
 
 
 </head>
 
-
+<body>
 <?php include_once $this->view;?>
+
+
 
 
 
@@ -24,11 +26,11 @@
         <div class="ending_left">
             <h3>羊爸爸</h3>
             <ul class="ending_list">
-                <li><a href="关于我们.html">侵权举报</a></li>
-                <li><a href="关于我们.html">对外合作</a></li>
-                <li><a href="关于我们.html">反馈建议</a></li>
-                <li><a href="关于我们.html">关于我们</a></li>
-                <li><a href="关于我们.html">联系我们</a></li>
+                <li><a href="<?php echo $this->makeUrl('about','index')?>">侵权举报</a></li>
+                <li><a href="<?php echo $this->makeUrl('about','index')?>">对外合作</a></li>
+                <li><a href="<?php echo $this->makeUrl('about','index')?>">反馈建议</a></li>
+                <li><a href="<?php echo $this->makeUrl('about','index')?>">关于我们</a></li>
+                <li><a href="<?php echo $this->makeUrl('about','index')?>">联系我们</a></li>
             </ul>
         </div>
         <div class="ending_mid">
@@ -44,5 +46,23 @@
         </div>
     </div>
 </div>
+
+<div class="small_label">
+    <img src="<?php echo PUBLIC_PATH ;?>img/label.png" >
+    <div class="small_label_border">
+    </div>
+</div>
+
+<script>
+    /*在线客服*/
+    $(".small_label").hover(function(){
+        $(".small_label_border").show();
+    },function(){
+        $(".small_label_border").hide();
+    })
+</script>
+</body>
 </html>
+
+
 

@@ -51,7 +51,7 @@ class indexController extends baseController  {
         $res=postModel::intance()->getAll();
 
 
-//        var_dump(postModel::intance()->getSql());
+//        var_dump(postModel::intance()->getSql());b
 
 
         $this->render($res);

@@ -7,7 +7,7 @@
  */
 
 
-class classController extends baseController {
+class benefitController extends baseController {
 
 
 
@@ -22,11 +22,8 @@ class classController extends baseController {
 
 //        var_dump(postModel::intance()->getSql());
 
-        $active = $_GET['active']?:1;
 
-        var_dump($active);
-
-        $this->render($active);
+        $this->render();
 //        $this::cc();
 
 
