@@ -93,6 +93,8 @@ class controller extends base{
 
     public function render($data=array())
     {
+
+        //todo  放到 专门的  response
         $this->onRender();
 
         if(isset($data)){

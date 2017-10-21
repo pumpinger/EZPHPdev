@@ -1,70 +1,48 @@
-<?php
-/**
- * Created by PhpStorm.
- * User: @van
- * Date: 2015/7/13
- * Time: 10:27
- */
-
-/**
- * @var $this \EZPHP\core\controller
- */
-?>
-
-<html>
+<!doctype html>
+<html lang="en">
 <head>
-    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
-    <title><?php echo $this->title?></title>
-    <link rel="shortcut icon" href="<?php echo WEB_PATH ;?>favicon.ico" />
+    <meta charset="UTF-8">
+    <meta name="Generator" content="EditPlus®">
+    <meta name="Author" content="">
+    <meta name="Keywords" content="">
+    <meta name="Description" content="">
+    <title>主页</title>
 
+    <link rel="stylesheet" href="<?php echo PUBLIC_PATH ;?>css/home.css"/>
     <script type="text/javascript" src="<?php echo PUBLIC_PATH ;?>lib/jquery-2.1.4.js"></script>
-    <link rel="stylesheet" href="<?php echo PUBLIC_PATH ;?>lib/iconfont/iconfont.css"/>
-    <link rel="stylesheet" href="<?php echo PUBLIC_PATH ;?>css/xstarp.css"/>
-    <script type="text/javascript" src="<?php echo PUBLIC_PATH ;?>js/xstarp.js"></script>
-
-    <style>
-        body {font-family: "Microsoft YaHei", 'Open Sans', sans-serif;background: #eee9c9;}
 
 
-        .top {background-color: #555;color: #fff;height: 50px;border-bottom: 10px solid #777f89;}
-
-        .top_log {display: inline-block;vertical-align:top;margin-top: 10px;margin-left: 10px;}
-        .top_nav {display: inline-block;vertical-align:top;margin: 22px 0 0 40px;}
-        .top_fun {display: inline-block;vertical-align:top;float: right;margin-right: 20px;margin-top: 20px;}
-        .top_nav a {float: left;margin-right: 20px;cursor: pointer;}
-    </style>
 </head>
-<body>
-
-<div class="top">
-    <div class="top_log x-font-30">
-        Logo
-    </div>
-    <div class="top_nav x-font-16">
-        <a href="<?php echo $this->makeUrl('index','index')?>">Home</a>
-        <a href="<?php echo $this->makeUrl('post','new')?>">New</a>
-        <a>Me</a>
-    </div>
-    <div class="top_fun x-font-14">
-        <?php if( $_SESSION):?>
-            <a><?php echo $_SESSION['name']?></a>
-            <a href="<?php echo $this->makeUrl('login','logout')?>">exit</a>
-        <?php else:?>
-            <a>login</a>
-            <a>logup</a>
-        <?php endif;?>
-
-    </div>
-
-</div>
 
 
 <?php include_once $this->view;?>
 
 
 
-</body>
-
-
+<div class="ending">
+    <div class="ending_all">
+        <div class="ending_left">
+            <h3>羊爸爸</h3>
+            <ul class="ending_list">
+                <li><a href="关于我们.html">侵权举报</a></li>
+                <li><a href="关于我们.html">对外合作</a></li>
+                <li><a href="关于我们.html">反馈建议</a></li>
+                <li><a href="关于我们.html">关于我们</a></li>
+                <li><a href="关于我们.html">联系我们</a></li>
+            </ul>
+        </div>
+        <div class="ending_mid">
+            <a>友情链接</a>
+        </div>
+        <div class="ending_bottom">
+            <p>2013-1017羊爸爸  版权所有  蜀安网安备 11010802021451号 蜀ICP备16036548号-2</p>
+        </div>
+        <div class="ending_right">
+            <div class="ending_border"></div>
+            <a><p style="margin-right:10px">关注我们</p>
+                <p style="color:#ffc000">微信/微博</p></a>
+        </div>
+    </div>
+</div>
 </html>
 

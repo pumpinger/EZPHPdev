@@ -27,20 +27,6 @@ class baseController extends \EZPHP\core\controller{
     }
 
 
-    public function onStart()
-    {
-
-        session_start();
-
-        if( ! $_SESSION){
-            R(301,$this->makeUrl('login'));
-            return false;
-        }
-
-
-        parent::onStart();
-    }
-    
     
 
 

@@ -12,6 +12,7 @@ use EZPHP\Exception\myException;
 
 class indexController extends baseController  {
 
+
     public function onStart()
     {
         parent::onStart();
@@ -54,20 +55,13 @@ class indexController extends baseController  {
 
 
         $this->render($res);
+//        $this::cc();
         
         
 
 //        include_once 'e.php';
 //        throw new e(1000);
     }
-
-
-
-
-
-
-
-
 
 
 
