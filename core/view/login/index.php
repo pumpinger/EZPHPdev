@@ -73,7 +73,7 @@
 ?>
 </div>
 <div id="login">
-    <h1>Login</h1>
+    <h1>羊爸爸后台登录</h1>
     <form method="post" data-action="<?php echo $this->makeUrl('login','login')?>">
         <input type="text" required="required" placeholder="用户名" name="account">
         <input type="password" required="required" placeholder="密码" name="password">
@@ -92,7 +92,7 @@
                 data:post_data,
                 success:function (data){
                     if(data.ok){
-                        location.href='<?php echo  $this->makeUrl()?>'
+                        location.href='<?php echo  $this->makeUrl('admin','index')?>'
                     }else{
                         $('.msg').html(data.msg);
                     }

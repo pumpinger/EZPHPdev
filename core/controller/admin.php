@@ -10,9 +10,14 @@ class adminController extends baseController {
 
 
 
+
     public function onRender()
     {
+
+
         $this->setLayout(APP_VIEW_PATH.'layout/admin.php');
+
+
         $this->setTitle('EZPHPDev');
     }
 
@@ -31,8 +36,20 @@ class adminController extends baseController {
 
         parent::onStart();
     }
-    
-    
+
+
+
+
+    public function indexAction()
+    {
+
+
+        $this->render();
+
+
+    }
+
+
 
 
 }

@@ -110,7 +110,8 @@ class app extends  base{
             include_once('./core/controller/'.$controller.'.php');
             $controllerClass=$controller.'Controller';
         }else{
-            echo 'no file';exit;
+            throw new \Exception('找不到file');
+
         }
 
 
@@ -122,7 +123,8 @@ class app extends  base{
             $newController=new $controllerClass;
             $newController->controller=$controller;
         }else{
-            echo 'no controller';exit;
+            throw new \Exception('找不到controller');
+
         }
 
 
@@ -161,7 +163,7 @@ class app extends  base{
 
 
         }else{
-            echo 'no action';exit;
+            throw new \Exception('找不到action');
         }
 
     }

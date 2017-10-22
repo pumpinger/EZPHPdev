@@ -7,7 +7,7 @@
  */
 
 
-class classController extends baseController {
+class manageController extends adminController  {
 
 
 

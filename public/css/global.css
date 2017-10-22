@@ -23,17 +23,21 @@ body {font-family: "Microsoft YaHei", 'Open Sans', sans-serif;background-color: 
 .top_select_active{color:#ffc000;}
 .top_introduction{position:absolute;top:40%;right:10%;color:#ffffff;font-weight:bold;font-size:12px;}
 .top_point {width:50px;margin-top:46px;display:none; }
+.top_select_active .top_point {display: inline-block;}
 .top_logo{position:absolute; right:0;top:25px; }
 .top_logo img {width:50px;}
 
 
 
 /*在线客服*/
-.small_label{position:fixed; top:300px; right:20px;cursor: pointer;}
+.small_label{position:fixed; top:50%; right:20px;cursor: pointer;}
 .small_label img {width:60px;}
 .small_label_border{position:absolute;right:0;top:-130px;width:100px;height:100px;border:2px solid #f7b24d;z-index:2;border-radius:6px;background-color:#fefefe;display:none;}
 .small_label_border:before{content:'';width:0;height: 0;border: 18px solid transparent; border-top-color: #f7b24d;position: absolute;left:55%;top:100%;}
 .small_label_border:after{content:'';width: 0;height: 0; border: 16px solid transparent;  border-top-color: #ffffff;  position: absolute;  left: 57%; top:99%;}
+.small_label_border img {width:100px;margin-top: 1px;}
+
+
 /*底部*/
 .ending{position:relative;bottom:0;min-width:1000px; height:200px;background-color:#5f5d5d;margin-top:40px;}
 .ending_all{margin:0 auto;height:100%;width:1000px;position:relative;}
@@ -45,6 +49,7 @@ body {font-family: "Microsoft YaHei", 'Open Sans', sans-serif;background-color: 
 .ending_right{position:absolute; top:40px;right:0;}
 .ending_list a{color:#c9c9c9;}
 .ending_right p {float:left;font-size:16px; color:#c9c9c9;}
-.ending_border{position:absolute; right:0;top:-130px; width:100px; height:100px;border:2px solid #f7b24d;z-index:2;border-radius:6px;background-color:#fefefe;}
+.ending_border{position:absolute;top:-130px;right: -9px; width:100px; height:100px;border:2px solid #f7b24d;z-index:2;border-radius:6px;background-color:#fefefe;}
 .ending_border:before{content:'';width: 0;   height: 0; border: 18px solid transparent;  border-top-color: #f7b24d;  position: absolute;  left: 40%; top:100%;}
 .ending_border:after{content:'';width: 0;   height: 0; border: 16px solid transparent;  border-top-color: #ffffff;  position: absolute;  left: 42%; top:99%;}
+.ending_border img {width:100px;margin-top: 2px;}

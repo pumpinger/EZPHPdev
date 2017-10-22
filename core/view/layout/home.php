@@ -26,11 +26,11 @@
         <div class="ending_left">
             <h3>羊爸爸</h3>
             <ul class="ending_list">
-                <li><a href="<?php echo $this->makeUrl('about','index')?>">侵权举报</a></li>
-                <li><a href="<?php echo $this->makeUrl('about','index')?>">对外合作</a></li>
-                <li><a href="<?php echo $this->makeUrl('about','index')?>">反馈建议</a></li>
+                <li><a href="<?php echo $this->makeUrl('about','index')?>#about_more">侵权举报</a></li>
+                <li><a href="<?php echo $this->makeUrl('about','index')?>#about_more">对外合作</a></li>
+                <li><a href="<?php echo $this->makeUrl('about','index')?>#about_more">反馈建议</a></li>
                 <li><a href="<?php echo $this->makeUrl('about','index')?>">关于我们</a></li>
-                <li><a href="<?php echo $this->makeUrl('about','index')?>">联系我们</a></li>
+                <li><a href="<?php echo $this->makeUrl('about','index')?>#about_more">联系我们</a></li>
             </ul>
         </div>
         <div class="ending_mid">
@@ -40,7 +40,9 @@
             <p>2013-1017羊爸爸  版权所有  蜀安网安备 11010802021451号 蜀ICP备16036548号-2</p>
         </div>
         <div class="ending_right">
-            <div class="ending_border"></div>
+            <div class="ending_border">
+                <img src="<?php echo PUBLIC_PATH ;?>img/qr.png" />
+            </div>
             <a><p style="margin-right:10px">关注我们</p>
                 <p style="color:#ffc000">微信/微博</p></a>
         </div>
@@ -50,6 +52,7 @@
 <div class="small_label">
     <img src="<?php echo PUBLIC_PATH ;?>img/label.png" >
     <div class="small_label_border">
+        <img src="<?php echo PUBLIC_PATH ;?>img/qr.png" />
     </div>
 </div>
 
