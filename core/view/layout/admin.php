@@ -59,11 +59,11 @@
         <a href="<?php echo $this->makeUrl('index','index')?>">羊爸爸</a>
     </div>
     <div class="top_nav x-font-16">
-        <a href="<?php echo $this->makeUrl('manage','community')?>">羊爸爸社区(图案，文章，评论)</a>
+        <a href="<?php echo $this->makeUrl('manage','community')?>">羊爸爸社区</a>
         <a href="<?php echo $this->makeUrl('manage','app')?>">羊爸爸APP</a>
         <a href="<?php echo $this->makeUrl('manage','beneift')?>">羊爸爸公益</a>
         <a href="<?php echo $this->makeUrl('manage','index')?>">课程管理</a>
-        <a href="<?php echo $this->makeUrl('manage','about')?>">关于我们（多个板块）</a>
+        <a href="<?php echo $this->makeUrl('manage','about')?>">关于我们</a>
         <a href="<?php echo $this->makeUrl('manage','setting')?>">设置(二维码，友链)</a>
     </div>
     <div class="top_fun x-font-14">

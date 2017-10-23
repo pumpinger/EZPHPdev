@@ -13,7 +13,8 @@
 <?php foreach ($this->assign as $value): ?>
 
 
-    <p>课程：<?php echo $value['name'] ?></p>
+    <p><?php echo $value['name'] ?></p>
+
     <br>
     <script id="myEditor_<?php echo $value['id'] ?>" name="content_<?php echo $value['id'] ?>" type="text/plain" style="width:600px;height:200px;">
         <?php echo $value['content'] ?>
@@ -21,13 +22,39 @@
     <br>
     <br>
 
+
+
+    <?php if($value['field'] == 'content'):?>
+
+
+        <script type="text/javascript">
+            //    $(function(){
+            window.um = UM.getEditor('myEditor_<?php echo $value['id'] ?>', {
+                /* 传入配置参数,可配参数列表看umeditor.config.js */
+                initialFrameWidth:'1000px'
+            });
+        </script>
+    <?php else:?>
     <script type="text/javascript">
         //    $(function(){
         window.um = UM.getEditor('myEditor_<?php echo $value['id'] ?>', {
             /* 传入配置参数,可配参数列表看umeditor.config.js */
-            initialFrameWidth:'1000px'
+            initialFrameWidth:'600px',
+            toolbar:[
+                'undo redo | bold italic underline | forecolor backcolor | removeformat |',
+                'insertorderedlist insertunorderedlist | selectall  | fontfamily fontsize' ,
+            ]
         });
     </script>
+
+    <?php endif;?>
+
+
+
+
+
+
+
 
 <?php endforeach; ?>
 
@@ -47,7 +74,7 @@
         $.ajax({
             type:'POST',
             dataType:'json',
-            url:'<?php echo $this->makeUrl('manage','classSave')?>',
+            url:'<?php echo $this->makeUrl('manage','aboutSave')?>',
             data:data,
             success:function (res){
                 if(res.ok){

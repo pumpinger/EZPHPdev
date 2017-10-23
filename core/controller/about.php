@@ -17,13 +17,19 @@ class aboutController extends baseController {
 
 
 
-//        $res=postModel::intance()->getAll();
+        $res = aboutModel::intance()->getAll();
+
+        $data = [];
+
+        foreach ($res as $v) {
+            $data[$v['field']] = $v['content'];
+        }
 
 
 //        var_dump(postModel::intance()->getSql());
 
 
-        $this->render();
+        $this->render($data);
 //        $this::cc();
 
 
