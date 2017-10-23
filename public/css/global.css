@@ -17,7 +17,7 @@ body {font-family: "Microsoft YaHei", 'Open Sans', sans-serif;background-color: 
 .top_page{height:100%; float:left;}
 .top_page img{max-width:50px; max-height:50px;margin:40px;}
 .top_all{width:1000px;position:relative;margin:0 auto;height:130px;}
-.top_book{padding-right:40px;height:130px;float:left;background-color:#474443;width:630px;}
+.top_book{padding-right:40px;height:130px;background-color:#474443;width:630px;}
 .top_select{margin-left:25px;float:left;margin-top:50px;text-align:center;color:#b6b6b7;font-weight:bold;cursor:pointer;}
 .top_select p{min-width:50px;}
 .top_select_active{color:#ffc000;}
@@ -41,10 +41,12 @@ body {font-family: "Microsoft YaHei", 'Open Sans', sans-serif;background-color: 
 /*底部*/
 .ending{position:relative;bottom:0;min-width:1000px; height:200px;background-color:#5f5d5d;margin-top:40px;}
 .ending_all{margin:0 auto;height:100%;width:1000px;position:relative;}
-.ending_left{margin-top:40px;display:inline-block;width:240px;}
+.ending_left{margin-top:40px;display:inline-block;width:240px;vertical-align: top;}
 .ending_left h3 {color:#ffc000;font-size:24px;}
 .ending_left li{float:left;margin:10px 20px 0 0; font-size:14px;color:#c9c9c9;letter-spacing:1px}
-.ending_mid a{position:absolute; top:40px; left:48%;color:#c9c9c9}
+.ending_mid {display: inline-block;margin: 38px 20px 0 50px;width: 465px;word-break: keep-all;line-height: 28px;}
+.ending_mid p{margin-left:200px;color:#c9c9c9;margin-bottom: 11px;}
+.ending_mid a{font-size: 14px;padding: 2px 5px;margin-left: 20px;color: #c9c9c9;}
 .ending_bottom p{position:absolute; bottom:20px; left:30%;color:#c9c9c9;font-size:10px;}
 .ending_right{position:absolute; top:40px;right:0;}
 .ending_list a{color:#c9c9c9;}

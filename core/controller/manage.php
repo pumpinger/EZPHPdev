@@ -95,6 +95,83 @@ class manageController extends adminController  {
 //        throw new e(1000);
     }
 
+
+
+    public function settingAction(){
+
+
+
+        $qrRes=settingModel::intance()->getAll();
+        $linkRes=linkModel::intance()->getAll();
+
+
+//        var_dump(postModel::intance()->getSql());
+
+
+
+        $this->render(array(
+            'qr'=>$qrRes,
+            'link'=>$linkRes,
+        ));
+//        $this::cc();
+
+
+
+//        include_once 'e.php';
+//        throw new e(1000);
+    }
+
+
+    public function settingSaveAction(){
+
+
+
+
+
+        linkModel::intance()->delAll();
+
+        $res = true;
+
+        foreach ($_REQUEST['name'] as  $k => $v) {
+
+
+            if(!$v){
+                continue;
+            }
+
+
+            $res=linkModel::intance()->addOne(
+                array(
+                    'name'=>$v,
+                    'link'=>$_REQUEST['link'][$k]
+                )
+            );
+
+            if( ! $res ){
+                break;
+            }
+        }
+
+
+
+        if($res){
+            $this->json();
+
+        }else{
+            throw new \EZPHP\Exception\myException('保存失败');
+
+
+        }
+
+
+
+
+//        include_once 'e.php';
+//        throw new e(1000);
+    }
+
+
+
     public function aboutSaveAction()
     {
 

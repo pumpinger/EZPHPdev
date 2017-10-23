@@ -304,6 +304,7 @@ class db extends base
 
 
 
+        //todo  相似逻辑应该 都走 getps
 
 
         $PS =$this->pdo->prepare($sql);
@@ -319,6 +320,38 @@ class db extends base
 
         return $this->pdo->lastInsertId();
 
+
+    }
+
+
+    public function del()
+    {
+
+        $table= $this->sql['table'] ?:$this->getTableName();
+
+        $sql='DELETE FROM '.$table.' ';
+
+
+
+
+        //todo  相似逻辑应该 都走 getps
+
+
+        if($this->sql['where']){
+            $sql.=' WHERE '.$this->sql['where'];
+        }
+
+        $PS =$this->pdo->prepare($sql);
+
+        for ($i = 0; $i < count($this->sql['param']); $i++) {
+            $PS->bindParam($i+1,$this->sql['param'][$i]);
+        }
+
+
+
+        $this->init();
+
+        return $PS->execute();
 
     }
 
@@ -348,6 +381,8 @@ class db extends base
 
 
 
+
+        //todo 之前声明的 where 参数，要放到后面去 绑定  不该这样
         $oldParam = $this->sql['param'];
         $this->sql['param'] = [];
 

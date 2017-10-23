@@ -34,7 +34,22 @@
             </ul>
         </div>
         <div class="ending_mid">
-            <a>友情链接</a>
+            <p>友情链接</p>
+
+
+            <?php //todo 这里的数据  这么通过controller 传过来 ?>
+
+            <?php
+
+                $res = linkModel::intance()->getAll();
+
+                foreach ($res as $v) {
+                    echo '<a target="_blank" href="'.$v['link'].'">'.$v['name'].'</a>';
+                }
+
+
+            ?>
+
         </div>
         <div class="ending_bottom">
             <p>2013-1017羊爸爸  版权所有  蜀安网安备 11010802021451号 蜀ICP备16036548号-2</p>

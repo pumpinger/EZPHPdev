@@ -20,9 +20,9 @@
     <script type="text/javascript" src="<?php echo PUBLIC_PATH ;?>lib/jquery-2.1.4.js"></script>
 
 
-    <link rel="stylesheet" href="<?php echo PUBLIC_PATH ;?>lib/iconfont/iconfont.css"/>
-    <link rel="stylesheet" href="<?php echo PUBLIC_PATH ;?>css/xstarp.css"/>
-    <script type="text/javascript" src="<?php echo PUBLIC_PATH ;?>js/xstarp.js"></script>
+<!--    <link rel="stylesheet" href="--><?php //echo PUBLIC_PATH ;?><!--lib/iconfont/iconfont.css"/>-->
+<!--    <link rel="stylesheet" href="--><?php //echo PUBLIC_PATH ;?><!--css/xstarp.css"/>-->
+<!--    <script type="text/javascript" src="--><?php //echo PUBLIC_PATH ;?><!--js/xstarp.js"></script>-->
 
 
 
@@ -36,20 +36,36 @@
 
 
     <style>
+
+        body, dl, dd, h1, h2, h3, h4, h5, h6, p, form,a,button{margin:0;padding:0;}
+        ol,li,ul{margin:0; padding:0;list-style: outside none none;}
+        p,div {word-wrap:break-word;}
+        a{text-decoration:none;color: inherit;}
+        img{border: 0;}
+        table{border-collapse:collapse;border-spacing:0;}
+        label {cursor:pointer;}
+        input, button, textarea, select {font-size: inherit;width: auto;padding:0;}
+        ol, ul { list-style: none; }
+
+
+
         body {font-family: "Microsoft YaHei", 'Open Sans', sans-serif;background: #eee9c9;}
 
 
         .top {background-color: #555;color: #fff;height: 50px;border-bottom: 10px solid #777f89;}
 
-        .top_log {display: inline-block;vertical-align:top;margin-top: 8px;margin-left: 10px;}
-        .top_nav {display: inline-block;vertical-align:top;margin: 22px 0 0 40px;}
-        .top_fun {display: inline-block;vertical-align:top;float: right;margin-right: 20px;margin-top: 20px;}
+        .top_log {display: inline-block;vertical-align:top;margin-top: 8px;margin-left: 10px;font-size: 30px;}
+        .top_nav {display: inline-block;vertical-align:top;margin: 22px 0 0 40px;font-size: 16px;}
+        .top_fun {display: inline-block;vertical-align:top;float: right;margin-right: 20px;margin-top: 20px;font-size: 14px;}
         .top_nav a {float: left;margin-right: 20px;cursor: pointer;}
 
 
         .main {padding: 20px;}
 
-        .save {background: #9cb945;border: 1px solid #bcc774;padding: 5px 10px;cursor: pointer;color: #ffffff;}
+        .save {background: #bcc774;border: 1px solid #9cb945;padding: 4px 10px;cursor: pointer;color: #ffffff;}
+        .button {background: #5c9dff;border: 1px solid #4a77d4;padding: 4px 10px;cursor: pointer;color: #ffffff;}
+
+        input  {line-height: 30px;border-radius: 5px;border: 1px solid #5f5f5d;}
     </style>
 </head>
 <body>
@@ -64,7 +80,7 @@
         <a href="<?php echo $this->makeUrl('manage','beneift')?>">羊爸爸公益</a>
         <a href="<?php echo $this->makeUrl('manage','index')?>">课程管理</a>
         <a href="<?php echo $this->makeUrl('manage','about')?>">关于我们</a>
-        <a href="<?php echo $this->makeUrl('manage','setting')?>">设置(二维码，友链)</a>
+        <a href="<?php echo $this->makeUrl('manage','setting')?>">设置</a>
     </div>
     <div class="top_fun x-font-14">
         <?php if( $_SESSION):?>

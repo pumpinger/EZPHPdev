@@ -47,7 +47,7 @@
         <div class="text_content3">
             <img src="<?php echo PUBLIC_PATH ;?>img/logo2.png">
             <div class="text_link">
-                <a href="">进入社区 > > </a>
+                <a target="_blank" href="http://www.yang-baba.net/article/48">进入社区 &gt; &gt; </a>
             </div>
         </div>
     </div>
