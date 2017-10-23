@@ -304,10 +304,6 @@ class db extends base
 
 
 
-        if($this->sql['where']){
-            $sql.=' WHERE '.$this->sql['where'];
-        }
-
 
 
         $PS =$this->pdo->prepare($sql);
@@ -319,8 +315,70 @@ class db extends base
 
         $PS->execute();
 
+        $this->init();
 
         return $this->pdo->lastInsertId();
+
+
+    }
+
+
+
+
+    public function chg($data)
+    {
+
+
+
+        $table= $this->sql['table'] ?:$this->getTableName();
+
+        $sql='UPDATE '.$table.' SET ';
+
+
+
+
+
+
+
+
+
+
+
+        //UPDATE `t_class` SET `name` = '中医育儿基础班1' WHERE `t_class`.`id` = 1;
+
+
+
+        $oldParam = $this->sql['param'];
+        $this->sql['param'] = [];
+
+        foreach ($data as $k=>$v) {
+            $sql.='`'.$k.'` = ? ';
+            $this->sql['param'][]=$v;
+        }
+
+        $this->sql['param'] = array_merge($this->sql['param'],$oldParam);
+
+
+
+
+        //todo  相似逻辑应该 都走 getps
+
+
+        if($this->sql['where']){
+            $sql.=' WHERE '.$this->sql['where'];
+        }
+
+        $PS =$this->pdo->prepare($sql);
+
+        for ($i = 0; $i < count($this->sql['param']); $i++) {
+            $PS->bindParam($i+1,$this->sql['param'][$i]);
+        }
+
+
+
+        $this->init();
+
+        return $PS->execute();
 
 
     }

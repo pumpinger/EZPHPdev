@@ -15,17 +15,20 @@ class classController extends baseController {
 
     public function indexAction(){
 
+        $active = $_GET['active']?:1;
 
 
-//        $res=postModel::intance()->getAll();
+        $res=classModel::intance()->getOne($active);
 
 
 //        var_dump(postModel::intance()->getSql());
 
-        $active = $_GET['active']?:1;
 
 
-        $this->render($active);
+        $this->render(array(
+            'active'=>$active,
+            'data'=>$res
+        ));
 //        $this::cc();
 
 
