@@ -75,6 +75,39 @@ class manageController extends adminController  {
     }
 
 
+
+    public function appAction()
+    {
+        $res=moduleModel::intance()->getOne(2);
+
+        $this->render($res);
+
+    }
+
+    public function benefitAction()
+    {
+        $res=moduleModel::intance()->getOne(3);
+
+        $this->render($res);
+
+    }
+
+    public function communityAction()
+    {
+        $res=moduleModel::intance()->getOne(1);
+
+        $this->render($res);
+
+    }
+
+    public function appSaveAction()
+    {
+        $res=moduleModel::intance()->getOne(2);
+
+        $this->render($res);
+
+    }
+
     public function aboutAction(){
 
 

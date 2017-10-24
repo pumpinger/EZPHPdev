@@ -18,14 +18,13 @@
 </style>
 
 <div class="top_topic">
-    <div class="top_page">
-        <a href="<?php echo $this->makeUrl('index','index')?>"><img src="<?php echo PUBLIC_PATH ;?>img/7.png"></a>
-    </div>
     <div class="top_all">
+        <div class="top_page">
+            <a href="<?php echo $this->makeUrl('index','index')?>"><img src="<?php echo PUBLIC_PATH ;?>img/7.png"></a>
+        </div>
         <div class="top_book">
             <ul>
                 <li class="top_select"><p>羊爸爸中医育儿社区</p></li>
-                <img class="top_point" src="<?php echo PUBLIC_PATH ;?>img/icon4.png"></li>
             </ul>
         </div>
         <div class="top_introduction">

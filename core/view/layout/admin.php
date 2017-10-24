@@ -33,6 +33,9 @@
     <script type="text/javascript" src="<?php echo PUBLIC_PATH ;?>lib/umeditor/lang/zh-cn/zh-cn.js"></script>
 
 
+    <script type="text/javascript" src="http://cdn.staticfile.org/webuploader/0.1.0/webuploader.html5only.min.js"></script>
+
+
 
 
     <style>
@@ -77,7 +80,7 @@
     <div class="top_nav x-font-16">
         <a href="<?php echo $this->makeUrl('manage','community')?>">羊爸爸社区</a>
         <a href="<?php echo $this->makeUrl('manage','app')?>">羊爸爸APP</a>
-        <a href="<?php echo $this->makeUrl('manage','beneift')?>">羊爸爸公益</a>
+        <a href="<?php echo $this->makeUrl('manage','benefit')?>">羊爸爸公益</a>
         <a href="<?php echo $this->makeUrl('manage','index')?>">课程管理</a>
         <a href="<?php echo $this->makeUrl('manage','about')?>">关于我们</a>
         <a href="<?php echo $this->makeUrl('manage','setting')?>">设置</a>

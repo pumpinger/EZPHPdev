@@ -37,7 +37,7 @@
             <p>友情链接</p>
 
 
-            <?php //todo 这里的数据  这么通过controller 传过来 ?>
+            <?php //todo 这里的数据  怎么通过controller 传过来 ?>
 
             <?php
 

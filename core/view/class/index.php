@@ -14,10 +14,11 @@
 </style>
 
 <div class="top_topic">
-    <div class="top_page">
-        <a href="<?php echo $this->makeUrl('index','index')?>"><img src="<?php echo PUBLIC_PATH ;?>img/7.png" ></a>
-    </div>
+
     <div class="top_all">
+        <div class="top_page">
+            <a href="<?php echo $this->makeUrl('index','index')?>"><img src="<?php echo PUBLIC_PATH ;?>img/7.png" ></a>
+        </div>
         <div class="top_book">
             <ul>
                 <li class="top_select <?php echo $this->assign['active']==1?'top_select_active':''; ?>">

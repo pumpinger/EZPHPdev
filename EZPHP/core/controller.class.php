@@ -97,6 +97,9 @@ class controller extends base{
         //todo  放到 专门的  response
         $this->onRender();
 
+
+
+        //todo 页面上  比如 导航栏 那些变量 怎么传递
         if(isset($data)){
             $this->assign=$data;
         }

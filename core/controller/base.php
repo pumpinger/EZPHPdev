@@ -12,6 +12,7 @@ class baseController extends \EZPHP\core\controller{
 
     public function onRender()
     {
+
         $this->setLayout(APP_VIEW_PATH.'layout/home.php');
         $this->setTitle('EZPHPDev');
     }

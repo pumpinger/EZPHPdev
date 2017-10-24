@@ -12,25 +12,20 @@
     .text_content2 {margin: 60px 0 0 40px; border-top:1px solid #e4e4e4;width:635px;position:relative;padding-bottom:30px;}
     .text_link{width:630px;height:40px;background-color:#a0d9f6;margin-left:40px;text-align:center;line-height:40px;}
     .text_link a{font-weight:800; color:#ffffff;}
-    .text_eva span{color:#b7b7b7; font-size:12px;}
-    .text_eva_border {position:relative;border:2px solid #c8c8c9; width:360px; height:100px;margin: 16px 0; border-radius:4px;padding:10px;}
-    .text_eva_border:before{content:'';width:0;height:0;border:12px solid transparent;border-bottom-color: #c8c8c9;position: absolute;  left:10px; top:-26px;}
-    .text_eva_border:after{content:'';width:0;height:0;border:12px solid transparent;border-bottom-color: #ffffff;position: absolute;  left:10px; top:-24px;}
-    .text_eva_border p{color:#6d6c6d;font-size:12px; line-height:24px;font-weight:600;}
-    .text_pic{position:absolute; top:0; right:0;}
-    .text_pic img{width:100px;position:relative; top:200px;}
+
+
 
 </style>
 
 <div class="top_topic">
-    <div class="top_page">
-        <a  href="<?php echo $this->makeUrl('index','index')?>"><img src="<?php echo PUBLIC_PATH ;?>img/7.png"></a>
-    </div>
+
     <div class="top_all">
+        <div class="top_page">
+            <a  href="<?php echo $this->makeUrl('index','index')?>"><img src="<?php echo PUBLIC_PATH ;?>img/7.png"></a>
+        </div>
         <div class="top_book">
             <ul>
                 <li class="top_select"><p>羊爸爸公益</p></li>
-                <img class="top_point" src="<?php echo PUBLIC_PATH ;?>img/icon4.png"></li>
             </ul>
         </div>
         <div class="top_introduction">

@@ -11,10 +11,11 @@ ol, ul { list-style: none; }
 
 
 body {font-family: "Microsoft YaHei", 'Open Sans', sans-serif;background-color: #ececec;}
+body.ban {overflow: hidden;height: 100%;}
 
 
 .top_topic{min-width:1000px;height:130px;background-color:#ffc000;}
-.top_page{height:100%; float:left;}
+.top_page {height:100%; position: absolute;left: -130px;}
 .top_page img{max-width:50px; max-height:50px;margin:40px;}
 .top_all{width:1000px;position:relative;margin:0 auto;height:130px;}
 .top_book{padding-right:40px;height:130px;background-color:#474443;width:630px;}
@@ -26,6 +27,21 @@ body {font-family: "Microsoft YaHei", 'Open Sans', sans-serif;background-color: 
 .top_select_active .top_point {display: inline-block;}
 .top_logo{position:absolute; right:0;top:25px; }
 .top_logo img {width:50px;}
+
+
+
+
+
+
+/*评价*/
+.text_eva span{color:#b7b7b7; font-size:12px;}
+.text_eva_border {position:relative;border:2px solid #c8c8c9; width:360px; height:100px;margin: 16px 0; border-radius:4px;padding:10px;}
+.text_eva_border:before{content:'';width:0;height:0;border:12px solid transparent;border-bottom-color: #c8c8c9;position: absolute;  left:10px; top:-26px;}
+.text_eva_border:after{content:'';width:0;height:0;border:12px solid transparent;border-bottom-color: #ffffff;position: absolute;  left:10px; top:-24px;}
+.text_eva_border p{color:#6d6c6d;font-size:12px; line-height:24px;font-weight:600;}
+.text_pic{position:absolute; top:0; right:0;}
+.text_pic img{width:100px;position:relative; top:200px;}
+
 
 
 
@@ -55,3 +71,13 @@ body {font-family: "Microsoft YaHei", 'Open Sans', sans-serif;background-color: 
 .ending_border:before{content:'';width: 0;   height: 0; border: 18px solid transparent;  border-top-color: #f7b24d;  position: absolute;  left: 40%; top:100%;}
 .ending_border:after{content:'';width: 0;   height: 0; border: 16px solid transparent;  border-top-color: #ffffff;  position: absolute;  left: 42%; top:99%;}
 .ending_border img {width:100px;margin-top: 2px;}
+
+
+
+/*弹窗*/
+.mask {position: fixed;width: 100%;height: 100%;background: #ffffff;z-index: 99;opacity: 0.6;top:0;display: none;}
+.dialog {width: 500px;height:200px;background:#fff;border:1px solid #8b8b8c;border-radius:10px;top:50%;left:50%;margin-left:-250px;margin-top:-100px;}
+.dialog {position:fixed;z-index: 100;display: none;-moz-box-shadow:2px 2px 5px #333333; -webkit-box-shadow:2px 2px 5px #333333; box-shadow:2px 2px 5px #333333;}
+.dialog a {cursor: pointer;padding: 5px 10px;float: right;font-size: 20px;font-weight: bold;}
+.dialog_div {display: inline-block;vertical-align: top;margin-top: 40px;margin-left: 30px;}
+.dialog_div img {vertical-align: top;}

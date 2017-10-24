@@ -14,16 +14,16 @@
     .text_singel p{font-size:12px;font-weight:600; line-height:24px;}
 
 </style>
-<body>
+
 <div class="top_topic">
-    <div class="top_page">
-        <a  href="<?php echo $this->makeUrl('index','index')?>"><img src="<?php echo PUBLIC_PATH ;?>img/7.png"></a>
-    </div>
+
     <div class="top_all">
+        <div class="top_page">
+            <a  href="<?php echo $this->makeUrl('index','index')?>"><img src="<?php echo PUBLIC_PATH ;?>img/7.png"></a>
+        </div>
         <div class="top_book">
             <ul>
                 <li class="top_select"><p>关于我们</p></li>
-                <img class="top_point" src="<?php echo PUBLIC_PATH ;?>img/icon4.png"></li>
             </ul>
         </div>
 
