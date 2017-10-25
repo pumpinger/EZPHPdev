@@ -6,7 +6,8 @@
     <meta name="Author" content="">
     <meta name="Keywords" content="">
     <meta name="Description" content="">
-    <title>主页</title>
+    <title><?php echo $this->title?></title>
+
 
     <link rel="stylesheet" href="<?php echo PUBLIC_PATH ;?>css/global.css"/>
     <script type="text/javascript" src="<?php echo PUBLIC_PATH ;?>lib/jquery-2.1.4.js"></script>

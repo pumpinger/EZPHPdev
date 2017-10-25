@@ -6,32 +6,37 @@
  */
 
 
+var_dump($this);
 ?>
 
 <form class="form">
 
 
 
-        <p><?php echo $this->assign['name'] ?></p>
 
-        <br>
-        <script id="myEditor_<?php echo $value['id'] ?>" name="content_<?php echo $value['id'] ?>" type="text/plain" style="width:600px;height:200px;">
-        <?php echo $value['content'] ?>
+    <p>正文</p>
+
+    <br>
+    <script id="myEditor" name="content" type="text/plain" style="width:600px;height:200px;">
+    <?php echo $value['content'] ?>
+</script>
+    <br>
+
+
+    <script type="text/javascript">
+        //    $(function(){
+        window.um = UM.getEditor('myEditor', {
+            /* 传入配置参数,可配参数列表看umeditor.config.js */
+            initialFrameWidth:'1000px'
+        });
     </script>
-        <br>
-        <br>
+
+
+    <p>图片</p>
 
 
 
-
-
-        <script type="text/javascript">
-            //    $(function(){
-            window.um = UM.getEditor('myEditor_<?php echo $value['id'] ?>', {
-                /* 传入配置参数,可配参数列表看umeditor.config.js */
-                initialFrameWidth:'1000px'
-            });
-        </script>
+    <p>评论</p>
 
 
 

@@ -18,7 +18,7 @@ class adminController extends baseController {
         $this->setLayout(APP_VIEW_PATH.'layout/admin.php');
 
 
-        $this->setTitle('EZPHPDev');
+        $this->setTitle('羊爸爸-后台管理');
     }
 
 

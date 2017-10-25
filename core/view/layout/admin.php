@@ -33,7 +33,7 @@
     <script type="text/javascript" src="<?php echo PUBLIC_PATH ;?>lib/umeditor/lang/zh-cn/zh-cn.js"></script>
 
 
-    <script type="text/javascript" src="http://cdn.staticfile.org/webuploader/0.1.0/webuploader.html5only.min.js"></script>
+<!--    <script type="text/javascript" src="http://cdn.staticfile.org/webuploader/0.1.0/webuploader.html5only.min.js"></script>-->
 
 
 

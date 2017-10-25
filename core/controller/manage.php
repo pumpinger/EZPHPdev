@@ -76,13 +76,6 @@ class manageController extends adminController  {
 
 
 
-    public function appAction()
-    {
-        $res=moduleModel::intance()->getOne(2);
-
-        $this->render($res);
-
-    }
 
     public function benefitAction()
     {
@@ -100,6 +93,18 @@ class manageController extends adminController  {
 
     }
 
+
+
+
+    public function appAction()
+    {
+        $res=moduleModel::intance()->getOne(2);
+
+        $this->render($res);
+
+    }
+
+
     public function appSaveAction()
     {
         $res=moduleModel::intance()->getOne(2);
@@ -108,25 +113,6 @@ class manageController extends adminController  {
 
     }
 
-    public function aboutAction(){
-
-
-
-        $res=aboutModel::intance()->getAll();
-
-
-//        var_dump(postModel::intance()->getSql());
-
-
-
-        $this->render($res);
-//        $this::cc();
-
-
-
-//        include_once 'e.php';
-//        throw new e(1000);
-    }
 
 
 
@@ -204,6 +190,27 @@ class manageController extends adminController  {
     }
 
 
+
+
+    public function aboutAction(){
+
+
+
+        $res=aboutModel::intance()->getAll();
+
+
+//        var_dump(postModel::intance()->getSql());
+
+
+
+        $this->render($res);
+//        $this::cc();
+
+
+
+//        include_once 'e.php';
+//        throw new e(1000);
+    }
 
     public function aboutSaveAction()
     {

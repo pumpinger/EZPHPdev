@@ -16,7 +16,7 @@
     <p><?php echo $value['name'] ?></p>
 
     <br>
-    <script id="myEditor_<?php echo $value['id'] ?>" name="content_<?php echo $value['id'] ?>" type="text/plain" style="width:600px;height:200px;">
+    <script id="myEditor_<?php echo $value['id'] ?>" name="content_<?php echo $value['id'] ?>" type="text/plain" >
         <?php echo $value['content'] ?>
     </script>
     <br>
@@ -40,6 +40,7 @@
         window.um = UM.getEditor('myEditor_<?php echo $value['id'] ?>', {
             /* 传入配置参数,可配参数列表看umeditor.config.js */
             initialFrameWidth:'600px',
+            initialFrameHeight:'300px',
             toolbar:[
                 'undo redo | bold italic underline | forecolor backcolor | removeformat |',
                 'insertorderedlist insertunorderedlist | selectall  | fontfamily fontsize' ,

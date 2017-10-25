@@ -14,7 +14,7 @@ class baseController extends \EZPHP\core\controller{
     {
 
         $this->setLayout(APP_VIEW_PATH.'layout/home.php');
-        $this->setTitle('EZPHPDev');
+        $this->setTitle('羊爸爸-中医育儿');
     }
 
     public function setLayout($layout)
