@@ -17,13 +17,13 @@ class appController extends baseController {
 
 
 
-//        $res=postModel::intance()->getAll();
+        $res=moduleModel::intance()->getOne(2);
 
 
 //        var_dump(postModel::intance()->getSql());
 
 
-        $this->render();
+        $this->render($res);
 //        $this::cc();
 
 

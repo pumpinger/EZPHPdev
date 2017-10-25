@@ -57,7 +57,12 @@
         </div>
         <div class="ending_right">
             <div class="ending_border">
-                <img src="<?php echo PUBLIC_PATH ;?>img/qr.png" />
+
+                <?php
+                $res = settingModel::intance()->getOne(1);
+                echo '<img src="'. $res['value'].'" />';
+                ?>
+
             </div>
             <a><p style="margin-right:10px">关注我们</p>
                 <p style="color:#ffc000">微信/微博</p></a>
@@ -68,7 +73,10 @@
 <div class="small_label">
     <img src="<?php echo PUBLIC_PATH ;?>img/label.png" >
     <div class="small_label_border">
-        <img src="<?php echo PUBLIC_PATH ;?>img/qr.png" />
+        <?php
+        $res = settingModel::intance()->getOne(1);
+        echo '<img src="'. $res['value'].'" />';
+        ?>
     </div>
 </div>
 

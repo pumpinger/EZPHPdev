@@ -17,14 +17,7 @@
 
 
 
-    .file_picker {display: inline-block;vertical-align: top;margin-bottom: 20px;}
-    .file_list {display: inline-block;vertical-align: top;}
 
-    .file_item {margin-left: 10px;display: inline-block;}
-
-    .file_info {white-space: nowrap;text-overflow: ellipsis;width: 100px;overflow: hidden;}
-    .file_progress {width: 100px;height: 16px;border: 1px solid #00b7ee;}
-    .file_progress span {height: 100%;background-color: #00a2d4;display: inline-block;}
 </style>
 
 
@@ -40,7 +33,11 @@
         <div class="uploader_share_qr">
             <!--用来存放item-->
             <div class="file_picker" id="filePicker_<?php echo $value['id']?>">选择图片</div>
-            <div class="file_list file_list_<?php echo $value['id']?>"></div>
+            <div class="file_list file_list_<?php echo $value['id']?>">
+                <div class="file_item">
+                    <img src="<?php echo $value['value'] ?>" alt="" width="100" height="100">
+                </div>
+            </div>
             <input class="fileInput" type="hidden" name="qr[<?php echo $value['id']?>]" value="<?php echo $value['value'] ?>">
         </div>
 
@@ -76,7 +73,7 @@
                     $img = $li.find('img');
 
                 // $list为容器jQuery实例
-                $('.file_list_<?php echo $value['id']?>').append( $li );
+                $('.file_list_<?php echo $value['id']?>').html( $li );
 
 
                 uploader<?php echo $value['id']?>.makeThumb( file, function( error, src ) {
@@ -104,9 +101,23 @@
             });
 
             // 文件上传成功，给item添加成功class, 用样式标记上传成功。
-            uploader<?php echo $value['id']?>.on( 'uploadSuccess', function( file ) {
+            uploader<?php echo $value['id']?>.on( 'uploadSuccess', function( file,response  ) {
 //                $( '#'+file.id ).addClass('file_done');
-//                $('[name=qr[<?php //echo $value['id']?>//]]').val(file);
+
+
+
+                if(!response.url){
+
+                    var $li = $( '#'+file.id ),
+                        $error = $li.find('div.file_error');
+                    if ( !$error.length ) {
+                        $error = $('<div class="file_error"></div>').appendTo( $li );
+                    }
+                    $error.text('上传失败');
+                }else{
+                    $('[name="qr[<?php echo $value['id']?>]"]').val(response.url);
+                }
+
             });
 
             // 文件上传失败，显示上传出错。

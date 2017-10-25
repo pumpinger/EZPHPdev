@@ -71,7 +71,11 @@
 
         <div class="text_content2">
             <h2 style="padding-left:0;">报名链接</h2>
-            <a><img src="<?php echo PUBLIC_PATH ;?>img/qr.png" /></a>
+
+            <?php
+            $res = settingModel::intance()->getOne(1);
+            echo '<img src="'. $res['value'].'" />';
+            ?>
         </div>
         <div class="text_content3">
             <img src="<?php echo PUBLIC_PATH ;?>img/logo2.png" >

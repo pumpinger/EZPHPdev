@@ -58,6 +58,9 @@
 
 
         .main {width: 1000px;margin: 0 auto;}
+        .main {padding: 20px;}
+
+
         .top {background-color: #555;color: #fff;height: 50px;border-bottom: 10px solid #777f89;}
 
         .top_log {display: inline-block;vertical-align:top;margin-top: 8px;margin-left: 10px;font-size: 30px;}
@@ -67,12 +70,27 @@
         .top_nav .active {color: #eee9c9;}
 
 
-        .main {padding: 20px;}
+
+
 
         .save {background: #bcc774;border: 1px solid #9cb945;padding: 4px 10px;cursor: pointer;color: #ffffff;}
         .button {background: #5c9dff;border: 1px solid #4a77d4;padding: 4px 10px;cursor: pointer;color: #ffffff;}
-
         input  {line-height: 30px;height:32px;border-radius: 5px;border: 1px solid #5f5f5d;}
+
+
+
+
+        .file_picker {display: inline-block;vertical-align: top;margin-top:30px;margin-right: 15px;}
+        .file_list {display: inline-block;vertical-align: top;}
+
+        .file_item {margin-left: 10px;display: inline-block;vertical-align: top;}
+
+        .file_info {white-space: nowrap;text-overflow: ellipsis;width: 100px;overflow: hidden;}
+        .file_progress {width: 100px;height: 16px;border: 1px solid #00b7ee;}
+        .file_progress span {height: 100%;background-color: #00a2d4;display: inline-block;}
+
+
+
     </style>
 </head>
 <body>

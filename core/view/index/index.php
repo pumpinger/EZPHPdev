@@ -24,7 +24,7 @@
     .matter_radius strong{font-size:16px;}
     /*羊爸爸专栏*/
     .column_all{margin:0 auto;height:100%;width:1000px;}
-    .column_community,.column_app,.column_commonweal{width:1000px;height:200px;margin-top:20px;position:relative;}
+    .column_community,.column_app,.column_commonweal{background-size: 100% 100%;width:1000px;height:200px;margin-top:20px;position:relative;}
     .column_community{background-color:#5f5f5d;}
     .column_app{background-color:#757475;}
     .column_commonweal{background-color:#757475;}
@@ -63,7 +63,7 @@
         <ul class="matter_book">
 
 
-            <?php foreach ($this->assign as $v): ?>
+            <?php foreach ($this->assign['nav'] as $v): ?>
 
                 <?php if($v['id']  == 1 ):?>
                     <li class="matter_radius"  style="margin-left:50px;">
@@ -98,19 +98,19 @@
 </div>
 <div class="column">
     <div class="column_all">
-        <div class="column_community">
+        <div class="column_community" style="background-image:url(<?php echo $this->assign['pic'][0]['pic']?>)">
             <h2>羊爸爸社区</h2>
             <p style="top:70px;font-size:20px;">我们坚信自助互助你可以在这里寻求家长支持</p>
             <p style="top:90px;letter-spacing:0.5px;font-size:12px">羊爸爸中医育儿社区是一个温暖的的家长学习平台，这里有家长，有中医爱好者，也有医生。</p>
             <a href="<?php echo $this->makeUrl('community','index')?>"><span>点击进入</span><img src="<?php echo PUBLIC_PATH ;?>img/icon2.png" ></a>
         </div>
-        <div class="column_app">
+        <div class="column_app" style="background-image:url(<?php echo $this->assign['pic'][1]['pic']?>)">
             <h2>羊爸爸APP</h2>
             <p style="top:70px;font-size:20px;">缩短沟通距离，足不出门咨询靠谱中医</p>
             <p style="top:90px;letter-spacing:0.5px;font-size:12px">聚合了专业小儿中医，让繁忙的家长可以用简便的方式随时获得专业医生的帮助。</p>
             <a href="<?php echo $this->makeUrl('app','index')?>"><span>点击进入</span><img src="<?php echo PUBLIC_PATH ;?>img/icon3.png" ></a>
         </div>
-        <div class="column_commonweal">
+        <div class="column_commonweal" style="background-image:url(<?php echo $this->assign['pic'][2]['pic']?>)">
             <h2>羊爸爸公益</h2>
             <p style="top:70px;font-size:20px;">松果计划/我们在路上</p>
             <p style="top:90px;letter-spacing:0.5px;font-size:12px">由羊爸爸，中医萝卜会，中医萝卜会成都分会共同发起，专注于中医育儿传播与推广的一项长期公益活动。</p>

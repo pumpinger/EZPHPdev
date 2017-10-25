@@ -34,13 +34,6 @@ class postModel extends model  implements ISaveModel  {
         return $res;
     }
 
-    public function getAll()
-    {
-        $res=$this->db()->query();
-
-        return $res;
-    }
-
 
 
     public function getHot()

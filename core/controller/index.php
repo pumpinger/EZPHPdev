@@ -48,12 +48,16 @@ class indexController extends baseController  {
 
 
         $nav=classModel::intance()->getAll(array('id','name','price'));
+        $pic=moduleModel::intance()->getAll(array('id','pic'));
 
 
 //        var_dump(postModel::intance()->getSql());b
 
 
-        $this->render($nav);
+        $this->render(array(
+            'nav'=>$nav,
+            'pic'=>$pic,
+        ));
 //        $this::cc();
         
         

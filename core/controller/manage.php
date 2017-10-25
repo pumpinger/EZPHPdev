@@ -103,9 +103,22 @@ class manageController extends adminController  {
 
     public function appSaveAction()
     {
-        $res=moduleModel::intance()->getOne(2);
+        $res=moduleModel::intance()->chgOne(array(
+            'pic'=>$_REQUEST['pic'],
+            'content'=>$_REQUEST['content'],
+        ),2);
 
-        $this->render($res);
+
+        if($res){
+            $this->json();
+
+        }else{
+            throw new \EZPHP\Exception\myException('保存失败');
+
+
+        }
+
+
 
     }
 
@@ -140,13 +153,8 @@ class manageController extends adminController  {
 
 
 
-
-
-        linkModel::intance()->delAll();
-
         $res = true;
-
-        foreach ($_REQUEST['name'] as  $k => $v) {
+        foreach ($_REQUEST['qr'] as  $k => $v) {
 
 
             if(!$v){
@@ -154,17 +162,45 @@ class manageController extends adminController  {
             }
 
 
-            $res=linkModel::intance()->addOne(
-                array(
-                    'name'=>$v,
-                    'link'=>$_REQUEST['link'][$k]
-                )
-            );
+            $res=settingModel::intance()->chgOne(array(
+                'value'=>$v,
+            ),$k);
 
             if( ! $res ){
                 break;
             }
         }
+
+
+
+
+
+        if ($res){
+            linkModel::intance()->delAll();
+
+            $res = true;
+
+            foreach ($_REQUEST['name'] as  $k => $v) {
+
+
+                if(!$v){
+                    continue;
+                }
+
+
+                $res=linkModel::intance()->addOne(
+                    array(
+                        'name'=>$v,
+                        'link'=>$_REQUEST['link'][$k]
+                    )
+                );
+
+                if( ! $res ){
+                    break;
+                }
+            }
+        }
+
 
 
 
