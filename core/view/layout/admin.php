@@ -78,7 +78,7 @@
 <body>
 
 
-<div class="top"  style="display: none;">
+<div class="top">
     <div class="top_log x-font-30">
         <a href="<?php echo $this->makeUrl('index','index')?>"  class="<?php echo $this->action=='index'?'active':'';?>">羊爸爸</a>
     </div>
