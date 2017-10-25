@@ -13,11 +13,14 @@ class manageController extends adminController  {
 
 
 
-    public function indexAction(){
+    public function classAction(){
 
 
 
-        $res=classModel::intance()->getAll();
+        $id = $_GET['id'];
+
+        $res=classModel::intance()->getOne($id);
+
 
 
 //        var_dump(postModel::intance()->getSql());
@@ -33,39 +36,32 @@ class manageController extends adminController  {
 //        throw new e(1000);
     }
 
+
+
     public function classSaveAction()
     {
 
 
-        $res1=classModel::intance()->chgOne(
-            array('content'=>$_REQUEST['content_1']),1
-        );
-
-        $res2=classModel::intance()->chgOne(
-            array('content'=>$_REQUEST['content_2']),2
-        );
+        $id = $_GET['id'];
 
 
-        $res3=classModel::intance()->chgOne(
-            array('content'=>$_REQUEST['content_3']),3
-        );
 
 
-        $res4=classModel::intance()->chgOne(
-            array('content'=>$_REQUEST['content_4']),4
-        );
-
-
-        $res5=classModel::intance()->chgOne(
-            array('content'=>$_REQUEST['content_5']),5
+        $res=classModel::intance()->chgOne(
+            array(
+                'content'=>$_REQUEST['content'],
+                'name'=>$_REQUEST['name'],
+                'price'=>$_REQUEST['price'],
+            ),$id
         );
 
 
 
-        if( $res1  &&  $res2  && $res3  &&  $res4  &&  $res5){
+
+        if( $res ){
             $this->json();
         }else{
-            //这里 这么做 json  的 exception
+            //todo 这里 这么做 json  的 exception  现在是 html
             throw new \EZPHP\Exception\myException('保存失败');
 
         }
@@ -117,7 +113,6 @@ class manageController extends adminController  {
 
 
     public function settingAction(){
-
 
 
         $qrRes=settingModel::intance()->getAll();

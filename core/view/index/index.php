@@ -61,31 +61,35 @@
             <p>我们坚信:所有家长都应该参加中国育儿基础教育。</p>
         </div>
         <ul class="matter_book">
-            <li class="matter_radius" style="margin-left:50px;">
-                <h1>中医育儿基础班</h1>
-                <a href="<?php echo $this->makeUrl('class','index',array('active'=>'1'))?>"><p>查看详情 > </p></a>
-                <p>￥<strong>318</strong>/视频</p>
-            </li>
-            <li class="matter_radius">
-                <h1>中医药六纲辩证班</h1>
-                <a href="<?php echo $this->makeUrl('class','index',array('active'=>'2'))?>"><p>查看详情 > </p></a>
-                <p>￥<strong>618</strong>/视频</p>
-            </li>
-            <li class="matter_radius">
-                <h1>中医研习室</h1>
-                <a href="<?php echo $this->makeUrl('class','index',array('active'=>'3'))?>"><p>查看详情 > </p></a>
-                <p>￥<strong>365</strong>/年</p>
-            </li>
-            <li class="matter_radius">
-                <h1>小二常见病讲座</h1>
-                <a href="<?php echo $this->makeUrl('class','index',array('active'=>'4'))?>"><p>查看详情 > </p></a>
-                <p><strong>免费</strong></p>
-            </li>
-            <li class="matter_radius">
-                <h1>其他</h1>
-                <a href="<?php echo $this->makeUrl('class','index',array('active'=>'5'))?>"><p>查看详情 > </p></a>
-                <p>￥<strong>99</strong>X3部分</p>
-            </li>
+
+
+            <?php foreach ($this->assign as $v): ?>
+
+                <?php if($v['id']  == 1 ):?>
+                    <li class="matter_radius"  style="margin-left:50px;">
+                <?php else:?>
+                    <li class="matter_radius"  >
+                <?php endif;?>
+
+
+                    <h1><?php echo $v['name'] ?></h1>
+                    <a href="<?php echo $this->makeUrl('class','index',array('active'=>$v['id']))?>"><p>查看详情 > </p></a>
+
+
+                    <?php if($v['id']  == 1 || $v['id']  == 2):?>
+                        <p>￥<strong><?php echo $v['price'] ?></strong>/视频</p>
+                    <?php elseif($v['id']  == 3):;?>
+                        <p>￥<strong><?php echo $v['price'] ?></strong>/年</p>
+                    <?php elseif($v['id']  == 4):;?>
+                        <p><strong>免费</strong></p>
+                    <?php elseif($v['id']  == 5):;?>
+                        <p>￥<strong><?php echo $v['price'] ?></strong>X3部分</p>
+                    <?php endif; ?>
+
+                </li>
+
+            <?php endforeach; ?>
+
         </ul>
         <div class="matter_enounce_2">
             <p><strong>有效&简单</strong> 是羊爸爸中医育儿课程火爆的法宝。</p>

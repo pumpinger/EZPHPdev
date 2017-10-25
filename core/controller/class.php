@@ -21,13 +21,16 @@ class classController extends baseController {
         $res=classModel::intance()->getOne($active);
 
 
+        $nav=classModel::intance()->getAll(array('id','name'));
+
 //        var_dump(postModel::intance()->getSql());
 
 
 
         $this->render(array(
             'active'=>$active,
-            'data'=>$res
+            'data'=>$res,
+            'nav'=>$nav
         ));
 //        $this::cc();
 

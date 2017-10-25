@@ -6,7 +6,6 @@
  */
 
 
-var_dump($this);
 ?>
 
 <form class="form">
@@ -18,7 +17,7 @@ var_dump($this);
 
     <br>
     <script id="myEditor" name="content" type="text/plain" style="width:600px;height:200px;">
-    <?php echo $value['content'] ?>
+    <?php echo $this->assign['content'] ?>
 </script>
     <br>
 
@@ -59,7 +58,7 @@ var_dump($this);
         $.ajax({
             type:'POST',
             dataType:'json',
-            url:'<?php echo $this->makeUrl('manage','aboutSave')?>',
+            url:'<?php echo $this->makeUrl('manage','appSave')?>',
             data:data,
             success:function (res){
                 if(res.ok){

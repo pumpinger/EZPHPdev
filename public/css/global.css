@@ -18,7 +18,7 @@ body.ban {overflow: hidden;height: 100%;}
 .top_page {height:100%; position: absolute;left: -130px;}
 .top_page img{max-width:50px; max-height:50px;margin:40px;}
 .top_all{width:1000px;position:relative;margin:0 auto;height:130px;}
-.top_book{padding-right:40px;height:130px;background-color:#474443;width:630px;}
+.top_book{padding-right:10px;height:130px;background-color:#474443;width:660px;}
 .top_select{margin-left:25px;float:left;margin-top:50px;text-align:center;color:#b6b6b7;font-weight:bold;cursor:pointer;}
 .top_select p{min-width:50px;}
 .top_select_active{color:#ffc000;}

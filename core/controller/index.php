@@ -47,14 +47,13 @@ class indexController extends baseController  {
     public function indexAction(){
 
 
-
-        $res=postModel::intance()->getAll();
+        $nav=classModel::intance()->getAll(array('id','name','price'));
 
 
 //        var_dump(postModel::intance()->getSql());b
 
 
-        $this->render($res);
+        $this->render($nav);
 //        $this::cc();
         
         

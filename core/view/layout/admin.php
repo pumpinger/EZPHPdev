@@ -33,7 +33,9 @@
     <script type="text/javascript" src="<?php echo PUBLIC_PATH ;?>lib/umeditor/lang/zh-cn/zh-cn.js"></script>
 
 
-<!--    <script type="text/javascript" src="http://cdn.staticfile.org/webuploader/0.1.0/webuploader.html5only.min.js"></script>-->
+    <link href="<?php echo PUBLIC_PATH ;?>lib/webuploader/webuploader.css" type="text/css" rel="stylesheet">
+    <script type="text/javascript" src="<?php echo PUBLIC_PATH ;?>lib/webuploader/webuploader.html5only.min.js"></script>
+
 
 
 
@@ -68,12 +70,12 @@
         .save {background: #bcc774;border: 1px solid #9cb945;padding: 4px 10px;cursor: pointer;color: #ffffff;}
         .button {background: #5c9dff;border: 1px solid #4a77d4;padding: 4px 10px;cursor: pointer;color: #ffffff;}
 
-        input  {line-height: 30px;border-radius: 5px;border: 1px solid #5f5f5d;}
+        input  {line-height: 30px;height:32px;border-radius: 5px;border: 1px solid #5f5f5d;}
     </style>
 </head>
 <body>
 
-<div class="top">
+<div class="top" style="display: none;">
     <div class="top_log x-font-30">
         <a href="<?php echo $this->makeUrl('index','index')?>">羊爸爸</a>
     </div>
@@ -81,7 +83,16 @@
         <a href="<?php echo $this->makeUrl('manage','community')?>">羊爸爸社区</a>
         <a href="<?php echo $this->makeUrl('manage','app')?>">羊爸爸APP</a>
         <a href="<?php echo $this->makeUrl('manage','benefit')?>">羊爸爸公益</a>
-        <a href="<?php echo $this->makeUrl('manage','index')?>">课程管理</a>
+
+
+        <?php
+            $res=classModel::intance()->getAll(array('id','name'));
+
+            foreach ($res as $v) {
+                echo "<a href=".$this->makeUrl('manage','class',array('id'=>$v['id'])).">".$v['name']."</a>";
+            }
+
+        ?>
         <a href="<?php echo $this->makeUrl('manage','about')?>">关于我们</a>
         <a href="<?php echo $this->makeUrl('manage','setting')?>">设置</a>
     </div>

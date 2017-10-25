@@ -387,9 +387,11 @@ class db extends base
         $this->sql['param'] = [];
 
         foreach ($data as $k=>$v) {
-            $sql.='`'.$k.'` = ? ';
+            $sql.='`'.$k.'` = ? ,';
             $this->sql['param'][]=$v;
         }
+        $sql=rtrim($sql,',');
+
 
         $this->sql['param'] = array_merge($this->sql['param'],$oldParam);
 

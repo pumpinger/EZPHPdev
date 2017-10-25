@@ -21,22 +21,14 @@
         </div>
         <div class="top_book">
             <ul>
-                <li class="top_select <?php echo $this->assign['active']==1?'top_select_active':''; ?>">
-                    <a href="<?php echo $this->makeUrl('class','index',array('active'=>'1'))?>"><p>中医育儿基础班</p></a>
-                    <img class="top_point" src="<?php echo PUBLIC_PATH ;?>img/icon4.png">
-                </li>
-                <li class="top_select <?php echo $this->assign['active']==2?'top_select_active':''; ?>">
-                    <a href="<?php echo $this->makeUrl('class','index',array('active'=>'2'))?>"><p>中医六纲辩证班</p></a>
+                <?php foreach ($this->assign['nav'] as $v): ?>
+                    <li class="top_select <?php echo $this->assign['active']==$v['id']?'top_select_active':''; ?>">
+                        <a href="<?php echo $this->makeUrl('class','index',array('active'=>$v['id']))?>"><p><?php echo $v['name'] ?></p></a>
                         <img class="top_point" src="<?php echo PUBLIC_PATH ;?>img/icon4.png">
-                <li class="top_select <?php echo $this->assign['active']==3?'top_select_active':''; ?>">
-                    <a href="<?php echo $this->makeUrl('class','index',array('active'=>'3'))?>"><p>中医研习社</p></a>
-                    <img class="top_point" src="<?php echo PUBLIC_PATH ;?>img/icon4.png">
-                <li class="top_select <?php echo $this->assign['active']==4?'top_select_active':''; ?>">
-                    <a href="<?php echo $this->makeUrl('class','index',array('active'=>'4'))?>"><p>小二常见病讲座</p></a>
-                    <img class="top_point" src="<?php echo PUBLIC_PATH ;?>img/icon4.png">
-                <li class="top_select <?php echo $this->assign['active']==5?'top_select_active':''; ?>">
-                    <a href="<?php echo $this->makeUrl('class','index',array('active'=>'5'))?>"><p>其他</p></a>
-                    <img class="top_point" src="<?php echo PUBLIC_PATH ;?>img/icon4.png">
+                    </li>
+
+                <?php endforeach; ?>
+
             </ul>
         </div>
         <div class="top_introduction">

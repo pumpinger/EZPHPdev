@@ -43,9 +43,9 @@ class classModel extends model  implements ISaveModel  {
         return $res;
     }
 
-    public function getAll()
+    public function getAll($field)
     {
-        $res=$this->db()->query();
+        $res=$this->db()->setField($field)->query();
 
         return $res;
     }
