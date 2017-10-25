@@ -57,12 +57,14 @@
         body {font-family: "Microsoft YaHei", 'Open Sans', sans-serif;background: #eee9c9;}
 
 
+        .main {width: 1000px;margin: 0 auto;}
         .top {background-color: #555;color: #fff;height: 50px;border-bottom: 10px solid #777f89;}
 
         .top_log {display: inline-block;vertical-align:top;margin-top: 8px;margin-left: 10px;font-size: 30px;}
-        .top_nav {display: inline-block;vertical-align:top;margin: 22px 0 0 40px;font-size: 16px;}
+        .top_nav {display : inline-block;vertical-align:top;margin: 22px 0 0 40px;font-size: 16px;}
         .top_fun {display: inline-block;vertical-align:top;float: right;margin-right: 20px;margin-top: 20px;font-size: 14px;}
         .top_nav a {float: left;margin-right: 20px;cursor: pointer;}
+        .top_nav .active {color: #eee9c9;}
 
 
         .main {padding: 20px;}
@@ -75,26 +77,27 @@
 </head>
 <body>
 
-<div class="top" style="display: none;">
+
+<div class="top"  style="display: none;">
     <div class="top_log x-font-30">
-        <a href="<?php echo $this->makeUrl('index','index')?>">羊爸爸</a>
+        <a href="<?php echo $this->makeUrl('index','index')?>"  class="<?php echo $this->action=='index'?'active':'';?>">羊爸爸</a>
     </div>
     <div class="top_nav x-font-16">
-        <a href="<?php echo $this->makeUrl('manage','community')?>">羊爸爸社区</a>
-        <a href="<?php echo $this->makeUrl('manage','app')?>">羊爸爸APP</a>
-        <a href="<?php echo $this->makeUrl('manage','benefit')?>">羊爸爸公益</a>
+        <a href="<?php echo $this->makeUrl('manage','community')?>"   class="<?php echo $this->action=='community'?'active':'';?>">羊爸爸社区</a>
+        <a href="<?php echo $this->makeUrl('manage','app')?>"   class="<?php echo $this->action=='app'?'active':'';?>">羊爸爸APP</a>
+        <a href="<?php echo $this->makeUrl('manage','benefit')?>"   class="<?php echo $this->action=='benefit'?'active':'';?>">羊爸爸公益</a>
 
 
         <?php
             $res=classModel::intance()->getAll(array('id','name'));
 
             foreach ($res as $v) {
-                echo "<a href=".$this->makeUrl('manage','class',array('id'=>$v['id'])).">".$v['name']."</a>";
+                echo "<a href=".$this->makeUrl('manage','class',array('id'=>$v['id']))." class=".($v['id']==$_GET['id']?'active':'').">".$v['name']."</a>";
             }
 
         ?>
-        <a href="<?php echo $this->makeUrl('manage','about')?>">关于我们</a>
-        <a href="<?php echo $this->makeUrl('manage','setting')?>">设置</a>
+        <a href="<?php echo $this->makeUrl('manage','about')?>"   class="<?php echo $this->action=='about'?'active':'';?>">关于我们</a>
+        <a href="<?php echo $this->makeUrl('manage','setting')?>"   class="<?php echo $this->action=='setting'?'active':'';?>">设置</a>
     </div>
     <div class="top_fun x-font-14">
         <?php if( $_SESSION):?>

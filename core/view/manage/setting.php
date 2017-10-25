@@ -17,14 +17,14 @@
 
 
 
-    #filePicker {display: inline-block;vertical-align: top;margin-bottom: 20px;}
-    #fileList {display: inline-block;vertical-align: top;}
+    .file_picker {display: inline-block;vertical-align: top;margin-bottom: 20px;}
+    .file_list {display: inline-block;vertical-align: top;}
 
-    .file-item {margin-left: 10px;display: inline-block;}
+    .file_item {margin-left: 10px;display: inline-block;}
 
-    .info {white-space: nowrap;text-overflow: ellipsis;width: 100px;overflow: hidden;}
-    .progress {width: 100px;height: 16px;border: 1px solid #00b7ee;}
-    .progress span {height: 100%;background-color: #00a2d4;display: inline-block;}
+    .file_info {white-space: nowrap;text-overflow: ellipsis;width: 100px;overflow: hidden;}
+    .file_progress {width: 100px;height: 16px;border: 1px solid #00b7ee;}
+    .file_progress span {height: 100%;background-color: #00a2d4;display: inline-block;}
 </style>
 
 
@@ -33,30 +33,107 @@
 <form class="form">
 
 
-    <p>二维码:</p>
-    <br>
+    <?php foreach ($this->assign['qr'] as $value): ?>
+        <p><?php echo $value['name'] ?>:</p>
+        <br>
+
+        <div class="uploader_share_qr">
+            <!--用来存放item-->
+            <div class="file_picker" id="filePicker_<?php echo $value['id']?>">选择图片</div>
+            <div class="file_list file_list_<?php echo $value['id']?>"></div>
+            <input class="fileInput" type="hidden" name="qr[<?php echo $value['id']?>]" value="<?php echo $value['value'] ?>">
+        </div>
+
+        <script>
+
+            // 初始化Web Uploader
+            var uploader<?php echo $value['id']?> = WebUploader.create({
+                // 选完文件后，是否自动上传。
+                auto: true,
+                // swf文件路径
+                swf: '/js/Uploader.swf',
+                // 文件接收服务端。
+                server: './index.php?c=upload',
+                // 选择文件的按钮。可选。
+                // 内部根据当前运行是创建，可能是input元素，也可能是flash.
+                pick: {
+                    id:'#filePicker_<?php echo $value['id']?>',
+                    multiple:false
+                },
+                // 只允许选择图片文件。
+                accept: {
+                    title: 'Images',
+                    extensions: 'gif,jpg,jpeg,bmp,png',
+                    mimeTypes: 'image/*'
+                }
+            });
+            uploader<?php echo $value['id']?>.on( 'fileQueued', function( file ) {
+                var $li = $(
+                        '<div id="' + file.id + '" class="file_item">' +
+                        '<img>' +
+                        '</div>'
+                    ),
+                    $img = $li.find('img');
+
+                // $list为容器jQuery实例
+                $('.file_list_<?php echo $value['id']?>').append( $li );
 
 
-    <div id="uploader-demo">
-        <!--用来存放item-->
-        <div id="filePicker">选择图片</div>
-        <div id="fileList" class="uploader-list"></div>
-        <input id="fileInput" type="hidden" name="qr">
-    </div>
+                uploader<?php echo $value['id']?>.makeThumb( file, function( error, src ) {
+                    if ( error ) {
+                        $img.replaceWith('<span>不能预览</span>');
+                        return;
+                    }
+
+                    $img.attr( 'src', src );
+                }, 100, 100 );
+            });
+            // 文件上传过程中创建进度条实时显示。
+            uploader<?php echo $value['id']?>.on( 'uploadProgress', function( file, percentage ) {
+                var $li = $( '#'+file.id ),
+                    $percent = $li.find('.file_progress span');
+
+                // 避免重复创建
+                if ( !$percent.length ) {
+                    $percent = $('<p class="file_progress"><span></span></p>')
+                        .appendTo( $li )
+                        .find('span');
+                }
+
+                $percent.css( 'width', percentage * 100 + '%' );
+            });
+
+            // 文件上传成功，给item添加成功class, 用样式标记上传成功。
+            uploader<?php echo $value['id']?>.on( 'uploadSuccess', function( file ) {
+//                $( '#'+file.id ).addClass('file_done');
+//                $('[name=qr[<?php //echo $value['id']?>//]]').val(file);
+            });
+
+            // 文件上传失败，显示上传出错。
+            uploader<?php echo $value['id']?>.on( 'uploadError', function( file ) {
+                var $li = $( '#'+file.id ),
+                    $error = $li.find('div.file_error');
+
+                // 避免重复创建
+                if ( !$error.length ) {
+                    $error = $('<div class="file_error"></div>').appendTo( $li );
+                }
+
+                $error.text('上传失败');
+            });
+
+            // 完成上传完了，成功或者失败，先删除进度条。
+            uploader<?php echo $value['id']?>.on( 'uploadComplete', function( file ) {
+                var $li = $( '#'+file.id );
+                $( '#'+file.id ).find('.file_progress').remove();
+                $('<div class="file_info">'+file.name+'</div>')
+                    .appendTo( $li );
+            });
+
+        </script>
 
 
-
-
-    <p>安卓二维码:</p>
-    <br>
-
-
-
-
-    <p>苹果二维码:</p>
-    <br>
-
-
+    <?php endforeach; ?>
 
 
 
@@ -88,99 +165,6 @@
 
 
 <script type="text/javascript">
-
-
-    // 初始化Web Uploader
-    var uploader = WebUploader.create({
-
-        // 选完文件后，是否自动上传。
-        auto: true,
-        // swf文件路径
-        swf: '/js/Uploader.swf',
-        // 文件接收服务端。
-        server: './index.php?c=upload',
-
-        // 选择文件的按钮。可选。
-        // 内部根据当前运行是创建，可能是input元素，也可能是flash.
-        pick: {
-            id:'#filePicker',
-            multiple:false
-        },
-
-        // 只允许选择图片文件。
-        accept: {
-            title: 'Images',
-            extensions: 'gif,jpg,jpeg,bmp,png',
-            mimeTypes: 'image/*'
-        }
-    });
-    uploader.on( 'fileQueued', function( file ) {
-        var $li = $(
-                '<div id="' + file.id + '" class="file-item thumbnail">' +
-                '<img>' +
-                '</div>'
-            ),
-            $img = $li.find('img');
-
-
-        // $list为容器jQuery实例
-        $('#fileList').append( $li );
-
-        // 创建缩略图
-        // 如果为非图片文件，可以不用调用此方法。
-        // thumbnailWidth x thumbnailHeight 为 100 x 100
-        uploader.makeThumb( file, function( error, src ) {
-            if ( error ) {
-                $img.replaceWith('<span>不能预览</span>');
-                return;
-            }
-
-            $img.attr( 'src', src );
-        }, 100, 100 );
-    });
-    // 文件上传过程中创建进度条实时显示。
-    uploader.on( 'uploadProgress', function( file, percentage ) {
-        var $li = $( '#'+file.id ),
-            $percent = $li.find('.progress span');
-
-        // 避免重复创建
-        if ( !$percent.length ) {
-            $percent = $('<p class="progress"><span></span></p>')
-                .appendTo( $li )
-                .find('span');
-        }
-
-        $percent.css( 'width', percentage * 100 + '%' );
-    });
-
-    // 文件上传成功，给item添加成功class, 用样式标记上传成功。
-    uploader.on( 'uploadSuccess', function( file ) {
-        $( '#'+file.id ).addClass('upload-state-done');
-    });
-
-    // 文件上传失败，显示上传出错。
-    uploader.on( 'uploadError', function( file ) {
-        var $li = $( '#'+file.id ),
-            $error = $li.find('div.error');
-
-        // 避免重复创建
-        if ( !$error.length ) {
-            $error = $('<div class="error"></div>').appendTo( $li );
-        }
-
-        $error.text('上传失败');
-    });
-
-    // 完成上传完了，成功或者失败，先删除进度条。
-    uploader.on( 'uploadComplete', function( file ) {
-        var $li = $( '#'+file.id );
-        $( '#'+file.id ).find('.progress').remove();
-        $('<div class="info">'+file.name+'</div>')
-            .appendTo( $li );
-    });
-
-
-
 
 
 

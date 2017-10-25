@@ -43,12 +43,6 @@ class classModel extends model  implements ISaveModel  {
         return $res;
     }
 
-    public function getAll($field)
-    {
-        $res=$this->db()->setField($field)->query();
-
-        return $res;
-    }
 
     public function getOne($id)
     {

@@ -51,4 +51,16 @@ class model extends base{
 
 
 
+
+
+
+
+    public function getAll(Array $field=array('*'))
+    {
+        $res=$this->db()->setField($field)->query();
+
+        return $res;
+    }
+
+
 }
