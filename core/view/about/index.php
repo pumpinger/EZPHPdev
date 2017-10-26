@@ -1,17 +1,22 @@
 <style>
 
 
-    /*文本内容*/
-    .text{width:100%;}
-    .text_all{width:1000px;margin:0 auto;background-color:#ffffff;}
-    .text_content1 h2,.text_content2 h2{color:#474443; font-size:20px;padding:40px 0 20px 40px;font-weight:600;}
-    .text_content1 p{font-size:10px;color:#474443; line-height:30px; letter-spacing:0;font-weight:600;max-width:630px;word-wrap:break-word;margin-left:40px;}
-    .text_content2 {position:relative; padding-bottom:360px;margin: 60px 0 0 40px; border-top:1px solid #e4e4e4;width:635px;}
-    .text_pic{position:absolute; right:0; bottom:40px;}
-    .text_pic img{width:100px;}
+
     .text_sum{width:600px;height:200px;margin-top:40px;}
     .text_singel{float:left;width:300px; height:100px;color:#474443;line-height:40px;}
     .text_singel p{font-size:12px;font-weight:600; line-height:24px;}
+    .text_content2 { padding-bottom:360px;}
+
+
+
+
+
+
+    .text_content1 h2,.text_content2 h2{color:#474443; font-size:20px;padding:40px 0 20px 40px;font-weight:600;}
+    .text_content1 p{font-size:10px;color:#474443; line-height:30px; letter-spacing:0;font-weight:600;max-width:630px;word-wrap:break-word;margin-left:40px;}
+
+
+
 
 </style>
 

@@ -1,15 +1,13 @@
 
 <style>
 
-    /*文本内容*/
-    .text{width:100%;}
-    .text_all{width:1000px;margin:0 auto;background-color:#ffffff;}
-    .text_content1 h2,.text_content2 h2{color:#ffc000; font-size:20px;padding:40px 0 20px 40px;font-weight:600;}
+
+
+
+    .text_content1 h2,.text_content4 h2{color:#ffc000; font-size:20px;padding:40px 0 20px 40px;font-weight:600;}
     .text_content1 p{font-size:10px;color:#474443; line-height:30px; letter-spacing:0;font-weight:600;max-width:630px;word-wrap:break-word;margin-left:40px;}
-    .text_content2 {margin: 60px 0 0 40px; border-top:1px solid #e4e4e4;width:635px;}
-    .text_content2 img {width:100px; height:100px; border:1px solid #ffc000;}
-    .text_content3 img {width:100px;margin: 0 0 60px 400px;}
-    .text_content3{margin-top:60px;}
+
+
 
 </style>
 
@@ -69,7 +67,7 @@
 <!--        </div>-->
 
 
-        <div class="text_content2">
+        <div class="text_content4">
             <h2 style="padding-left:0;">报名链接</h2>
 
             <?php

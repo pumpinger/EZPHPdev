@@ -3,15 +3,16 @@
 
     .top_select {color: #a0d9f6;}
 
-
-    /*文本内容*/
-    .text{width:100%;}
-    .text_all{width:1000px;margin:0 auto;background-color:#ffffff;}
-    .text_content1 h2,.text_content2 h2{color:#a0d9f6; font-size:20px;padding:40px 0 20px 40px;font-weight:600;}
-    .text_content1 p{font-size:10px;color:#474443; line-height:30px; letter-spacing:0;font-weight:600;max-width:630px;word-wrap:break-word;margin-left:40px;}
-    .text_content2 {margin: 60px 0 0 40px; border-top:1px solid #e4e4e4;width:635px;position:relative;padding-bottom:30px;}
     .text_link{width:630px;height:40px;background-color:#a0d9f6;margin-left:40px;text-align:center;line-height:40px;}
     .text_link a{font-weight:800; color:#ffffff;}
+
+
+
+
+
+    .text_content1 h2,.text_content2 h2{color:#a0d9f6; font-size:20px;padding:40px 0 20px 40px;font-weight:600;}
+    .text_content1 p{font-size:10px;color:#474443; line-height:30px; letter-spacing:0;font-weight:600;max-width:630px;word-wrap:break-word;margin-left:40px;}
+
 
 
 

@@ -1,17 +1,17 @@
 <style>
 
     .top_select {color: #ffc000;}
+    .text_link{width:630px;height:40px;background-color:#ffc000;margin-left:40px;text-align:center;line-height:40px;cursor: pointer;}
+    .text_link a{font-weight:800; color:#ffffff;}
+    .text_content2 {margin-top: 30px;}
 
-    /*文本内容*/
-    .text{width:100%;}
-    .text_all{width:1000px;margin:0 auto;background-color:#ffffff;}
+
+
+
+
     .text_content1 h2,.text_content2 h2{color:#ffc000; font-size:20px;padding:40px 0 20px 40px;font-weight:600;}
     .text_content1 p{font-size:10px;color:#474443; line-height:30px; letter-spacing:0;font-weight:600;max-width:630px;word-wrap:break-word;margin-left:40px;}
-    .text_content2 {margin: 60px 0 0 40px; border-top:1px solid #e4e4e4;width:635px;position:relative;padding-bottom:30px;}
-    .text_content3{margin-top:60px;}
-    .text_content3 .text_link{cursor: pointer;}
-    .text_link{width:630px;height:40px;background-color:#ffc000;margin-left:40px;text-align:center;line-height:40px;}
-    .text_link a{font-weight:800; color:#ffffff;}
+
 
 
 </style>
