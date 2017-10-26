@@ -18,12 +18,16 @@ class appController extends baseController {
 
 
         $res=moduleModel::intance()->getOne(2);
+        $comment=module_commentModel::intance()->getModuleAll(2);
 
 
 //        var_dump(postModel::intance()->getSql());
 
 
-        $this->render($res);
+        $this->render(array(
+            'data'=>$res,
+            'comment'=>$comment
+        ));
 //        $this::cc();
 
 

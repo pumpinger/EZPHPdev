@@ -96,17 +96,58 @@ class manageController extends adminController  {
     {
         $res=moduleModel::intance()->getOne(2);
 
-        $this->render($res);
+        $comment=module_commentModel::intance()->getModuleAll(2);
+
+        $this->render(array(
+            'data'=>$res,
+            'comment'=>$comment,
+        ));
 
     }
 
 
     public function appSaveAction()
     {
-        $res=moduleModel::intance()->chgOne(array(
-            'pic'=>$_REQUEST['pic'],
-            'content'=>$_REQUEST['content'],
-        ),2);
+
+
+        module_commentModel::intance()->delAll(array(
+            'module_id'=>2
+        ));
+
+        $res = true;
+        foreach ($_REQUEST['comment'] as  $k => $v) {
+
+
+            if(!$v){
+                continue;
+            }
+
+
+            $res=module_commentModel::intance()->addOne(
+                array(
+                    'content'=>$v,
+                    'info'=>$_REQUEST['info'][$k],
+                    'name'=>$_REQUEST['name'][$k],
+                    'module_id'=>2,
+                )
+            );
+
+            if( ! $res ){
+                break;
+            }
+        }
+
+
+        if($res){
+            $res=moduleModel::intance()->chgOne(array(
+                'pic'=>$_REQUEST['pic'],
+                'content'=>$_REQUEST['content'],
+            ),2);
+        }
+
+
+
+
 
 
         if($res){
@@ -117,7 +158,6 @@ class manageController extends adminController  {
 
 
         }
-
 
 
     }

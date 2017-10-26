@@ -45,6 +45,8 @@ class db extends base
     }
 
     private function getTableName(){
+
+        //这里 要 大写 换成  _小写
         $class= $this->model;
 
         $class=substr($class,0,-5);

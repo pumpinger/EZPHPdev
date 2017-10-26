@@ -10,7 +10,7 @@ use EZPHP\model\ISaveModel;
  */
 
 
-class linkModel extends model  implements ISaveModel  {
+class module_commentModel extends model  implements ISaveModel  {
 
 
     public function checkParam()
@@ -22,18 +22,6 @@ class linkModel extends model  implements ISaveModel  {
     function save()
     {
         // TODO: Implement save() method.
-    }
-
-
-
-
-    public function del($id)
-    {
-
-
-        $res=$this->db()->setEqual(array('id'=>$id))->del();
-
-        return $res;
     }
 
 
@@ -54,6 +42,20 @@ class linkModel extends model  implements ISaveModel  {
 
         return $res;
     }
+
+
+
+
+    public function getModuleAll($moduleId=1,Array $field=array('*'))
+    {
+        $res=$this->db()->setEqual(array(
+            'module_id'=>$moduleId
+        ))->setField($field)->query();
+
+        return $res;
+    }
+
+
 
     public function getOne($id)
     {

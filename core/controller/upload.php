@@ -15,6 +15,11 @@ class uploadController extends baseController {
     public function indexAction()
     {
 
+        $key = 'file';
+        if($_FILES['upfile']){
+            $key = 'upfile';
+        }
+
 
         header("Content-Type:text/html;charset=utf-8");
 //        error_reporting( E_ERROR | E_WARNING );
@@ -32,7 +37,7 @@ class uploadController extends baseController {
 
         //背景保存在临时目录中
         $config[ "savePath" ] = $Path;
-        $up = new Uploader( "file" , $config );
+        $up = new Uploader( $key , $config );
         $type = $_REQUEST['type'];
         $callback=$_GET['callback'];
 

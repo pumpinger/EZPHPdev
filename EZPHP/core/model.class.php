@@ -52,7 +52,12 @@ class model extends base{
 
 
 
+    public function delAll($where = array())
+    {
+        $res=$this->db()->setEqual($where)->del();
 
+        return $res;
+    }
 
 
     public function getAll(Array $field=array('*'))
