@@ -238,7 +238,7 @@
         $.ajax({
             type:'POST',
             dataType:'json',
-            url:'<?php echo $this->makeUrl('manage','appSave')?>',
+            url:'<?php echo $this->makeUrl('manage','moduleSave',array('id'=>$this->assign['id']))?>',
             data:data,
             success:function (res){
                 if(res.ok){

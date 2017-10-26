@@ -8,8 +8,7 @@
     .text_all{width:1000px;margin:0 auto;background-color:#ffffff;}
     .text_content1 h2,.text_content2 h2{color:#bcc774; font-size:20px;padding:40px 0 20px 40px;font-weight:600;}
     .text_content1 p{font-size:10px;color:#474443; line-height:30px; letter-spacing:0;font-weight:600;max-width:630px;word-wrap:break-word;margin-left:40px;}
-    .text_content2 {margin: 60px 0 0 30px; border-top:1px solid #e4e4e4;width:635px;}
-    .text_content2 img {width:100px; height:100px; border:1px solid #bcc774;}
+    .text_content2 {margin: 60px 0 0 40px; border-top:1px solid #e4e4e4;width:635px;position:relative;padding-bottom:30px;}
     .text_content3 img {width:100px;margin: 0 0 60px 300px;}
     .text_content3{margin-top:60px;padding-bottom:30px;}
     .text_link{width:630px;height:40px;background-color:#bcc774;margin-left:40px;text-align:center;line-height:40px;margin-bottom:30px;}
@@ -38,21 +37,44 @@
 </div>
 <div class="text">
     <div class="text_all">
-        <div class="text_content1">
-            <h2>课程简介</h2>
-            <p>为贯彻党的十六大精神，实践“三个代表”重要思想，切实推进教育创新，深化教学改革，促进现代信息技术在教学中的应用，共享优质教学资源，进一步促进教授上讲台，全面提高教育教学质量，造就数以万计的专门人才和一大批拔尖创新人才，提升我们高等教育的综合实力和国际竞争能力，教育部决定在全国高校（包括高职高专院校）中启动高等学校教学质量与教学改革工程精品课程建设工作（以下简称精品课程建设）
-                <br>为贯彻党的十六大精神，实践“三个代表”重要思想，切实推进教育创新，深化教学改革，促进现代信息技术在教学中的应用，共享优质教学资源，进一步促进教授上讲台，全面提高教育教学质量，造就数以万计的专门人才和一大批拔尖创新人才，提升我们高等教育的综合实力和国际竞争能力，教育部决定在全国高校（包括高职高专院校）中启动高等学校教学质量与教学改革工程精品课程建设工作（以下简称精品课程建设）</p>
-        </div>
-
-
+        <?php echo $this->assign['data']['content']; ?>
 
 
 
         <div class="text_content3">
-            <img src="<?php echo PUBLIC_PATH ;?>img/logo2.png">
+            <?php if(! $this->assign['comment']):?>
+                <img src="<?php echo PUBLIC_PATH ;?>img/logo2.png">
+
+            <?php endif;?>
+
             <div class="text_link">
                 <a target="_blank" href="http://www.yang-baba.net/article/48">进入社区 &gt; &gt; </a>
             </div>
         </div>
+
+
+        <?php if($this->assign['comment']):?>
+            <div class="text_content2">
+                <h2 style="padding-left:0;">评价</h2>
+
+                <div class="text_eva">
+
+                    <?php foreach ($this->assign['comment'] as $v): ?>
+                        <h3><strong><?php echo $v['name'] ?></strong>   <span><?php echo $v['info'] ?></span></h3>
+                        <div class="text_eva_border">
+                            <p><?php echo $v['content'] ?></p>
+                        </div>
+                    <?php endforeach; ?>
+
+
+                </div>
+                <div class="text_pic">
+                    <img src="<?php echo PUBLIC_PATH ;?>img/logo2.png">
+                </div>
+            </div>
+        <?php endif;?>
+
+
+
     </div>
 </div>

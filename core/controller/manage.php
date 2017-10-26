@@ -73,32 +73,35 @@ class manageController extends adminController  {
 
 
 
-    public function benefitAction()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    public function moduleAction()
     {
-        $res=moduleModel::intance()->getOne(3);
-
-        $this->render($res);
-
-    }
-
-    public function communityAction()
-    {
-        $res=moduleModel::intance()->getOne(1);
-
-        $this->render($res);
-
-    }
 
 
+        $id = $_GET['id'];
 
+        $res=moduleModel::intance()->getOne($id);
 
-    public function appAction()
-    {
-        $res=moduleModel::intance()->getOne(2);
-
-        $comment=module_commentModel::intance()->getModuleAll(2);
+        $comment=module_commentModel::intance()->getModuleAll($id);
 
         $this->render(array(
+            'id'=>$id,
             'data'=>$res,
             'comment'=>$comment,
         ));
@@ -106,43 +109,47 @@ class manageController extends adminController  {
     }
 
 
-    public function appSaveAction()
+    public function moduleSaveAction()
     {
 
+        $id = $_GET['id'];
 
         module_commentModel::intance()->delAll(array(
-            'module_id'=>2
+            'module_id'=>$id
         ));
 
         $res = true;
-        foreach ($_REQUEST['comment'] as  $k => $v) {
+        if($_REQUEST['comment']){
+            foreach ($_REQUEST['comment'] as  $k => $v) {
 
 
-            if(!$v){
-                continue;
-            }
+                if(!$v){
+                    continue;
+                }
 
 
-            $res=module_commentModel::intance()->addOne(
-                array(
-                    'content'=>$v,
-                    'info'=>$_REQUEST['info'][$k],
-                    'name'=>$_REQUEST['name'][$k],
-                    'module_id'=>2,
-                )
-            );
+                $res=module_commentModel::intance()->addOne(
+                    array(
+                        'content'=>$v,
+                        'info'=>$_REQUEST['info'][$k],
+                        'name'=>$_REQUEST['name'][$k],
+                        'module_id'=>$id,
+                    )
+                );
 
-            if( ! $res ){
-                break;
+                if( ! $res ){
+                    break;
+                }
             }
         }
+
 
 
         if($res){
             $res=moduleModel::intance()->chgOne(array(
                 'pic'=>$_REQUEST['pic'],
                 'content'=>$_REQUEST['content'],
-            ),2);
+            ),$id);
         }
 
 
@@ -161,6 +168,43 @@ class manageController extends adminController  {
 
 
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -194,21 +238,24 @@ class manageController extends adminController  {
 
 
         $res = true;
-        foreach ($_REQUEST['qr'] as  $k => $v) {
+        if($_REQUEST['qr']){
+            foreach ($_REQUEST['qr'] as  $k => $v) {
 
 
-            if(!$v){
-                continue;
+                if(!$v){
+                    continue;
+                }
+
+
+                $res=settingModel::intance()->chgOne(array(
+                    'value'=>$v,
+                ),$k);
+
+                if( ! $res ){
+                    break;
+                }
             }
 
-
-            $res=settingModel::intance()->chgOne(array(
-                'value'=>$v,
-            ),$k);
-
-            if( ! $res ){
-                break;
-            }
         }
 
 
@@ -259,6 +306,55 @@ class manageController extends adminController  {
 //        include_once 'e.php';
 //        throw new e(1000);
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

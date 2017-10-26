@@ -15,21 +15,17 @@ class communityController extends baseController {
 
     public function indexAction(){
 
-
-
-//        $res=postModel::intance()->getAll();
+        $res=moduleModel::intance()->getOne(1);
+        $comment=module_commentModel::intance()->getModuleAll(1);
 
 
 //        var_dump(postModel::intance()->getSql());
 
 
-        $this->render();
-//        $this::cc();
-
-
-
-//        include_once 'e.php';
-//        throw new e(1000);
+        $this->render(array(
+            'data'=>$res,
+            'comment'=>$comment
+        ));
     }
 
 

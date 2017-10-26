@@ -101,16 +101,16 @@
         <a href="<?php echo $this->makeUrl('index','index')?>"  class="<?php echo $this->action=='index'?'active':'';?>">羊爸爸</a>
     </div>
     <div class="top_nav x-font-16">
-        <a href="<?php echo $this->makeUrl('manage','community')?>"   class="<?php echo $this->action=='community'?'active':'';?>">羊爸爸社区</a>
-        <a href="<?php echo $this->makeUrl('manage','app')?>"   class="<?php echo $this->action=='app'?'active':'';?>">羊爸爸APP</a>
-        <a href="<?php echo $this->makeUrl('manage','benefit')?>"   class="<?php echo $this->action=='benefit'?'active':'';?>">羊爸爸公益</a>
+        <a href="<?php echo $this->makeUrl('manage','module',array('id'=>1))?>"   class="<?php echo ($this->action=='module'&&$_GET['id']==1)?'active':'';?>">羊爸爸社区</a>
+        <a href="<?php echo $this->makeUrl('manage','module',array('id'=>2))?>"   class="<?php echo ($this->action=='module'&&$_GET['id']==2)?'active':'';?>">羊爸爸APP</a>
+        <a href="<?php echo $this->makeUrl('manage','module',array('id'=>3))?>"   class="<?php echo ($this->action=='module'&&$_GET['id']==3)?'active':'';?>">羊爸爸公益</a>
 
 
         <?php
             $res=classModel::intance()->getAll(array('id','name'));
 
             foreach ($res as $v) {
-                echo "<a href=".$this->makeUrl('manage','class',array('id'=>$v['id']))." class=".($v['id']==$_GET['id']?'active':'').">".$v['name']."</a>";
+                echo "<a href=".$this->makeUrl('manage','class',array('id'=>$v['id']))." class=".($this->action=='class'&&$v['id']==$_GET['id']?'active':'').">".$v['name']."</a>";
             }
 
         ?>

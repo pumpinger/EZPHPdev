@@ -49,24 +49,27 @@
         </div>
 
 
-        <div class="text_content2">
-            <h2 style="padding-left:0;">评价</h2>
+        <?php if($this->assign['comment']):?>
+            <div class="text_content2">
+                <h2 style="padding-left:0;">评价</h2>
 
-            <div class="text_eva">
+                <div class="text_eva">
 
-            <?php foreach ($this->assign['comment'] as $v): ?>
-                <h3><strong><?php echo $v['name'] ?></strong>   <span><?php echo $v['info'] ?></span></h3>
-                <div class="text_eva_border">
-                    <p><?php echo $v['content'] ?></p>
+                    <?php foreach ($this->assign['comment'] as $v): ?>
+                        <h3><strong><?php echo $v['name'] ?></strong>   <span><?php echo $v['info'] ?></span></h3>
+                        <div class="text_eva_border">
+                            <p><?php echo $v['content'] ?></p>
+                        </div>
+                    <?php endforeach; ?>
+
+
                 </div>
-            <?php endforeach; ?>
-
-
+                <div class="text_pic">
+                    <img src="<?php echo PUBLIC_PATH ;?>img/logo2.png">
+                </div>
             </div>
-            <div class="text_pic">
-                <img src="<?php echo PUBLIC_PATH ;?>img/logo2.png">
-            </div>
-        </div>
+        <?php endif;?>
+
     </div>
 </div>
 
