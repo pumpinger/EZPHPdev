@@ -9,10 +9,6 @@
 
 
 
-    .text_content1 h2,.text_content2 h2{color:#ffc000; font-size:20px;padding:40px 0 20px 40px;font-weight:600;}
-    .text_content1 p{font-size:10px;color:#474443; line-height:30px; letter-spacing:0;font-weight:600;max-width:630px;word-wrap:break-word;margin-left:40px;}
-
-
 
 </style>
 
@@ -39,7 +35,12 @@
 <div class="text">
     <div class="text_all">
 
-        <?php echo $this->assign['data']['content']; ?>
+
+        <div class="text_content1">
+
+            <?php echo $this->assign['data']['content']; ?>
+        </div>
+
 
 
         <div class="text_content3">

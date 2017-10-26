@@ -12,11 +12,6 @@
 
 
 
-    .text_content1 h2,.text_content2 h2{color:#474443; font-size:20px;padding:40px 0 20px 40px;font-weight:600;}
-    .text_content1 p{font-size:10px;color:#474443; line-height:30px; letter-spacing:0;font-weight:600;max-width:630px;word-wrap:break-word;margin-left:40px;}
-
-
-
 
 </style>
 
@@ -41,7 +36,12 @@
 <div class="text">
     <div class="text_all">
 
-        <?php echo $this->assign['content']; ?>
+        <div class="text_content1">
+            <?php echo $this->assign['content']; ?>
+
+        </div>
+
+
 <!--        <div class="text_content1">-->
 <!--            <h2>简介</h2>-->
 <!--            <p>为贯彻党的十六大精神，实践“三个代表”重要思想，切实推进教育创新，深化教学改革，促进现代信息技术在教学中的应用，共享优质教学资源，进一步促进教授上讲台，全面提高教育教学质量，造就数以万计的专门人才和一大批拔尖创新人才，提升我们高等教育的综合实力和国际竞争能力，教育部决定在全国高校（包括高职高专院校）中启动高等学校教学质量与教学改革工程精品课程建设工作（以下简称精品课程建设）-->

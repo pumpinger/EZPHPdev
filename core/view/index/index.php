@@ -22,9 +22,11 @@
     .matter_radius h1{font-size:14px;margin-top:50px;text-align:center;font-weight:bold;}
     .matter_radius p{font-size:8px;text-align:center;margin-top:6px;color:#5f5f5d}
     .matter_radius strong{font-size:16px;}
+
+
     /*羊爸爸专栏*/
     .column_all{margin:0 auto;height:100%;width:1000px;}
-    .column_community,.column_app,.column_commonweal{background-size: 100% 100%;width:1000px;height:200px;margin-top:20px;position:relative;}
+    .column_community,.column_app,.column_commonweal{background-size: 100% 100%;width:1000px;height:200px;margin-top:20px;position:relative;cursor: pointer;}
     .column_community{background-color:#5f5f5d;}
     .column_app{background-color:#757475;}
     .column_commonweal{background-color:#757475;}
@@ -122,6 +124,11 @@
 
 <script>
     $('.matter_radius').click(function () {
+        var url  = $(this).find('a').prop('href');
+        window.location.href = url;
+    });
+
+    $('.column_community,.column_app,.column_commonweal').click(function () {
         var url  = $(this).find('a').prop('href');
         window.location.href = url;
     });
