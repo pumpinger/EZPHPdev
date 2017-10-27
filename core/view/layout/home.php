@@ -53,7 +53,7 @@
 
         </div>
         <div class="ending_bottom">
-            <p>2013-1017羊爸爸  版权所有  蜀安网安备 11010802021451号 蜀ICP备16036548号-2</p>
+            <p>2013-2017羊爸爸  版权所有  蜀安网安备 11010802021451号 蜀ICP备16036548号-2</p>
         </div>
         <div class="ending_right">
             <div class="ending_border">
