@@ -42,6 +42,7 @@ body.ban {overflow: hidden;height: 100%;}
 .text_content1 img{max-width:630px;}
 
 .text_content2 {margin: 60px 0 0 40px; border-top:1px solid #e4e4e4;width:635px;position:relative;padding-bottom:30px;padding-top: 20px;}
+.text_content2 h2 {color:#ffc000;}
 
 .text_content3 img {width:100px;margin: 0 0 60px 300px;}
 .text_content3{margin-top:60px;padding-bottom:30px;}

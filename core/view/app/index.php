@@ -57,7 +57,7 @@
                 <div class="text_eva">
 
                     <?php foreach ($this->assign['comment'] as $v): ?>
-                        <h3><strong><?php echo $v['name'] ?></strong>   <span><?php echo $v['info'] ?></span></h3>
+                        <h3><?php echo $v['name'] ?>   <span><?php echo $v['info'] ?></span></h3>
                         <div class="text_eva_border">
                             <p><?php echo $v['content'] ?></p>
                         </div>
