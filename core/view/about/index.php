@@ -2,8 +2,8 @@
 
 
 
-    .text_sum{width:600px;height:200px;margin-top:40px;}
-    .text_singel{float:left;width:300px; height:100px;color:#474443;line-height:40px;}
+    .text_sum{width:700px;height:200px;margin-top:40px;}
+    .text_singel{float:left;width:300px; height:100px;color:#474443;line-height:40px;margin-right: 40px;}
     .text_singel p{font-size:12px;font-weight:600; line-height:24px;}
     .text_content2 { padding-bottom:360px;}
 

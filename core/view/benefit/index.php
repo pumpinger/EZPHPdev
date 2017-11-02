@@ -3,7 +3,7 @@
 
     .top_select {color: #a0d9f6;}
 
-    .text_link{width:630px;height:40px;background-color:#a0d9f6;margin-left:40px;text-align:center;line-height:40px;}
+    .text_link{width:770px;height:40px;background-color:#a0d9f6;margin-left:40px;text-align:center;line-height:40px;}
     .text_link a{font-weight:800; color:#ffffff;}
 
 

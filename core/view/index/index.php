@@ -5,28 +5,28 @@
     .topic_aside{background-color:#474443;min-width:1000px;padding:10px 0;}
     .topic_aside p{color:#EFB506;text-align:center;margin:0;font-size:12px;letter-spacing:1px;}
     .topic_content{background-color:#FFC000;min-width:1000px;position:relative;height:200px;}
-    .topic_all{width:1000px;height:100%;margin:0 auto;position:relative;}
-    .topic_lift p,.topic_right p{margin:75px 60px;font-size:20px;color:#5f5f5d;}
+    .topic_all{width:1100px;height:100%;margin:0 auto;position:relative;}
+    .topic_lift p,.topic_right p{margin:75px 60px;font-size:22px;color:#5f5f5d;}
     .topic_lift{position:absolute;height:100%;left:0;}
     .topic_right{position:absolute;height:100%; right:0;}
     .topic_logo{height:100%;position:absolute;left:50%;}
     .topic_logo img{height:200px; margin-top:30px;}
 
     .matter,.column{position:relative;  width:100%;height:100%;}
-    .matter_all{margin:0 auto;height:100%;width:1000px;background-color:#fefefe;}
+    .matter_all{margin:0 auto;height:100%;width:1200px;background-color:#fefefe;}
     .matter_enounce_1,.matter_enounce_2{text-align:center;padding: 60px 0;}
     .matter_enounce_1 p,.matter_enounce_2 p{font-size:20px;color:#8b8b8c;}
-    .matter_radius{background-color:#ffc000; width:140px; height:140px;float:left;margin-right:50px;border-radius:100px;color:#5f5f5d;}
+    .matter_radius{background-color:#ffc000; width:179px; height:179px;float:left;margin-right:50px;border-radius:100px;color:#5f5f5d;}
     .matter_book{position:relative;height:150px;}
-    .matter_radius {cursor: pointer;}
-    .matter_radius h1{font-size:14px;margin-top:50px;text-align:center;font-weight:bold;}
+    .matter_radius {cursor: pointer;line-height: 22px;}
+    .matter_radius h1{font-size:16px;margin-top:70px;text-align:center;font-weight:bold;}
     .matter_radius p{font-size:8px;text-align:center;margin-top:6px;color:#5f5f5d}
     .matter_radius strong{font-size:16px;}
 
 
     /*羊爸爸专栏*/
-    .column_all{margin:0 auto;height:100%;width:1000px;}
-    .column_community,.column_app,.column_commonweal{background-size: 100% 100%;width:1000px;height:200px;margin-top:20px;position:relative;cursor: pointer;}
+    .column_all{margin:0 auto;height:100%;width:1200px;}
+    .column_community,.column_app,.column_commonweal{background-size: 100% 100%;width:1200px;height:200px;margin-top:20px;position:relative;cursor: pointer;}
     .column_community{background-color:#5f5f5d;}
     .column_app{background-color:#757475;}
     .column_commonweal{background-color:#757475;}

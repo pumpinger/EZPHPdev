@@ -2,7 +2,7 @@
 
 
     .top_select {color: #bcc774;}
-    .text_link{width:630px;height:40px;background-color:#bcc774;margin-left:40px;text-align:center;line-height:40px;margin-bottom:30px;}
+    .text_link{width:770px;height:40px;background-color:#bcc774;margin-left:40px;text-align:center;line-height:40px;margin-bottom:30px;}
     .text_link a{font-weight:800; color:#ffffff;}
 
 

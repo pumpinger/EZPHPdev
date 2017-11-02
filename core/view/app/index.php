@@ -1,7 +1,7 @@
 <style>
 
     .top_select {color: #ffc000;}
-    .text_link{width:630px;height:40px;background-color:#ffc000;margin-left:40px;text-align:center;line-height:40px;cursor: pointer;}
+    .text_link{width:770px;height:40px;background-color:#ffc000;margin-left:40px;text-align:center;line-height:40px;cursor: pointer;}
     .text_link a{font-weight:800; color:#ffffff;}
     .text_content2 {margin-top: 30px;}
 
