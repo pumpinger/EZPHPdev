@@ -71,7 +71,7 @@
             <h2 style="padding-left:0;">报名链接</h2>
 
             <?php
-            $res = settingModel::intance()->getOne(1);
+            $res = settingModel::intance()->getOne(4);
             echo '<img src="'. $res['value'].'" />';
             ?>
         </div>
