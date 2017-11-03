@@ -59,13 +59,13 @@
             <div class="ending_border">
 
                 <?php
-                $res = settingModel::intance()->getOne(1);
+                $res = settingModel::intance()->getOne(5);
                 echo '<img src="'. $res['value'].'" />';
                 ?>
 
             </div>
             <a><p style="margin-right:10px">关注我们</p>
-                <p style="color:#ffc000">微信/微博</p></a>
+                <p style="color:#ffc000">微信</p></a>
         </div>
     </div>
 </div>
