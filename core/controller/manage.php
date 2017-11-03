@@ -52,6 +52,7 @@ class manageController extends adminController  {
                 'content'=>$_REQUEST['content'],
                 'name'=>$_REQUEST['name'],
                 'price'=>$_REQUEST['price'],
+                'qr'=>$_REQUEST['qr'],
             ),$id
         );
 
