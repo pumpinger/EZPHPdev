@@ -68,7 +68,7 @@
 
 
         <div class="text_content4">
-            <h2 style="padding-left:0;">报名链接</h2>
+            <h2 style="padding-left:0;">扫码报名</h2>
 
             <?php
             $res = settingModel::intance()->getOne(4);
