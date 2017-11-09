@@ -29,24 +29,24 @@
 
         <script type="text/javascript">
             //    $(function(){
-            window.um = UM.getEditor('myEditor_<?php echo $value['id'] ?>', {
+            window.um = UE.getEditor('myEditor_<?php echo $value['id'] ?>', {
                 /* 传入配置参数,可配参数列表看umeditor.config.js */
-                initialFrameWidth:'1000px'
+                initialFrameWidth:'1000'
             });
         </script>
     <?php else:?>
-    <script type="text/javascript">
-        //    $(function(){
-        window.um = UM.getEditor('myEditor_<?php echo $value['id'] ?>', {
-            /* 传入配置参数,可配参数列表看umeditor.config.js */
-            initialFrameWidth:'600px',
-            initialFrameHeight:'300px',
-            toolbar:[
-                'undo redo | bold italic underline | forecolor backcolor | removeformat |',
-                'insertorderedlist insertunorderedlist | selectall  | fontfamily fontsize' ,
-            ]
-        });
-    </script>
+        <script type="text/javascript">
+            //    $(function(){
+            window.um = UE.getEditor('myEditor_<?php echo $value['id'] ?>', {
+                /* 传入配置参数,可配参数列表看umeditor.config.js */
+                initialFrameWidth:'600',
+                initialFrameHeight:'200',
+                toolbars:[
+                    ['source', 'undo', 'redo' ,'|','bold', 'italic', 'underline', 'fontborder', 'strikethrough'],
+                    [ 'forecolor', 'backcolor', 'insertorderedlist', 'insertunorderedlist', 'selectall', 'cleardoc','lineheight']
+                ]
+            });
+        </script>
 
     <?php endif;?>
 

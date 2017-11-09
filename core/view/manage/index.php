@@ -23,7 +23,7 @@
 
     <script type="text/javascript">
         //    $(function(){
-        window.um = UM.getEditor('myEditor_<?php echo $value['id'] ?>', {
+        window.um = UE.getEditor('myEditor_<?php echo $value['id'] ?>', {
             /* 传入配置参数,可配参数列表看umeditor.config.js */
             initialFrameWidth:'1000px'
         });

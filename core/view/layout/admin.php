@@ -26,11 +26,17 @@
 
 
 
-    <link href="<?php echo PUBLIC_PATH ;?>lib/umeditor/themes/default/css/umeditor.css" type="text/css" rel="stylesheet">
-    <script type="text/javascript" src="<?php echo PUBLIC_PATH ;?>lib/umeditor/third-party/template.min.js"></script>
-    <script type="text/javascript" src="<?php echo PUBLIC_PATH ;?>lib/umeditor/umeditor.config.js"></script>
-    <script type="text/javascript" src="<?php echo PUBLIC_PATH ;?>lib/umeditor/umeditor.js"></script>
-    <script type="text/javascript" src="<?php echo PUBLIC_PATH ;?>lib/umeditor/lang/zh-cn/zh-cn.js"></script>
+<!--    <link href="--><?php //echo PUBLIC_PATH ;?><!--lib/umeditor/themes/default/css/umeditor.css" type="text/css" rel="stylesheet">-->
+<!--    <script type="text/javascript" src="--><?php //echo PUBLIC_PATH ;?><!--lib/umeditor/third-party/template.min.js"></script>-->
+<!--    <script type="text/javascript" src="--><?php //echo PUBLIC_PATH ;?><!--lib/umeditor/umeditor.config.js"></script>-->
+<!--    <script type="text/javascript" src="--><?php //echo PUBLIC_PATH ;?><!--lib/umeditor/umeditor.js"></script>-->
+<!--    <script type="text/javascript" src="--><?php //echo PUBLIC_PATH ;?><!--lib/umeditor/lang/zh-cn/zh-cn.js"></script>-->
+
+
+    <script type="text/javascript" src="<?php echo PUBLIC_PATH ;?>lib/ueditor/ueditor.config.js"></script>
+    <script type="text/javascript" src="<?php echo PUBLIC_PATH ;?>lib/ueditor/ueditor.all.min.js"></script>
+
+
 
 
     <link href="<?php echo PUBLIC_PATH ;?>lib/webuploader/webuploader.css" type="text/css" rel="stylesheet">

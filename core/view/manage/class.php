@@ -37,7 +37,7 @@
 
 
 <script type="text/javascript">
-    window.um = UM.getEditor('myEditor', {
+    window.um = UE.getEditor('myEditor', {
         /* 传入配置参数,可配参数列表看umeditor.config.js */
         initialFrameWidth:'1000px'
     });
