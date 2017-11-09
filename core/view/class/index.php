@@ -71,8 +71,7 @@
             <h2 style="padding-left:0;">扫码报名</h2>
 
             <?php
-            $res = settingModel::intance()->getOne(4);
-            echo '<img src="'. $res['value'].'" />';
+            echo '<img src="'. $this->assign['data']['qr'].'" />';
             ?>
         </div>
         <div class="text_content3">
