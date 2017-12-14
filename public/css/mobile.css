@@ -1,0 +1,20 @@
+body, dl, dd, h1, h2, h3, h4, h5, h6, p, form,a,button{margin:0;padding:0;}
+
+
+
+ body {width: 980px;}
+.top_topic {width: 980px;min-width: 980px;}
+.top_all {width: 980px;}
+.top_logo {right: 20px;}
+.text_all {width: 980px;}
+.top_page {right: 50px;left: inherit;}
+.top_introduction {display: none;}
+
+
+.ending {min-width: 980px;}
+.ending_all {width: 980px;}
+
+.ending_left {margin-left: 20px;}
+.ending_mid {margin-left: 40px;}
+.ending_right {right: 60px;}
+

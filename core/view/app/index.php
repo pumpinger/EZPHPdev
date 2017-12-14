@@ -7,6 +7,7 @@
 
 
 
+    .dialog_div img {width: 130px;height: 130px;}
 
 
 

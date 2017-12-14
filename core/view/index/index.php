@@ -17,6 +17,7 @@
     .matter_enounce_1,.matter_enounce_2{text-align:center;padding: 60px 0;}
     .matter_enounce_1 p,.matter_enounce_2 p{font-size:20px;color:#8b8b8c;}
     .matter_radius{background-color:#ffc000; width:179px; height:179px;float:left;margin-right:50px;border-radius:100px;color:#5f5f5d;}
+    .matter_radius_1 {margin-left: 50px;}
     .matter_book{position:relative;height:150px;}
     .matter_radius {cursor: pointer;line-height: 22px;}
     .matter_radius h1{font-size:16px;margin-top:70px;text-align:center;font-weight:bold;}
@@ -41,6 +42,48 @@
 
 
 </style>
+
+
+
+<?php if(isMobile()):?>
+
+    <style>
+        .topic_aside {width: 980px;min-width: 980px;}
+        .topic_content {width: 980px;min-width: 980px;}
+        .topic_all {width: 980px;}
+        .matter  {width: 980px;}
+        .matter .matter_all {width: 980px;}
+        .matter_book {height: 360px;}
+
+
+        .matter_radius {margin-right: 90px;width: 200px;height: 200px;}
+        .matter_radius h1{font-size: 22px;margin-top: 85px;}
+        .matter_radius a p{font-size: 16px;}
+        .matter_radius p{font-size: 18px;}
+        .matter_radius strong {font-size: 20px;}
+        .matter_radius_1 {margin-left: 90px;}
+        .matter_radius_4 {margin-left: 240px;margin-top: 40px;}
+        .matter_radius_5 {margin-top: 40px;}
+
+
+        .matter_enounce_2 {margin-top: 45px;}
+
+        .column_all {width: 980px;}
+        .column_community,.column_app,.column_commonweal {width: 980px;}
+
+
+
+    </style>
+
+
+
+<?php endif;?>
+
+
+
+
+
+
 <div class="topic_aside">
     <p>我们希望通过我们的努力，家长的学习，可以让更多的孩子远离错误喂养和错误治疗，自然健康的成长</p>
 </div>
@@ -68,9 +111,9 @@
             <?php foreach ($this->assign['nav'] as $v): ?>
 
                 <?php if($v['id']  == 1 ):?>
-                    <li class="matter_radius"  style="margin-left:50px;">
+                    <li class="matter_radius matter_radius_1">
                 <?php else:?>
-                    <li class="matter_radius"  >
+                    <li class="matter_radius matter_radius_<?php echo $v['id']?>"  >
                 <?php endif;?>
 
 

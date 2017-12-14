@@ -9,8 +9,24 @@
     <title><?php echo $this->title?></title>
 
 
+
     <link rel="stylesheet" href="<?php echo PUBLIC_PATH ;?>css/global.css"/>
     <script type="text/javascript" src="<?php echo PUBLIC_PATH ;?>lib/jquery-2.1.4.js"></script>
+
+
+    <?php if(isMobile()):?>
+        <meta name="viewport" content="width=980px"/>
+
+
+
+        <link rel="stylesheet" href="<?php echo PUBLIC_PATH ;?>css/moblie.css"/>
+
+    <?php else:?>
+        <meta name="viewport" content="width=1200px,initial-scale=1"/>
+
+    <?php endif;?>
+
+
 
 
 </head>
